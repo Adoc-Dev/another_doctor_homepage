@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/* 커스텀 바리언트 */
+@custom-variant dark (&:is(.dark *));
+
+/* 변수, 베이스 스타일, 유틸리티 등 */
+@import './vars/index.css';
+@import './base/elements.css';
+@import './utilities/animations.css';
+@import './utilities/layout.css';
+@import './utilities/typography.css';

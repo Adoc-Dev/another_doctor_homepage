@@ -1,0 +1,16 @@
+:root {
+  --radius: 0.625rem;
+  --common-max-width: 560px;
+}
+
+@theme inline {
+  /* 컨테이너 사이즈 */
+  --container-2xl: 1400px;
+  --breakpoint-xl: 1160px;
+
+  /* 반경 크기 */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) + 4px);
+}

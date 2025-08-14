@@ -10,7 +10,10 @@ function Cooperation(props: CooperationProps) {
   const { logos = defaultLogos } = props
 
   return (
-    <div className="container mx-auto px-4 py-32 md:px-8">
+    <section
+      id="cooperation-section"
+      className="container mx-auto px-4 py-32 md:px-8"
+    >
       <BlurFade delay={0.2} inView>
         <p className="text-body-01 text-center font-semibold text-red-500">
           COOPERATION
@@ -45,7 +48,7 @@ function Cooperation(props: CooperationProps) {
           <div className="from-background pointer-events-none absolute inset-y-0 right-0 h-full w-1/3 bg-gradient-to-l" />
         </div>
       </BlurFade>
-    </div>
+    </section>
   )
 }
 

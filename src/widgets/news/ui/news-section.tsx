@@ -6,7 +6,7 @@ const BLUR_FADE_DELAY = 0.04
 
 function NewsSection() {
   return (
-    <section className="min-h-[50vh]">
+    <section id="news-section" className="min-h-[50vh]">
       <div className="w-full max-w-4xl space-y-12 px-4 py-12">
         <BlurFade delay={BLUR_FADE_DELAY * 13}>
           <div className="flex flex-col items-center justify-center space-y-4 text-center">

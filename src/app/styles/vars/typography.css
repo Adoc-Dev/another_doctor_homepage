@@ -1,6 +1,7 @@
 @theme inline {
   /* 폰트 패밀리 */
-  --font-pretendard: var(--font-pretendard);
+  --font-noto-sans-kr: var(--font-noto-sans-kr);
+  --font-nova-square: var(--font-nova-square);
 
   /* 디스플레이 */
   --text-display-00: 2.5rem; /* 40px */

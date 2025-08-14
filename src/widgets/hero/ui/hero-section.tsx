@@ -26,7 +26,10 @@ function HeroSection() {
   }, [])
 
   return (
-    <div className="relative flex h-screen w-full items-center justify-center">
+    <section
+      id="hero-section"
+      className="relative flex h-screen w-full items-center justify-center"
+    >
       <div className="relative mx-auto h-[720px] w-[720px]">
         <div
           className={cn(
@@ -53,7 +56,7 @@ function HeroSection() {
       </div>
 
       <MemoizedChevronAnimation />
-    </div>
+    </section>
   )
 }
 

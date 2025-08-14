@@ -4,7 +4,7 @@ import { MetricsSection } from '@/src/widgets/product/ui/metrics-section'
 
 function ProductSection() {
   return (
-    <section className="w-full py-24 md:py-32">
+    <section id="product-section" className="w-full py-24 md:py-32">
       <div className="container max-w-6xl px-4 md:px-8">
         <div className="flex flex-col items-center justify-center text-center">
           <BlurFade delay={0.2} inView>

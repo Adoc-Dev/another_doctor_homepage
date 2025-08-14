@@ -5,7 +5,10 @@ import { File, Flag, Globe, Map, Orbit, Plane, Search } from 'lucide-react'
 
 function MissionSection() {
   return (
-    <div className="justify-centers flex h-full min-h-[50] w-full flex-col items-center pb-32">
+    <section
+      id="mission-section"
+      className="justify-centers flex h-full min-h-[50] w-full flex-col items-center pb-32"
+    >
       <div className="mt-32 flex w-full flex-col items-center justify-center gap-8"></div>
       <div className="flex w-full flex-col items-center justify-center gap-2">
         <BlurFade delay={0.2} inView>
@@ -94,7 +97,7 @@ function MissionSection() {
           </div>
         </div>
       </BlurFade>
-    </div>
+    </section>
   )
 }
 

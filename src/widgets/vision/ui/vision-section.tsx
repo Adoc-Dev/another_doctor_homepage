@@ -3,7 +3,10 @@ import { VISION_TEXT } from '@/src/widgets/vision/model/constants'
 
 function VisionSection() {
   return (
-    <div className="relative flex min-h-[80vh] w-full flex-col items-center justify-center">
+    <section
+      id="vision-section"
+      className="relative flex min-h-[80vh] w-full flex-col items-center justify-center"
+    >
       <div className="flex w-full flex-col items-center justify-center gap-2">
         <BlurFade delay={0.2} inView>
           <p className="text-body-01 font-semibold text-red-500">OUR VISION</p>
@@ -30,7 +33,7 @@ function VisionSection() {
           <div className="from-background via-background/50 absolute inset-x-0 bottom-0 h-[70px] bg-gradient-to-t to-transparent" />
         </BlurFade>
       </div>
-    </div>
+    </section>
   )
 }
 

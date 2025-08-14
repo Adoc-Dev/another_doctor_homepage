@@ -29,7 +29,10 @@ function ContactSection() {
   ]
 
   return (
-    <div className="border-foreground/10 relative flex h-[500px] w-full max-w-4xl items-center justify-center rounded border">
+    <section
+      id="contact-section"
+      className="border-foreground/10 relative flex h-[500px] w-full max-w-4xl items-center justify-center rounded border"
+    >
       <Ripple mainCircleSize={400} />
       <div className="flex flex-col items-center justify-center gap-y-4">
         <h2 className="text-display-01 text-center font-black tracking-tighter text-balance">
@@ -44,7 +47,7 @@ function ContactSection() {
           Contact Us
         </Button>
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -1,12 +1,19 @@
 import { ThemeProvider } from '@/src/app/providers/theme-provider'
 import type { Metadata } from 'next'
-import { Noto_Sans_KR } from 'next/font/google'
+import { Noto_Sans_KR, Nova_Square } from 'next/font/google'
 import '../styles/globals.css'
 
 const notoSansKR = Noto_Sans_KR({
-  variable: '--font-geist-sans',
+  variable: '--font-noto-sans-kr',
   subsets: ['latin'],
   display: 'swap',
+})
+
+const novaSquare = Nova_Square({
+  variable: '--font-nova-square',
+  subsets: ['latin'],
+  display: 'swap',
+  weight: '400',
 })
 
 export const metadata: Metadata = {
@@ -21,7 +28,9 @@ function WebLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${notoSansKR.variable} antialiased`}>
+      <body
+        className={`${notoSansKR.variable} ${novaSquare.variable} antialiased`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

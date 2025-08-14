@@ -3,16 +3,16 @@
 import { cn } from '@/src/shared/lib/utils'
 import { AuroraText, BlurFade } from '@/src/shared/ui'
 import { HERO_TEXT } from '@/src/widgets/hero/model/constants'
+import { MemoizedHeroRing } from '@/src/widgets/hero/ui/hero-ring'
 import { ChevronsDownIcon } from 'lucide-react'
 import { motion } from 'motion/react'
-import { memo, useEffect, useMemo, useState } from 'react'
+import { memo, useEffect, useState } from 'react'
 
 function HeroSection() {
   const [loaded, setLoaded] = useState(false)
   const [spinning, setSpinning] = useState(false)
 
   useEffect(() => {
-    // requestAnimationFrame을 setTimeout 내부로 이동하여 렌더링 동기화
     const loadTimeout = setTimeout(() => {
       requestAnimationFrame(() => setLoaded(true))
     }, 10)
@@ -59,7 +59,6 @@ function HeroSection() {
 
 export { HeroSection }
 
-// 메모이제이션을 통한 불필요한 렌더링 방지
 const MemoizedChevronAnimation = memo(() => (
   <motion.div
     initial={{ opacity: 0, y: 10 }}
@@ -75,56 +74,3 @@ const MemoizedChevronAnimation = memo(() => (
     <ChevronsDownIcon className="text-foreground/50 size-6" />
   </motion.div>
 ))
-
-const HeroRing = ({
-  spinning,
-  loaded,
-}: {
-  spinning: boolean
-  loaded: boolean
-}) => {
-  // 회전 및 투명도 값을 useMemo로 캐싱
-  const { opacities, rotations } = useMemo(
-    () => ({
-      opacities: [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.06, 0.03],
-      rotations: [165, 150, 135, 120, 105, 90, 75, 60, 45, 30, 15, 0],
-    }),
-    []
-  )
-
-  return (
-    <svg
-      width="720"
-      height="720"
-      viewBox="0 0 720 720"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn(
-        'mx-auto block transform-gpu will-change-transform',
-        spinning && 'animate-[spin_150s_linear_infinite]'
-      )}
-    >
-      {Array.from({ length: 12 }).map((_, i) => (
-        <ellipse
-          key={i}
-          cx="360"
-          cy="360"
-          rx="292"
-          ry="214"
-          style={{
-            opacity: loaded ? opacities[i] : 0,
-            transform: loaded ? `rotate(${rotations[i]}deg)` : 'rotate(0)',
-            transformOrigin: 'center',
-            transition:
-              'opacity 6s cubic-bezier(0.5,0.01,0.14,0.99), transform 6s cubic-bezier(0.5,0.01,0.14,0.99)',
-            stroke: 'var(--red-stroke-color, #FDA4AF)',
-            strokeWidth: 1,
-          }}
-        />
-      ))}
-    </svg>
-  )
-}
-
-// 히어로 링 메모이제이션
-const MemoizedHeroRing = memo(HeroRing)

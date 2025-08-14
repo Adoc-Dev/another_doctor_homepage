@@ -24,22 +24,23 @@ function Header() {
     <div className="fixed top-4 z-50 flex w-full justify-center transition-all duration-300">
       <div
         className={cn(
-          'flex items-center justify-between rounded-xl px-4 py-3 transition-all duration-300',
+          'flex items-center justify-between rounded-4xl px-4 py-2 transition-all duration-300',
           scrolled
-            ? 'bg-background/50 border-foreground/10 w-[60%] border backdrop-blur-lg'
-            : 'border-foreground/10 w-[90%] bg-transparent backdrop-blur-sm'
+            ? 'bg-background/10 border-foreground/10 w-[40%] border backdrop-blur-sm'
+            : 'border-foreground/10 w-[80%] bg-transparent backdrop-blur-sm'
         )}
       >
         <Link href="/" className="flex items-center gap-2">
           <LogoIcon className="size-6" />
-          <span
+          <div
             className={cn(
-              'text-body-01 font-bold tracking-tighter transition-all duration-300',
+              'text-body-01 flex flex-col font-bold tracking-tighter transition-all duration-300',
               scrolled ? 'text-sm' : 'text-base'
             )}
           >
-            ANOTHER DOCTOR
-          </span>
+            <p className="leading-none">ANOTHER</p>
+            <p className="leading-none">DOCTOR</p>
+          </div>
         </Link>
 
         <div className="flex items-center gap-3 md:gap-5">
@@ -60,7 +61,7 @@ function Header() {
             </div>
           </div>
         </div>
-        <div className="flex w-40 items-center justify-end">
+        <div className="flex w-20 items-center justify-end">
           <AnimatedThemeToggler className="flex size-8 items-center justify-center rounded-full border border-gray-200 p-1.5 shadow-sm" />
         </div>
       </div>

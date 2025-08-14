@@ -4,6 +4,7 @@ import { Header } from '@/src/widgets/header/ui'
 import { HeroSection } from '@/src/widgets/hero/ui'
 import { MissionSection } from '@/src/widgets/mission/ui'
 import { NewsSection } from '@/src/widgets/news/ui'
+import { ProductSection } from '@/src/widgets/product/ui'
 import { VisionSection } from '@/src/widgets/vision/ui'
 
 function Home() {
@@ -15,6 +16,7 @@ function Home() {
         <VisionSection />
         <Cooperation />
         <MissionSection />
+        <ProductSection />
         <NewsSection />
         <ContactSection />
       </div>

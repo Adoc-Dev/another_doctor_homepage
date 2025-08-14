@@ -3,50 +3,12 @@
 import LogoIcon from '@/public/logo.svg'
 import { cn } from '@/src/shared/lib/utils'
 import { AnimatedThemeToggler } from '@/src/shared/ui'
+import {
+  MENU_SECTIONS,
+  SECTION_CONFIGS,
+} from '@/src/widgets/header/ui/model/constants'
 import Link from 'next/link'
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-
-const MenuItem = memo(
-  ({
-    active,
-    label,
-    onClick,
-  }: {
-    active: boolean
-    label: string
-    onClick: () => void
-  }) => (
-    <div
-      onClick={onClick}
-      className={cn(
-        'text-body-02 z-10 flex h-full cursor-pointer items-center justify-center px-4 py-2 font-medium tracking-tight transition-colors duration-200',
-        active
-          ? 'text-foreground scale-120 font-semibold'
-          : 'text-foreground/50 hover:text-foreground'
-      )}
-    >
-      {label}
-    </div>
-  )
-)
-MenuItem.displayName = 'MenuItem'
-
-const MENU_SECTIONS = [
-  { id: 'hero', section: 'home', label: '홈' },
-  { id: 'product', section: 'product', label: '제품' },
-  { id: 'news', section: 'news', label: '뉴스' },
-  { id: 'contact', section: 'contact', label: '문의' },
-]
-
-const SECTION_CONFIGS = [
-  { id: 'hero', section: 'home' },
-  { id: 'vision', section: 'home' },
-  { id: 'cooperation', section: 'home' },
-  { id: 'mission', section: 'home' },
-  { id: 'product', section: 'product' },
-  { id: 'news', section: 'news' },
-  { id: 'contact', section: 'contact' },
-]
 
 function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -191,3 +153,28 @@ function Header() {
 
 export default memo(Header)
 export { Header }
+
+const MenuItem = memo(
+  ({
+    active,
+    label,
+    onClick,
+  }: {
+    active: boolean
+    label: string
+    onClick: () => void
+  }) => (
+    <div
+      onClick={onClick}
+      className={cn(
+        'text-body-02 z-10 flex h-full cursor-pointer items-center justify-center px-4 py-2 font-medium tracking-tight transition-colors duration-200',
+        active
+          ? 'text-foreground scale-120 font-semibold'
+          : 'text-foreground/50 hover:text-foreground'
+      )}
+    >
+      {label}
+    </div>
+  )
+)
+MenuItem.displayName = 'MenuItem'

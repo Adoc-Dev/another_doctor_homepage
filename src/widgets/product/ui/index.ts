@@ -1,1 +1,1 @@
-export * from './product-section'
+export * from './technology-impact-section'

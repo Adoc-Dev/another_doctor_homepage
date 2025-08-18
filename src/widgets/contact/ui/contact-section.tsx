@@ -1,6 +1,9 @@
 import { AvatarCircles, Button, Ripple } from '@/src/shared/ui'
+import { useTranslations } from 'next-intl'
 
 function ContactSection() {
+  const t = useTranslations('contact')
+
   const avatars = [
     {
       imageUrl: 'https://avatars.githubusercontent.com/u/16860528',
@@ -36,15 +39,18 @@ function ContactSection() {
       <Ripple mainCircleSize={400} />
       <div className="flex flex-col items-center justify-center gap-y-4">
         <h2 className="text-display-01 text-center font-black tracking-tighter text-balance">
-          함께해요
+          {t('title')}
         </h2>
+        <p className="text-foreground text-header-02 max-w-3xl font-semibold whitespace-pre-wrap">
+          {t('description')}
+        </p>
         <AvatarCircles numPeople={99} avatarUrls={avatars} />
         <Button
           className="mt-4 bg-gray-500/50 font-semibold backdrop-blur-sm hover:bg-gray-500/70"
           color="primary"
           size="lg"
         >
-          Contact Us
+          {t('button')}
         </Button>
       </div>
     </section>

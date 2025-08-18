@@ -6,9 +6,12 @@ import { HERO_TEXT } from '@/src/widgets/hero/model/constants'
 import { MemoizedHeroRing } from '@/src/widgets/hero/ui/hero-ring'
 import { ChevronsDownIcon } from 'lucide-react'
 import { motion } from 'motion/react'
+import { useTranslations } from 'next-intl'
 import { memo, useEffect, useState } from 'react'
 
 function HeroSection() {
+  const t = useTranslations('hero')
+
   const [loaded, setLoaded] = useState(false)
   const [spinning, setSpinning] = useState(false)
 
@@ -41,15 +44,15 @@ function HeroSection() {
 
         <div className="absolute top-1/2 left-1/2 z-10 w-full max-w-[600px] -translate-x-1/2 -translate-y-1/2 px-5">
           <BlurFade delay={0.2} duration={1.5} className="text-center">
-            <h1 className="text-center text-6xl font-black tracking-tighter text-balance">
+            <h1 className="text-center text-7xl font-black tracking-tighter text-balance drop-shadow-xl">
               <AuroraText colors={HERO_TEXT.auroraColors}>
-                {HERO_TEXT.title}
+                {t('title')}
               </AuroraText>
             </h1>
           </BlurFade>
           <BlurFade delay={0.6} duration={1.5} className="text-center">
-            <p className="text-foreground/80 text-title-01 mt-6 text-center font-semibold tracking-tight text-balance">
-              {HERO_TEXT.description}
+            <p className="text-title-01 text-foreground/80 mt-6 text-center font-semibold tracking-tight text-balance drop-shadow-md">
+              {t('description')}
             </p>
           </BlurFade>
         </div>

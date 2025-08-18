@@ -26,5 +26,51 @@
         "description": "Product introduction"
       }
     }
+  },
+  "hero": {
+    "title": "FIND THE TRUE COLOR",
+    "description": "AI-based high-precision color measurement solution"
+  },
+  "vision": {
+    "title": "Precise Color, New Standard",
+    "subTitle": "We create a clearer world with precise color",
+    "description1": {
+      "title": "Precision",
+      "description": "We provide a reliable 'true color' through AI-based high-precision measurement for everyone."
+    },
+    "description2": {
+      "title": "Global Standard",
+      "description": "Precise color is a new language that transcends borders.\nWe create a global standard that all industries can share."
+    }
+  },
+  "cooperation": {
+    "title": "Cooperation"
+  },
+  "technologyImpact": {
+    "title": "The Standard of Innovation that Creates Precise Color",
+    "description": "With AI-based high-precision color measurement technology and proprietary patents,\nwe are solving problems in the dental industry and expanding globally.\nOur technology goes beyond simple analysis to create a new standard for the industry.",
+    "matrix": {
+      "card1": {
+        "title": "Color Error Reduction",
+        "description": "Color Error Reduction"
+      },
+      "card2": {
+        "title": "Redo Rate Reduction",
+        "description": "Redo Rate Reduction"
+      },
+      "card3": {
+        "title": "Work Time Reduction",
+        "description": "Work Time Reduction"
+      }
+    }
+  },
+  "news": {
+    "title": "Newsroom",
+    "description": "Check out the latest news and events from Additional Doctor."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Join us and create a brighter future together.",
+    "button": "Contact Us"
   }
 }

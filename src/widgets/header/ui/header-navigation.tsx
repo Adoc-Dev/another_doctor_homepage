@@ -34,14 +34,9 @@ function HeaderNavigation() {
                 <NavigationMenuContent className="group-data-[viewport=false]/navigation-menu:bg-background/80 w-full min-w-[350px] border-none p-0">
                   <ul className="bg-background/80 flex flex-col gap-2 rounded-lg p-2 backdrop-blur-xl">
                     <NavItem
-                      href="/docs"
+                      href="/company/about"
                       title={aboutT('introduction.title')}
                       description={aboutT('introduction.description')}
-                    />
-                    <NavItem
-                      href="/docs"
-                      title={aboutT('ceoMessage.title')}
-                      description={aboutT('ceoMessage.description')}
                     />
                   </ul>
                 </NavigationMenuContent>
@@ -54,7 +49,7 @@ function HeaderNavigation() {
                 <NavigationMenuContent className="group-data-[viewport=false]/navigation-menu:bg-background/80 w-full min-w-[300px] border-none p-0">
                   <ul className="bg-background/80 flex flex-col gap-2 rounded-lg p-2 backdrop-blur-xl">
                     <NavItem
-                      href="/docs"
+                      href="/product/t-grid"
                       title={productT('introduction.title')}
                       description={productT('introduction.description')}
                     />
@@ -67,7 +62,7 @@ function HeaderNavigation() {
                   asChild
                   className="text-body-01 bg-transparent px-4 font-semibold hover:bg-gray-100 hover:text-gray-800 focus:bg-gray-100 focus:text-gray-800 data-[state=open]:bg-gray-50 data-[state=open]:text-gray-800 data-[state=open]:hover:bg-gray-100 data-[state=open]:hover:text-gray-800 data-[state=open]:focus:bg-gray-100 data-[state=open]:focus:text-gray-800"
                 >
-                  <Link href="/docs">{t('newsroom')}</Link>
+                  <Link href="/newsroom">{t('newsroom')}</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
@@ -76,7 +71,7 @@ function HeaderNavigation() {
                   asChild
                   className="text-body-01 bg-transparent px-4 font-semibold hover:bg-gray-100 hover:text-gray-800 focus:bg-gray-100 focus:text-gray-800 data-[state=open]:bg-gray-50 data-[state=open]:text-gray-800 data-[state=open]:hover:bg-gray-100 data-[state=open]:hover:text-gray-800 data-[state=open]:focus:bg-gray-100 data-[state=open]:focus:text-gray-800"
                 >
-                  <Link href="/docs">{t('support')}</Link>
+                  <Link href="/support">{t('support')}</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>

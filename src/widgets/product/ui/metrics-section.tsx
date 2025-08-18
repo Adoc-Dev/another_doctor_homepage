@@ -3,9 +3,9 @@
 import { BlurFade } from '@/src/shared/ui'
 import { NumberTicker } from '@/src/shared/ui/number-ticker'
 import { ArrowDown, ArrowUp } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 interface MetricCardProps {
-  title: string
   value: number
   suffix: string
   description: string
@@ -16,6 +16,8 @@ interface MetricCardProps {
 }
 
 export function MetricsSection() {
+  const t = useTranslations('technologyImpact')
+
   return (
     <div className="my-32">
       <BlurFade
@@ -25,28 +27,25 @@ export function MetricsSection() {
       >
         <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-3">
           <MetricCard
-            title="색상 오차 감소"
             startValue={100}
             value={38}
             suffix="%"
-            description="색상 오차 감소"
+            description={t('matrix.card1.description')}
             delay={0.2}
             direction="down"
           />
           <MetricCard
-            title="재제작률"
             startValue={100}
             value={7}
             suffix="%"
-            description="재작업 비율 감소"
+            description={t('matrix.card2.description')}
             delay={0.5}
             direction="down"
           />
           <MetricCard
-            title="작업 시간 단축"
             value={45}
             suffix="%"
-            description="업무 프로세스 효율 향상"
+            description={t('matrix.card3.description')}
             delay={0.8}
             direction="up"
           />
@@ -57,7 +56,6 @@ export function MetricsSection() {
 }
 
 function MetricCard({
-  title,
   value,
   suffix,
   description,

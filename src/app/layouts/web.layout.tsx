@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@/src/app/providers/theme-provider'
 import '@/src/app/styles/globals.css'
 import { routing } from '@/src/i18n/routing'
+import { HeaderNavigation } from '@/src/widgets/header/ui'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { Noto_Sans_KR, Nova_Square } from 'next/font/google'
 import { notFound } from 'next/navigation'
@@ -47,7 +48,12 @@ async function WebLayout(props: WebLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <div className="bg-background relative mx-auto">
+              <HeaderNavigation />
+              {children}
+            </div>
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

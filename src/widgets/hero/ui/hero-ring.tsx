@@ -31,7 +31,7 @@ const HeroRing = ({
     const rotations = [165, 150, 135, 120, 105, 90, 75, 60, 45, 30, 15, 0]
 
     const colors = Array.from(
-      { length: 12 },
+      { length: 8 },
       () => BLUE_COLORS[Math.floor(Math.random() * BLUE_COLORS.length)]
     )
 
@@ -61,23 +61,23 @@ const HeroRing = ({
   return (
     <svg
       ref={ringRef}
-      width="720"
-      height="720"
-      viewBox="0 0 720 720"
+      width="900"
+      height="900"
+      viewBox="0 0 900 900"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={cn(
-        'mx-auto block transform-gpu will-change-transform',
+        'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform-gpu will-change-transform',
         shouldAnimate && 'animate-[spin_150s_linear_infinite]'
       )}
     >
       {Array.from({ length: 16 }).map((_, i) => (
         <ellipse
           key={i}
-          cx="360"
-          cy="360"
-          rx="292"
-          ry="214"
+          cx="450"
+          cy="450"
+          rx="370"
+          ry="280"
           style={{
             opacity: loaded && isVisible ? opacities[i] : 0,
             transform:
@@ -86,7 +86,7 @@ const HeroRing = ({
             transition:
               'opacity 6s cubic-bezier(0.5,0.01,0.14,0.99), transform 6s cubic-bezier(0.5,0.01,0.14,0.99)',
             stroke: colors[i],
-            strokeWidth: 1,
+            strokeWidth: 1.2,
           }}
         />
       ))}

@@ -1,9 +1,7 @@
 import { BlurFade } from '@/src/shared/ui'
-import {
-  COOPERATION_TEXT,
-  defaultLogos,
-} from '@/src/widgets/cooperation/model/constants'
+import { defaultLogos } from '@/src/widgets/cooperation/model/constants'
 import { Logo } from '@/src/widgets/cooperation/ui/types'
+import { useTranslations } from 'next-intl'
 
 interface CooperationProps {
   logos?: Logo[]
@@ -12,6 +10,8 @@ interface CooperationProps {
 function Cooperation(props: CooperationProps) {
   const { logos = defaultLogos } = props
 
+  const t = useTranslations('cooperation')
+
   return (
     <section
       id="cooperation-section"
@@ -19,13 +19,13 @@ function Cooperation(props: CooperationProps) {
     >
       <BlurFade delay={0.2} inView>
         <p className="text-header-02 text-primary-500 text-center font-bold">
-          {COOPERATION_TEXT.title}
+          COOPERATION
         </p>
       </BlurFade>
 
       <BlurFade delay={0.4} inView>
         <p className="text-display-00 mt-4 text-center leading-16 font-black tracking-tighter">
-          {COOPERATION_TEXT.description}
+          {t('title')}
         </p>
       </BlurFade>
 

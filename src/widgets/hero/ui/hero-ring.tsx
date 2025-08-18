@@ -3,6 +3,17 @@
 import { cn } from '@/src/shared/lib/utils'
 import { memo, useEffect, useMemo, useRef, useState } from 'react'
 
+const BLUE_COLORS = [
+  '#1679AB',
+  '#4FACDA',
+  '#83CAEC',
+  '#125E85',
+  '#5D9FCF',
+  '#0E4460',
+  '#B3DFFF',
+  '#3674B5',
+]
+
 const HeroRing = ({
   spinning,
   loaded,
@@ -13,13 +24,19 @@ const HeroRing = ({
   const [isVisible, setIsVisible] = useState(false)
   const ringRef = useRef<SVGSVGElement>(null)
 
-  const { opacities, rotations } = useMemo(
-    () => ({
-      opacities: [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.06, 0.03],
-      rotations: [165, 150, 135, 120, 105, 90, 75, 60, 45, 30, 15, 0],
-    }),
-    []
-  )
+  const { opacities, rotations, colors } = useMemo(() => {
+    const opacities = [
+      1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0.06, 0.03,
+    ]
+    const rotations = [165, 150, 135, 120, 105, 90, 75, 60, 45, 30, 15, 0]
+
+    const colors = Array.from(
+      { length: 12 },
+      () => BLUE_COLORS[Math.floor(Math.random() * BLUE_COLORS.length)]
+    )
+
+    return { opacities, rotations, colors }
+  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -54,7 +71,7 @@ const HeroRing = ({
         shouldAnimate && 'animate-[spin_150s_linear_infinite]'
       )}
     >
-      {Array.from({ length: 12 }).map((_, i) => (
+      {Array.from({ length: 16 }).map((_, i) => (
         <ellipse
           key={i}
           cx="360"
@@ -68,7 +85,7 @@ const HeroRing = ({
             transformOrigin: 'center',
             transition:
               'opacity 6s cubic-bezier(0.5,0.01,0.14,0.99), transform 6s cubic-bezier(0.5,0.01,0.14,0.99)',
-            stroke: 'var(--red-stroke-color, #FDA4AF)',
+            stroke: colors[i],
             strokeWidth: 1,
           }}
         />

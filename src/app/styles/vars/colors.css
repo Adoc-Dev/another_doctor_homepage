@@ -16,34 +16,34 @@
   --color-gray-800: oklch(27.27% 0 0);
   --color-gray-900: oklch(22.62% 0.0041 264.49);
 
-  /* 브랜드 색상 */
-  --color-primary: oklch(58.52% 0.1976 274.93);
-  --color-primary-50: oklch(95.82% 0.0174 282.54);
-  --color-primary-100: oklch(91.65% 0.0367 282.28);
-  --color-primary-200: oklch(83.21% 0.0742 281.28);
-  --color-primary-300: oklch(74.75% 0.1153 279.38);
-  --color-primary-400: oklch(66.44% 0.1559 277.6);
-  --color-primary-500: var(--color-primary);
-  --color-primary-600: oklch(49.84% 0.1643 275.07);
-  --color-primary-700: oklch(40.84% 0.1307 275.24);
-  --color-primary-800: oklch(31.32% 0.0929 276.38);
-  --color-primary-900: oklch(21.04% 0.0527 277.65);
+  /* #1679AB 기준으로 재구성한 브랜드 색상 */
+  --color-primary: oklch(56.74% 0.136 233.83); /* #1679AB */
+  --color-primary-50: oklch(96.5% 0.012 235.51); /* #EBF7FF */
+  --color-primary-100: oklch(92.8% 0.027 235.17); /* #D7EEFF */
+  --color-primary-200: oklch(86.2% 0.054 234.84); /* #B3DFFF */
+  --color-primary-300: oklch(76.5% 0.089 234.5); /* #83CAEC */
+  --color-primary-400: oklch(65.8% 0.115 234.17); /* #4FACDA */
+  --color-primary-500: oklch(56.74% 0.136 233.83); /* #1679AB */
+  --color-primary-600: oklch(47.9% 0.114 233.49); /* #125E85 */
+  --color-primary-700: oklch(39.6% 0.091 233.15); /* #0E4460 */
+  --color-primary-800: oklch(31.1% 0.069 232.82); /* #0A2A3D */
+  --color-primary-900: oklch(22.3% 0.046 232.48); /* #05151F */
 
-  /* 기타 색상 */
+  /* 기타 색상 - 필요 시 조정 */
   --color-sub-1: oklch(39.06% 0.123 270.92);
-  --color-sub-2: oklch(58.52% 0.1976 274.93);
+  --color-sub-2: oklch(56.74% 0.136 233.83); /* primary와 동일하게 변경 */
   --color-stroke: oklch(97.02% 0 0);
   --color-success: oklch(67.25% 0.1594 156.61);
   --color-destructive: oklch(65% 0.2035 23.91);
 
-  /* 차트 색상 */
+  /* 차트 색상은 유지 */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
 
-  /* 사이드바 색상 */
+  /* 사이드바 색상은 유지 */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);

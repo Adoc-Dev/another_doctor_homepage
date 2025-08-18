@@ -121,15 +121,18 @@ function Header() {
         )}
       >
         <Link href="/" className="flex items-center gap-2">
-          <LogoIcon className="size-6" />
+          <LogoIcon className="text-primary-700 dark:text-primary-500 size-6" />
           <div
             className={cn(
               'text-body-01 font-nova-square flex flex-col font-bold tracking-tighter transition-all duration-300',
               scrolled ? 'text-sm' : 'text-base'
             )}
           >
-            <p className="leading-none">ANOTHER</p>
-            <p className="leading-none">DOCTOR</p>
+            <p className="text-primary-700 dark:text-primary-500 leading-none">
+              ANOTHER
+              <br />
+              DOCTOR
+            </p>
           </div>
         </Link>
 

@@ -12,7 +12,7 @@ function MissionSection() {
       <div className="mt-32 flex w-full flex-col items-center justify-center gap-8"></div>
       <div className="flex w-full flex-col items-center justify-center gap-2">
         <BlurFade delay={0.2} inView>
-          <p className="text-body-01 font-semibold text-red-500">
+          <p className="text-header-01 text-primary-500 font-semibold">
             {MISSION_TEXT.subTitle}
           </p>
         </BlurFade>

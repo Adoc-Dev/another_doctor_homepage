@@ -1,5 +1,8 @@
 import { BlurFade } from '@/src/shared/ui'
-import { defaultLogos } from '@/src/widgets/cooperation/model/constants'
+import {
+  COOPERATION_TEXT,
+  defaultLogos,
+} from '@/src/widgets/cooperation/model/constants'
 import { Logo } from '@/src/widgets/cooperation/ui/types'
 
 interface CooperationProps {
@@ -15,11 +18,18 @@ function Cooperation(props: CooperationProps) {
       className="container mx-auto px-4 py-32 md:px-8"
     >
       <BlurFade delay={0.2} inView>
-        <p className="text-body-01 text-center font-semibold text-red-500">
-          COOPERATION
+        <p className="text-header-02 text-primary-500 text-center font-bold">
+          {COOPERATION_TEXT.title}
         </p>
       </BlurFade>
+
       <BlurFade delay={0.4} inView>
+        <p className="text-display-00 mt-4 text-center leading-16 font-black tracking-tighter">
+          {COOPERATION_TEXT.description}
+        </p>
+      </BlurFade>
+
+      <BlurFade delay={0.6} inView>
         <div className="relative mt-6">
           <div className="group flex max-w-full flex-row [gap:var(--gap)] overflow-hidden p-2 [--duration:40s] [--gap:1rem]">
             {Array(4)

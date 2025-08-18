@@ -33,22 +33,22 @@ function HeroSection() {
       <div className="relative mx-auto h-[720px] w-[720px]">
         <div
           className={cn(
-            'absolute top-1/2 left-1/2 z-0 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-200 opacity-0 blur-[600px] transition-all duration-600 ease-[cubic-bezier(0.5,0.01,0.14,0.99)] dark:bg-red-500',
+            'bg-primary-300 dark:bg-primary-700 absolute top-1/2 left-1/2 z-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-[700px] transition-all duration-600 ease-[cubic-bezier(0.5,0.01,0.14,0.99)]',
             loaded && 'opacity-100'
           )}
         />
         <MemoizedHeroRing spinning={spinning} loaded={loaded} />
 
         <div className="absolute top-1/2 left-1/2 z-10 w-full max-w-[600px] -translate-x-1/2 -translate-y-1/2 px-5">
-          <BlurFade duration={1.5} className="text-center">
-            <h1 className="text-foreground text-display-00 text-center font-black tracking-tighter text-balance">
-              <span className="text-5xl">
-                <AuroraText colors={HERO_TEXT.auroraColors}>
-                  {HERO_TEXT.title}
-                </AuroraText>
-              </span>
+          <BlurFade delay={0.2} duration={1.5} className="text-center">
+            <h1 className="text-center text-6xl font-black tracking-tighter text-balance">
+              <AuroraText colors={HERO_TEXT.auroraColors}>
+                {HERO_TEXT.title}
+              </AuroraText>
             </h1>
-            <p className="text-foreground text-header-01 mt-3 text-center font-semibold tracking-tight text-balance">
+          </BlurFade>
+          <BlurFade delay={0.6} duration={1.5} className="text-center">
+            <p className="text-foreground/80 text-title-01 mt-6 text-center font-semibold tracking-tight text-balance">
               {HERO_TEXT.description}
             </p>
           </BlurFade>

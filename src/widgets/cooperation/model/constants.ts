@@ -1,5 +1,10 @@
 import { Logo } from '@/src/widgets/cooperation/ui/types'
 
+const COOPERATION_TEXT = {
+  title: 'COOPERATION',
+  description: '함께 성장하는 파트너들',
+}
+
 const defaultLogos: Logo[] = [
   {
     name: 'Google',
@@ -35,4 +40,4 @@ const defaultLogos: Logo[] = [
   },
 ]
 
-export { defaultLogos }
+export { COOPERATION_TEXT, defaultLogos }

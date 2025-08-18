@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next'
+import createNextIntlPlugin from 'next-intl/plugin'
 
 const nextConfig: NextConfig = {
-  // TurboPack 설정
   experimental: {
     turbo: {
       rules: {
@@ -12,7 +12,6 @@ const nextConfig: NextConfig = {
       },
     },
   },
-  // webpack 설정
   webpack: (config) => {
     // @ts-expect-error 타입 에러 무시
     const fileLoaderRule = config.module.rules.find((rule) =>
@@ -45,4 +44,5 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig
+const withNextIntl = createNextIntlPlugin()
+export default withNextIntl(nextConfig)

@@ -15,12 +15,9 @@ import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
 function HeaderNavigation() {
-  // 네비게이션과 관련된 번역 가져오기
-  const t = useTranslations('navigation')
-  // 기업 소개 관련 번역
-  const aboutT = useTranslations('about')
-  // 제품 관련 번역
-  const productT = useTranslations('product')
+  const t = useTranslations('header.navigation')
+  const aboutT = useTranslations('header.about')
+  const productT = useTranslations('header.product')
 
   return (
     <nav className="max-w-container-lg bg-background/80 border-foreground/10 fixed top-0 z-50 flex w-full items-center justify-between border-b px-4 py-3 backdrop-blur-sm">
@@ -53,10 +50,10 @@ function HeaderNavigation() {
                     title="T-GRID"
                     className="text-body-01 p-0 font-medium hover:bg-transparent hover:text-gray-800 focus:bg-transparent focus:text-gray-800 data-[state=open]:bg-transparent data-[state=open]:text-gray-800 data-[state=open]:hover:bg-transparent data-[state=open]:hover:text-gray-800 data-[state=open]:focus:bg-transparent data-[state=open]:focus:text-gray-800"
                   >
-                    {aboutT('introduction')}
+                    {aboutT('introduction.title')}
                   </NavigationMenuLink>
                   <p className="text-body-03 text-gray-500">
-                    {aboutT('introductionDesc')}
+                    {aboutT('introduction.description')}
                   </p>
                 </li>
                 <li className="flex cursor-pointer flex-col gap-1 rounded px-2 py-1 hover:bg-gray-100">
@@ -65,10 +62,10 @@ function HeaderNavigation() {
                     title="T-GRID"
                     className="text-body-01 p-0 font-medium hover:bg-transparent hover:text-gray-800 focus:bg-transparent focus:text-gray-800 data-[state=open]:bg-transparent data-[state=open]:text-gray-800 data-[state=open]:hover:bg-transparent data-[state=open]:hover:text-gray-800 data-[state=open]:focus:bg-transparent data-[state=open]:focus:text-gray-800"
                   >
-                    {aboutT('ceoMessage')}
+                    {aboutT('ceoMessage.title')}
                   </NavigationMenuLink>
                   <p className="text-body-03 text-gray-500">
-                    {aboutT('ceoMessageDesc')}
+                    {aboutT('ceoMessage.description')}
                   </p>
                 </li>
               </ul>
@@ -87,10 +84,10 @@ function HeaderNavigation() {
                     title="T-GRID"
                     className="text-body-01 p-0 font-medium hover:bg-transparent hover:text-gray-800 focus:bg-transparent focus:text-gray-800 data-[state=open]:bg-transparent data-[state=open]:text-gray-800 data-[state=open]:hover:bg-transparent data-[state=open]:hover:text-gray-800 data-[state=open]:focus:bg-transparent data-[state=open]:focus:text-gray-800"
                   >
-                    {productT('tgrid')}
+                    {productT('introduction.title')}
                   </NavigationMenuLink>
                   <p className="text-body-03 text-gray-500">
-                    {productT('tgridDesc')}
+                    {productT('introduction.description')}
                   </p>
                 </li>
               </ul>

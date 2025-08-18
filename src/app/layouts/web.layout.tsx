@@ -1,8 +1,9 @@
-import { I18nProvider } from '@/src/app/providers/i18n-provider'
 import { ThemeProvider } from '@/src/app/providers/theme-provider'
-import type { Metadata } from 'next'
+import '@/src/app/styles/globals.css'
+import { routing } from '@/src/i18n/routing'
+import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { Noto_Sans_KR, Nova_Square } from 'next/font/google'
-import '../styles/globals.css'
+import { notFound } from 'next/navigation'
 
 const notoSansKR = Noto_Sans_KR({
   variable: '--font-noto-sans-kr',
@@ -17,18 +18,26 @@ const novaSquare = Nova_Square({
   weight: '400',
 })
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Another Doctor | AI 색상 측정',
   description: '정확한 색, 완벽한 미소.',
 }
 
-function WebLayout({
-  children,
-}: Readonly<{
+interface WebLayoutProps {
   children: React.ReactNode
-}>) {
+  params: Promise<{ locale: string }>
+}
+
+async function WebLayout(props: WebLayoutProps) {
+  const { children, params } = props
+  const { locale } = await params
+
+  if (!hasLocale(routing.locales, locale)) {
+    notFound()
+  }
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={`${notoSansKR.variable} ${novaSquare.variable} antialiased`}
       >
@@ -38,7 +47,7 @@ function WebLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <I18nProvider>{children}</I18nProvider>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

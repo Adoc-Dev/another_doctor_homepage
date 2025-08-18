@@ -1,0 +1,17 @@
+{
+  "navigation": {
+    "companyInfo": "기업정보",
+    "productInfo": "제품정보",
+    "newsroom": "뉴스룸",
+    "support": "고객지원"
+  },
+  "language": {
+    "ko": "한국어",
+    "en": "영어"
+  },
+  "about": {
+    "introduction": "기업 소개",
+    "mission": "미션 & 비전",
+    "ceoMessage": "CEO 인사말"
+  }
+}

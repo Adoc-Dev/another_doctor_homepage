@@ -6,7 +6,16 @@
 @theme inline {
   /* 컨테이너 사이즈 */
   --container-2xl: 1400px;
+  --container-xl: 1200px;
+  --container-lg: 992px;
+  --container-md: 768px;
+  --container-sm: 576px;
+
+  /* 브레이크포인트 */
   --breakpoint-xl: 1160px;
+  --breakpoint-lg: 992px;
+  --breakpoint-md: 768px;
+  --breakpoint-sm: 576px;
 
   /* 반경 크기 */
   --radius-lg: var(--radius);

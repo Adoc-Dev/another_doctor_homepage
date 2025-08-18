@@ -1,3 +1,4 @@
+import { I18nProvider } from '@/src/app/providers/i18n-provider'
 import { ThemeProvider } from '@/src/app/providers/theme-provider'
 import type { Metadata } from 'next'
 import { Noto_Sans_KR, Nova_Square } from 'next/font/google'
@@ -37,7 +38,7 @@ function WebLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <I18nProvider>{children}</I18nProvider>
         </ThemeProvider>
       </body>
     </html>

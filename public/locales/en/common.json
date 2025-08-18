@@ -1,0 +1,17 @@
+{
+  "navigation": {
+    "companyInfo": "Company",
+    "productInfo": "Products",
+    "newsroom": "Newsroom",
+    "support": "Support"
+  },
+  "language": {
+    "ko": "Korean",
+    "en": "English"
+  },
+  "about": {
+    "introduction": "About Us",
+    "mission": "Mission & Vision",
+    "ceoMessage": "CEO's Message"
+  }
+}

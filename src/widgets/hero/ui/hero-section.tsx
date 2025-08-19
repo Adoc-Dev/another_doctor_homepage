@@ -4,7 +4,7 @@ import { cn } from '@/src/shared/lib/utils'
 import { AuroraText, BlurFade } from '@/src/shared/ui'
 import { HERO_TEXT } from '@/src/widgets/hero/model/constants'
 import { MemoizedHeroRing } from '@/src/widgets/hero/ui/hero-ring'
-import { ChevronsDownIcon } from 'lucide-react'
+import { MouseIcon } from 'lucide-react'
 import { motion } from 'motion/react'
 import { useTranslations } from 'next-intl'
 import { memo, useEffect, useState } from 'react'
@@ -31,18 +31,18 @@ function HeroSection() {
   return (
     <section
       id="hero-section"
-      className="relative flex h-screen w-full items-center justify-center"
+      className="relative flex h-dvh w-full items-center justify-center"
     >
-      <div className="xs:h-[400px] xs:w-[400px] relative mx-auto h-[350px] w-[350px] sm:h-[500px] sm:w-[500px] md:h-[600px] md:w-[600px] lg:h-[720px] lg:w-[720px]">
+      <div className="relative mx-auto w-full">
         <div
           className={cn(
-            'bg-primary-300 dark:bg-primary-700 xs:blur-[400px] xs:h-[250px] xs:w-[250px] absolute top-1/2 left-1/2 z-0 h-[200px] w-[200px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-[300px] transition-all duration-600 ease-[cubic-bezier(0.5,0.01,0.14,0.99)] sm:h-[350px] sm:w-[350px] sm:blur-[500px] md:h-[450px] md:w-[450px] md:blur-[600px] lg:h-[600px] lg:w-[600px] lg:blur-[700px]',
+            'bg-primary-300 dark:bg-primary-700 xs:h-[250px] xs:w-[250px] absolute top-1/2 left-1/2 z-0 h-[200px] w-[200px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-[300px] transition-all duration-600 ease-[cubic-bezier(0.5,0.01,0.14,0.99)] sm:h-[350px] sm:w-[350px] sm:blur-[400px] md:h-[450px] md:w-[450px] md:blur-[500px] lg:h-[600px] lg:w-[600px] lg:blur-[600px]',
             loaded && 'opacity-100'
           )}
         />
         <MemoizedHeroRing spinning={spinning} loaded={loaded} />
 
-        <div className="xs:max-w-[300px] absolute top-1/2 left-1/2 z-10 w-full max-w-full -translate-x-1/2 -translate-y-1/2 px-4 sm:max-w-[400px] sm:px-5 md:max-w-[500px] lg:max-w-[600px]">
+        <div className="xs:max-w-[300px] absolute top-1/2 left-1/2 z-10 w-full max-w-full -translate-x-1/2 -translate-y-1/2 sm:max-w-[400px] sm:px-5 md:max-w-[500px] lg:max-w-[600px]">
           <BlurFade delay={0.2} duration={1.5} className="text-center">
             <h1 className="text-center text-4xl font-black tracking-tighter text-balance whitespace-pre-wrap drop-shadow-xl lg:text-5xl xl:text-7xl">
               <AuroraText colors={HERO_TEXT.auroraColors}>
@@ -75,8 +75,9 @@ const MemoizedChevronAnimation = memo(() => (
       repeat: Infinity,
       repeatType: 'reverse',
     }}
-    className="xs:bottom-8 absolute bottom-6 flex w-full flex-col items-center justify-center gap-2 sm:bottom-12 md:bottom-16 lg:bottom-20"
+    className="absolute bottom-6 flex w-full flex-col items-center justify-center gap-1"
   >
-    <ChevronsDownIcon className="text-foreground/50 xs:size-5 size-4 sm:size-6" />
+    <MouseIcon className="text-foreground/50 size-5 sm:size-6" />
+    <p className="text-foreground/50 text-body-03 font-semibold">Scroll down</p>
   </motion.div>
 ))

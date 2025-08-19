@@ -66,7 +66,6 @@ function HeaderNavigation() {
     )
   }
 
-  // 링크 메뉴 렌더링 함수
   const renderLinkMenuItem = (item: NavItemType) => {
     if (item.type !== 'link' || !item.href) return null
 
@@ -84,7 +83,8 @@ function HeaderNavigation() {
       <div
         className={cn(
           'flex w-full items-center justify-between rounded-xl border-gray-200 px-4 py-3 transition-all duration-300 dark:border-gray-800',
-          isScrolled && 'bg-background/80 w-xs border backdrop-blur-sm xl:w-lg'
+          isScrolled &&
+            'bg-background/80 w-xs border backdrop-blur-sm sm:w-md xl:w-lg'
         )}
       >
         <Logo />

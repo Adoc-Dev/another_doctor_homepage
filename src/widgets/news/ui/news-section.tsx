@@ -10,7 +10,7 @@ function NewsSection() {
 
   return (
     <section id="news-section" className="min-h-[50vh]">
-      <div className="w-full max-w-4xl space-y-12 px-4 py-12">
+      <div className="w-full max-w-sm space-y-12 px-8 py-12 sm:max-w-lg">
         <BlurFade delay={BLUR_FADE_DELAY * 13} inView>
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">

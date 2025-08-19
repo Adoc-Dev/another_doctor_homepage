@@ -34,7 +34,7 @@ function ContactSection() {
   return (
     <section
       id="contact-section"
-      className="border-foreground/10 relative flex h-[500px] w-full max-w-4xl items-center justify-center overflow-hidden rounded border"
+      className="border-foreground/10 relative flex h-[300px] w-full max-w-sm items-center justify-center overflow-hidden border sm:h-[500px] sm:max-w-lg sm:rounded"
     >
       <Ripple mainCircleSize={400} />
       <div className="flex flex-col items-center justify-center gap-y-4">

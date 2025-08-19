@@ -62,24 +62,22 @@ function HeroRing(props: HeroRingProps) {
   return (
     <svg
       ref={ringRef}
-      width="900"
-      height="900"
       viewBox="0 0 900 900"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={cn(
         'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform-gpu will-change-transform',
-        'xs:w-[450px] xs:h-[450px] h-[370px] w-[370px] sm:h-[550px] sm:w-[550px] md:h-[700px] md:w-[700px] lg:h-[850px] lg:w-[850px]',
+        'xs:w-[450px] xs:h-[450px] h-[380px] w-[380px] sm:h-[540px] sm:w-[540px] md:h-[680px] md:w-[680px] lg:h-[820px] lg:w-[820px]',
         shouldAnimate && 'animate-[spin_150s_linear_infinite]'
       )}
     >
       {Array.from({ length: 16 }).map((_, i) => (
         <ellipse
           key={i}
-          cx="450"
-          cy="450"
-          rx="370"
-          ry="280"
+          cx="460"
+          cy="460"
+          rx="320"
+          ry="370"
           style={{
             opacity: loaded && isVisible ? opacities[i] : 0,
             transform:

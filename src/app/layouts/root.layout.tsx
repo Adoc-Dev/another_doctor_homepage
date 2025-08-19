@@ -1,5 +1,7 @@
-import { ThemeProvider } from '@/src/app/providers/theme-provider'
+import { QueryProvider, ThemeProvider } from '@/src/app/providers'
 import '@/src/app/styles/globals.css'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+
 import { NextIntlClientProvider } from 'next-intl'
 import { Noto_Sans_KR, Nova_Square } from 'next/font/google'
 import Head from 'next/head'
@@ -42,11 +44,14 @@ async function RootLayout(props: RootLayoutProps) {
       <body className={`${notoSansKR.variable} ${novaSquare.variable}`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
           enableSystem
+          defaultTheme="system"
           disableTransitionOnChange
         >
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <QueryProvider>
+            <NextIntlClientProvider>{children}</NextIntlClientProvider>
+            <ReactQueryDevtools initialIsOpen={false} />
+          </QueryProvider>
         </ThemeProvider>
       </body>
     </html>

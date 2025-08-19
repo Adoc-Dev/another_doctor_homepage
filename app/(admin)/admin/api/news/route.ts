@@ -1,5 +1,5 @@
 import { authOptions } from '@/app/(admin)/admin/api/auth/[...nextauth]/route'
-import { prisma } from '@/src/shared/lib/db'
+import prisma from '@/src/shared/lib/db'
 import { getServerSession } from 'next-auth'
 import { NextRequest, NextResponse } from 'next/server'
 

@@ -1,5 +1,5 @@
 import { authOptions } from '@/app/(admin)/admin/api/auth/[...nextauth]/route'
-import { prisma } from '@/src/shared/lib/db'
+import prisma from '@/src/shared/lib/db'
 import { getServerSession } from 'next-auth'
 import { NextRequest, NextResponse } from 'next/server'
 
@@ -10,7 +10,7 @@ interface NewsParams {
 }
 
 // GET: 특정 ID의 뉴스 가져오기
-export async function GET(req: NextRequest, { params }: NewsParams) {
+export async function GET(_req: NextRequest, { params }: NewsParams) {
   try {
     const id = parseInt(params.id)
     if (isNaN(id)) {

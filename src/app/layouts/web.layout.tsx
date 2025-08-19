@@ -11,7 +11,6 @@ interface WebLayoutProps {
 function WebLayout({ children, params }: WebLayoutProps) {
   const { locale } = params
 
-  // 유효하지 않은 로케일이면 404 페이지로 이동
   if (!hasLocale(routing.locales, locale)) {
     notFound()
   }

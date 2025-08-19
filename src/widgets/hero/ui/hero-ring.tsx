@@ -69,7 +69,7 @@ function HeroRing(props: HeroRingProps) {
       xmlns="http://www.w3.org/2000/svg"
       className={cn(
         'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform-gpu will-change-transform',
-        'xs:w-[450px] xs:h-[450px] h-[350px] w-[350px] sm:h-[550px] sm:w-[550px] md:h-[700px] md:w-[700px] lg:h-[850px] lg:w-[850px]',
+        'xs:w-[450px] xs:h-[450px] h-[370px] w-[370px] sm:h-[550px] sm:w-[550px] md:h-[700px] md:w-[700px] lg:h-[850px] lg:w-[850px]',
         shouldAnimate && 'animate-[spin_150s_linear_infinite]'
       )}
     >

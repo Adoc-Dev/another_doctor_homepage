@@ -84,7 +84,7 @@ function HeaderNavigation() {
       <div
         className={cn(
           'flex w-full items-center justify-between rounded-xl border-gray-200 px-4 py-3 transition-all duration-300 dark:border-gray-800',
-          isScrolled && 'bg-background/80 w-sm border backdrop-blur-sm xl:w-lg'
+          isScrolled && 'bg-background/80 w-xs border backdrop-blur-sm xl:w-lg'
         )}
       >
         <Logo />

@@ -44,14 +44,14 @@ function HeroSection() {
 
         <div className="xs:max-w-[300px] absolute top-1/2 left-1/2 z-10 w-full max-w-full -translate-x-1/2 -translate-y-1/2 px-4 sm:max-w-[400px] sm:px-5 md:max-w-[500px] lg:max-w-[600px]">
           <BlurFade delay={0.2} duration={1.5} className="text-center">
-            <h1 className="xs:text-3xl text-center text-2xl font-black tracking-tighter text-balance drop-shadow-xl sm:text-4xl lg:text-5xl xl:text-7xl">
+            <h1 className="text-center text-4xl font-black tracking-tighter text-balance whitespace-pre-wrap drop-shadow-xl lg:text-5xl xl:text-7xl">
               <AuroraText colors={HERO_TEXT.auroraColors}>
                 {t('title')}
               </AuroraText>
             </h1>
           </BlurFade>
           <BlurFade delay={0.6} duration={1.5} className="text-center">
-            <p className="text-foreground/80 xs:text-sm xs:mt-4 md:text-header-02 lg:text-header-01 xl:text-title-01 mt-3 text-center text-xs font-semibold tracking-tight text-balance drop-shadow-md sm:mt-5 sm:text-base">
+            <p className="text-foreground/80 md:text-header-02 lg:text-header-01 xl:text-title-01 text-body-01 mt-5 text-center font-semibold tracking-tight text-balance whitespace-pre-wrap drop-shadow-md">
               {t('description')}
             </p>
           </BlurFade>

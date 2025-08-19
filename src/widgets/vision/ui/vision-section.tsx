@@ -8,7 +8,7 @@ function VisionSection() {
   return (
     <section
       id="vision-section"
-      className="relative flex min-h-[60vh] w-full max-w-[1200px] flex-col items-center justify-center"
+      className="relative my-20 flex min-h-[60vh] w-full max-w-[1200px] flex-col items-center justify-center"
     >
       <div className="flex w-full flex-col items-center justify-center gap-4">
         <BlurFade delay={0.2} inView>

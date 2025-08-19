@@ -33,25 +33,25 @@ function HeroSection() {
       id="hero-section"
       className="relative flex h-screen w-full items-center justify-center"
     >
-      <div className="relative mx-auto h-[720px] w-[720px]">
+      <div className="relative mx-auto h-[500px] w-[500px] sm:h-[600px] sm:w-[600px] md:h-[650px] md:w-[650px] lg:h-[720px] lg:w-[720px]">
         <div
           className={cn(
-            'bg-primary-300 dark:bg-primary-700 absolute top-1/2 left-1/2 z-0 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-[700px] transition-all duration-600 ease-[cubic-bezier(0.5,0.01,0.14,0.99)]',
+            'bg-primary-300 dark:bg-primary-700 absolute top-1/2 left-1/2 z-0 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-[700px] transition-all duration-600 ease-[cubic-bezier(0.5,0.01,0.14,0.99)] sm:h-[500px] sm:w-[500px] md:h-[550px] md:w-[550px] lg:h-[600px] lg:w-[600px]',
             loaded && 'opacity-100'
           )}
         />
         <MemoizedHeroRing spinning={spinning} loaded={loaded} />
 
-        <div className="absolute top-1/2 left-1/2 z-10 w-full max-w-[600px] -translate-x-1/2 -translate-y-1/2 px-5">
+        <div className="absolute top-1/2 left-1/2 z-10 w-full max-w-full -translate-x-1/2 -translate-y-1/2 px-4 sm:max-w-[400px] sm:px-5 md:max-w-[500px] lg:max-w-[600px]">
           <BlurFade delay={0.2} duration={1.5} className="text-center">
-            <h1 className="text-center text-7xl font-black tracking-tighter text-balance drop-shadow-xl">
+            <h1 className="text-center text-3xl font-black tracking-tighter text-balance drop-shadow-xl sm:text-4xl lg:text-5xl xl:text-7xl">
               <AuroraText colors={HERO_TEXT.auroraColors}>
                 {t('title')}
               </AuroraText>
             </h1>
           </BlurFade>
           <BlurFade delay={0.6} duration={1.5} className="text-center">
-            <p className="text-title-01 text-foreground/80 mt-6 text-center font-semibold tracking-tight text-balance drop-shadow-md">
+            <p className="md:text-header-02 lg:text-header-01 xl:text-title-01 text-foreground/80 mt-4 text-center text-sm font-semibold tracking-tight text-balance drop-shadow-md sm:mt-6 sm:text-base">
               {t('description')}
             </p>
           </BlurFade>
@@ -75,8 +75,8 @@ const MemoizedChevronAnimation = memo(() => (
       repeat: Infinity,
       repeatType: 'reverse',
     }}
-    className="absolute bottom-20 flex w-full flex-col items-center justify-center gap-2"
+    className="absolute bottom-10 flex w-full flex-col items-center justify-center gap-2 sm:bottom-16 md:bottom-20"
   >
-    <ChevronsDownIcon className="text-foreground/50 size-6" />
+    <ChevronsDownIcon className="text-foreground/50 size-5 sm:size-6" />
   </motion.div>
 ))

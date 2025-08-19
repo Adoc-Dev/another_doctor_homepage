@@ -3,6 +3,10 @@
     @apply border-border outline-ring/50;
   }
 
+  html {
+    overflow-y: scroll; /* 스크롤바를 항상 표시 */
+  }
+
   body {
     @apply bg-background text-foreground;
     min-width: 100vw;

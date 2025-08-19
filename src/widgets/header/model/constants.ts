@@ -1,18 +1,40 @@
-const MENU_SECTIONS = [
-  { id: 'hero', section: 'home', label: '홈' },
-  { id: 'product', section: 'product', label: '제품' },
-  { id: 'news', section: 'news', label: '뉴스' },
-  { id: 'contact', section: 'contact', label: '문의' },
-] as const
+import { NavItemType } from '@/src/widgets/header/model/types'
 
-const SECTION_CONFIGS = [
-  { id: 'hero', section: 'home' },
-  { id: 'vision', section: 'home' },
-  { id: 'cooperation', section: 'home' },
-  { id: 'mission', section: 'home' },
-  { id: 'product', section: 'product' },
-  { id: 'news', section: 'news' },
-  { id: 'contact', section: 'contact' },
-] as const
+const navItems: NavItemType[] = [
+  {
+    type: 'dropdown',
+    key: 'company',
+    translationKey: 'navigation.companyInfo',
+    content: {
+      href: '/company/about',
+      titleKey: 'about.introduction.title',
+      descriptionKey: 'about.introduction.description',
+      minWidth: '350px',
+    },
+  },
+  {
+    type: 'dropdown',
+    key: 'product',
+    translationKey: 'navigation.productInfo',
+    content: {
+      href: '/product/t-grid',
+      titleKey: 'product.introduction.title',
+      descriptionKey: 'product.introduction.description',
+      minWidth: '300px',
+    },
+  },
+  {
+    type: 'link',
+    key: 'newsroom',
+    translationKey: 'navigation.newsroom',
+    href: '/newsroom',
+  },
+  {
+    type: 'link',
+    key: 'support',
+    translationKey: 'navigation.support',
+    href: '/support',
+  },
+]
 
-export { MENU_SECTIONS, SECTION_CONFIGS }
+export { navItems }

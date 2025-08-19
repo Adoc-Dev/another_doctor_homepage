@@ -14,13 +14,14 @@ const BLUE_COLORS = [
   '#3674B5',
 ]
 
-const HeroRing = ({
-  spinning,
-  loaded,
-}: {
+interface HeroRingProps {
   spinning: boolean
   loaded: boolean
-}) => {
+}
+
+function HeroRing(props: HeroRingProps) {
+  const { spinning, loaded } = props
+
   const [isVisible, setIsVisible] = useState(false)
   const ringRef = useRef<SVGSVGElement>(null)
 
@@ -68,6 +69,7 @@ const HeroRing = ({
       xmlns="http://www.w3.org/2000/svg"
       className={cn(
         'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform-gpu will-change-transform',
+        'w-[600px] h-[600px] sm:w-[700px] sm:h-[700px] md:w-[800px] md:h-[800px] lg:w-[900px] lg:h-[900px]',
         shouldAnimate && 'animate-[spin_150s_linear_infinite]'
       )}
     >

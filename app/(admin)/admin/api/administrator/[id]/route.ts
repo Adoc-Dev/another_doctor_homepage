@@ -27,17 +27,15 @@ export async function GET(_req: NextRequest, { params }: UserParams) {
       return NextResponse.json({ error: '권한이 없습니다.' }, { status: 403 })
     }
 
-    const user = await prisma.user.findUnique({
+    const user = await prisma.administrator.findUnique({
       where: { id: params.id },
       select: {
         id: true,
         name: true,
-        username: true,
         email: true,
         active: true,
         createdAt: true,
         updatedAt: true,
-        lastLoginAt: true,
       },
     })
 
@@ -90,13 +88,12 @@ export async function PUT(req: NextRequest, { params }: UserParams) {
       )
     }
 
-    const updatedUser = await prisma.user.update({
+    const updatedUser = await prisma.administrator.update({
       where: { id: params.id },
       data: updateData,
       select: {
         id: true,
         name: true,
-        username: true,
         email: true,
         active: true,
         updatedAt: true,
@@ -131,7 +128,7 @@ export async function DELETE(_req: NextRequest, { params }: UserParams) {
     }
 
     // 사용자가 있는지 확인
-    const user = await prisma.user.findUnique({
+    const user = await prisma.administrator.findUnique({
       where: { id: params.id },
     })
 
@@ -143,7 +140,7 @@ export async function DELETE(_req: NextRequest, { params }: UserParams) {
     }
 
     // 계정 비활성화
-    await prisma.user.update({
+    await prisma.administrator.update({
       where: { id: params.id },
       data: { active: false },
     })

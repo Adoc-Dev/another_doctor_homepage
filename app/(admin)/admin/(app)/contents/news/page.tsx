@@ -9,6 +9,7 @@ function NewsPage() {
     queryKey: ['news'],
     queryFn: () => newsService.getNews(),
   })
+  console.log('🚀 ~ NewsPage ~ data:', data)
 
   return <DataTable data={data ?? []} />
 }

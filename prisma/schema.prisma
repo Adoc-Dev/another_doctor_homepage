@@ -27,11 +27,10 @@ model News {
   date DateTime?
 }
 
-// 단순화된 인증 모델
-model User {
+
+model Administrator {
   id              String    @id @default(cuid())
   name            String
-  username        String    @unique
   email           String    @unique
   passwordHash    String
   active          Boolean   @default(true)

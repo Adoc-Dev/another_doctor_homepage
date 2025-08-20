@@ -1,7 +1,7 @@
 @layer base {
   body {
     @apply bg-background text-foreground;
-    @apply min-h-dvh;
+    @apply min-h-svh;
     @apply overflow-x-hidden;
   }
 }

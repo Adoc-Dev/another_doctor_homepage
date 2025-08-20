@@ -19,7 +19,7 @@
   }
 
   /* 오로라 애니메이션 */
-  @keyframes aurora {
+  @keyframes aurora-text {
     0% {
       background-position: 0% 50%;
       transform: rotate(-5deg) scale(0.9);
@@ -39,6 +39,19 @@
     100% {
       background-position: 0% 50%;
       transform: rotate(-5deg) scale(0.9);
+    }
+  }
+
+  @keyframes aurora-background {
+    from {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    to {
+      background-position:
+        350% 50%,
+        350% 50%;
     }
   }
 
@@ -155,7 +168,8 @@
     infinite;
   --animate-down: accordion-down 0.2s ease-out;
   --animate-up: accordion-up 0.2s ease-out;
-  --animate-aurora: aurora 8s ease-in-out infinite alternate;
+  --animate-aurora-text: aurora-text 8s ease-in-out infinite alternate;
+  --animate-aurora-background: aurora-background 60s linear infinite;
 }
 
 /* View Transitions */

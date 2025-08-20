@@ -1,5 +1,6 @@
 import { QueryProvider, ThemeProvider } from '@/src/app/providers'
 import '@/src/app/styles/globals.css'
+import { AlertDialogProvider } from '@/src/shared/ui'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { NextIntlClientProvider } from 'next-intl'
@@ -49,7 +50,9 @@ async function RootLayout(props: RootLayoutProps) {
           disableTransitionOnChange
         >
           <QueryProvider>
-            <NextIntlClientProvider>{children}</NextIntlClientProvider>
+            <NextIntlClientProvider>
+              <AlertDialogProvider>{children}</AlertDialogProvider>
+            </NextIntlClientProvider>
             <ReactQueryDevtools initialIsOpen={false} />
           </QueryProvider>
         </ThemeProvider>

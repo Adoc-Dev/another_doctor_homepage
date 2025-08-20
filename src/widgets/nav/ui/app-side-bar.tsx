@@ -3,8 +3,10 @@
 import {
   NavMain,
   NavSecondary,
+  NavUser,
   Sidebar,
   SidebarContent,
+  SidebarFooter,
   SidebarHeader,
   SidebarRail,
   TeamSwitcher,
@@ -12,19 +14,25 @@ import {
 } from '@/src/shared/ui'
 import Link from 'next/link'
 
-import { useRouter } from 'next/navigation'
+import { cn } from '@/src/shared/lib/utils'
+import { signOut, useSession } from 'next-auth/react'
+import { usePathname, useRouter } from 'next/navigation'
 import * as React from 'react'
 import { navData } from '../model'
 
 export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
-  // const auth = useAuth()
+  const { data: session } = useSession()
+  const pathname = usePathname()
   const router = useRouter()
   const sidebar = useSidebar()
 
+  const isActive = (url: string) => {
+    return pathname === url || pathname.startsWith(url)
+  }
+
   function handleLogout() {
-    // await auth.logout()
-    // await router.invalidate()
-    router.push('/auth')
+    signOut()
+    router.push('/admin/login')
   }
 
   return (
@@ -39,7 +47,10 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
             return (
               <Link
                 href={item.url}
-                // className={({ isActive }) => (isActive ? 'font-bold' : '')}
+                className={cn(
+                  isActive(item.url) && 'font-bold',
+                  'text-gray-500'
+                )}
                 onClick={() => {
                   if (sidebar.openMobile) {
                     sidebar.toggleSidebar()
@@ -54,17 +65,17 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
         />
         <NavSecondary items={navData.navSecondary} className="mt-auto" />
       </SidebarContent>
-      {/* <SidebarFooter>
-        {auth.user && (
+      <SidebarFooter>
+        {session?.user && (
           <NavUser
             onLogout={handleLogout}
             user={{
-              name: auth.user.nickname,
+              name: session.user.name ?? session.user.username ?? '',
               description: '관리자',
             }}
           />
         )}
-      </SidebarFooter> */}
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   )

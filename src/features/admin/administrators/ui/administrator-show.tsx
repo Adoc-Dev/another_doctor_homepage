@@ -6,9 +6,10 @@ interface AdministratorShowProps {
   record?: Administrator
 }
 
-export function AdministratorShow(props: AdministratorShowProps) {
+function AdministratorShow(props: AdministratorShowProps) {
   const { record } = props
-  console.log('🚀 ~ AdministratorShow ~ record:', record)
+
+  if (!record) return null
 
   const descriptions: DataModalDescriptions<Administrator>[] = [
     {
@@ -47,3 +48,5 @@ export function AdministratorShow(props: AdministratorShowProps) {
 
   return <DataDescriptions descriptions={descriptions} record={record} />
 }
+
+export { AdministratorShow }

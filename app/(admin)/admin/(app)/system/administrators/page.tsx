@@ -2,7 +2,9 @@
 
 import AdministratorModal from '@/src/features/admin/administrators/ui/administrator-modal'
 import { Administrator } from '@/src/generated/prisma'
-import administratorsService from '@/src/shared/api/services/administrators.service'
+import administratorsService, {
+  ADMINISTRATORS_QUERY_KEYS,
+} from '@/src/shared/api/services/administrators.service'
 import { usePageFilters } from '@/src/shared/hooks/page.hook'
 import { Button } from '@/src/shared/ui'
 import { DataTable } from '@/src/shared/ui/admin/data-table'
@@ -15,10 +17,9 @@ function AdministratorsPage() {
   const pageFilters = usePageFilters()
 
   const { data, isLoading } = useQuery({
-    queryKey: ['administrators'],
+    queryKey: [ADMINISTRATORS_QUERY_KEYS],
     queryFn: () => administratorsService.getAdministrators(),
   })
-  console.log(typeof pageFilters.filters.id)
 
   const columns: ColumnDef<Administrator>[] = [
     {
@@ -65,7 +66,7 @@ function AdministratorsPage() {
           data={data?.users ?? []}
           onRow={handleRowClick}
           columns={columns}
-          total={data?.users.length}
+          total={data?.users?.length}
           toolbar={{
             topRightItems: [
               <Button

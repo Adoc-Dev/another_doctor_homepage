@@ -1,4 +1,4 @@
-import { authOptions } from '@/app/(admin)/admin/api/auth/[...nextauth]/route'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import prisma from '@/src/shared/lib/db'
 import { getServerSession } from 'next-auth'
 import { NextRequest, NextResponse } from 'next/server'
@@ -46,7 +46,7 @@ export async function PUT(req: NextRequest, { params }: NewsParams) {
   try {
     // 인증 확인
     const session = await getServerSession(authOptions)
-    if (!session || session.user.role !== 'ADMIN') {
+    if (!session) {
       return NextResponse.json({ error: '권한이 없습니다.' }, { status: 403 })
     }
 
@@ -100,7 +100,7 @@ export async function DELETE(req: NextRequest, { params }: NewsParams) {
   try {
     // 인증 확인
     const session = await getServerSession(authOptions)
-    if (!session || session.user.role !== 'ADMIN') {
+    if (!session) {
       return NextResponse.json({ error: '권한이 없습니다.' }, { status: 403 })
     }
 

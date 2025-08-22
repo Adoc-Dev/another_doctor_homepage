@@ -19,7 +19,7 @@ import { useForm } from 'react-hook-form'
 import z from 'zod'
 
 const loginSchema = z.object({
-  username: z.string().min(1, '이메일을 입력해주세요.'),
+  email: z.string().min(1, '이메일을 입력해주세요.'),
   // .regex(emailRegex, '이메일 형식이 올바르지 않습니다.'),
   password: z.string().min(1, '비밀번호를 입력해주세요.'),
   // .regex(passwordRegex, '비밀번호 형식이 올바르지 않습니다.'),
@@ -36,7 +36,7 @@ function LoginForm() {
   const form = useForm({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      username: '',
+      email: '',
       password: '',
     },
   })
@@ -45,7 +45,7 @@ function LoginForm() {
     startTransition(async () => {
       try {
         const result = await signIn('credentials', {
-          username: values.username,
+          email: values.email,
           password: values.password,
           redirect: false,
           callbackUrl: '/admin/dashboard',
@@ -83,12 +83,12 @@ function LoginForm() {
             </div>
 
             <FormItem
-              name="username"
+              name="email"
               className="gap-y-1"
               label="Email"
               labelClassName="mb-2"
             >
-              <Input className="border-gray-200" />
+              <Input type="email" className="border-gray-200" />
             </FormItem>
 
             <FormItem

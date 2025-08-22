@@ -228,6 +228,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
         <TableRow
           key={row.id}
           data-state={row.getIsSelected() && 'selected'}
+          className="border-b border-gray-200"
           onClick={() => {
             onRow?.(row.original)
           }}

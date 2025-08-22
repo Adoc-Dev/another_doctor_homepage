@@ -3,6 +3,7 @@
 import { AdministratorForm } from '@/src/features/admin/administrators/ui/administrator-form'
 import { AdministratorShow } from '@/src/features/admin/administrators/ui/administrator-show'
 import { Administrator } from '@/src/generated/prisma'
+import administratorsService from '@/src/shared/api/services/administrators.service'
 import { useAlertDialog } from '@/src/shared/hooks/alert-dialog.hook'
 import {
   Button,
@@ -33,8 +34,8 @@ function AdministratorModal(props: AdministratorModalProps) {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (props.type) setModalType(type)
-  }, [props.type])
+    if (type) setModalType(type)
+  }, [type])
 
   const title = useMemo(() => {
     const str = '관리자'
@@ -65,6 +66,15 @@ function AdministratorModal(props: AdministratorModalProps) {
     })
   }
 
+  const handleDelete = async () => {
+    if (!id) return
+
+    const result = await administratorsService.deactivateAdministrator(
+      id?.toString() ?? ''
+    )
+    console.log('🚀 ~ handleDelete ~ result:', result)
+  }
+
   return (
     <DataModal
       type={modalType}
@@ -84,7 +94,11 @@ function AdministratorModal(props: AdministratorModalProps) {
             >
               수정
             </Button>
-            <Button variant="destructive" loading={loading}>
+            <Button
+              variant="destructive"
+              loading={loading}
+              onClick={handleDelete}
+            >
               삭제
             </Button>
           </DataModalShow>

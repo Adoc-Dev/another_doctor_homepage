@@ -94,7 +94,7 @@ export function GlobalAlertDialog() {
 
   return (
     <AlertDialog open={openAlertDialog} onOpenChange={close}>
-      <AlertDialogContent>
+      <AlertDialogContent className="max-w-[400px]">
         <AlertDialogHeader>
           <AlertDialogTitle>{title}</AlertDialogTitle>
           <AlertDialogDescription>{description}</AlertDialogDescription>
@@ -115,6 +115,7 @@ export function GlobalAlertDialog() {
           )}
           {!destructive && (
             <AlertDialogAction
+              className="bg-gray-800 hover:bg-gray-700"
               onClick={() => {
                 onConfirm?.()
                 close()

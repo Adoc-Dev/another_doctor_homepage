@@ -1,17 +1,18 @@
-import { authOptions } from '@/app/(admin)/admin/api/auth/[...nextauth]/route'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import prisma from '@/src/shared/lib/db'
 import { hash } from 'bcryptjs'
 import { getServerSession } from 'next-auth'
 import { NextRequest, NextResponse } from 'next/server'
 
-interface UserParams {
-  params: {
-    id: string
-  }
+type NextRouteContext = {
+  params: Record<string, string | string[]>
 }
 
 // GET: 특정 ID의 사용자 정보 가져오기
-export async function GET(_req: NextRequest, { params }: UserParams) {
+export async function GET(
+  _req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   try {
     // 인증 확인
     const session = await getServerSession(authOptions)
@@ -57,7 +58,10 @@ export async function GET(_req: NextRequest, { params }: UserParams) {
 }
 
 // PUT: 사용자 정보 업데이트
-export async function PUT(req: NextRequest, { params }: UserParams) {
+export async function PUT(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   try {
     // 인증 확인
     const session = await getServerSession(authOptions)
@@ -111,7 +115,10 @@ export async function PUT(req: NextRequest, { params }: UserParams) {
 }
 
 // 계정 비활성화 (소프트 삭제)
-export async function DELETE(_req: NextRequest, { params }: UserParams) {
+export async function DELETE(
+  _req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   try {
     // 인증 확인
     const session = await getServerSession(authOptions)

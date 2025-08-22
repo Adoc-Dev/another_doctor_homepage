@@ -14,7 +14,7 @@ export type {
   UpdateAdminData,
 }
 
-export const QUERY_KEYS = 'administrators'
+export const ADMINISTRATORS_QUERY_KEYS = 'administrators'
 
 class AdministratorsService {
   // 관리자 목록 조회

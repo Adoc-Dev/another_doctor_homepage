@@ -1,6 +1,8 @@
 import { News } from '@/src/generated/prisma/client'
 import { newsApi } from '@/src/shared/api/apis/news.api'
 
+export const NEWS_QUERY_KEYS = 'news'
+
 class NewsService {
   async getNews(filters?: { published?: boolean }) {
     try {

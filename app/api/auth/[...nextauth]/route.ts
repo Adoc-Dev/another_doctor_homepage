@@ -9,14 +9,14 @@ declare module 'next-auth' {
   interface Session {
     user: {
       id: string
-      username?: string
+      email: string
       active?: boolean
     } & DefaultSession['user']
   }
 
   interface User {
     id: string
-    username?: string
+    email: string
     active?: boolean
   }
 }
@@ -26,30 +26,25 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        username: { label: '사용자명', type: 'text' },
+        email: { label: '이메일', type: 'email' },
         password: { label: '비밀번호', type: 'password' },
       },
+
       async authorize(credentials) {
-        if (!credentials?.username || !credentials?.password) {
+        if (!credentials?.email || !credentials?.password) {
           return null
         }
 
         try {
-          // username으로만 찾고, active 체크는 따로 함
-          const user = await prisma.user.findUnique({
-            where: { username: credentials.username },
+          const user = await prisma.administrator.findUnique({
+            where: { email: credentials.email },
           })
-          console.log('🚀 ~ authorize ~ user:', user)
 
-          // 사용자가 없는 경우
           if (!user) {
-            console.log('사용자를 찾을 수 없음')
             return null
           }
 
-          // 비활성 계정 체크
           if (!user.active) {
-            console.log('비활성화된 계정')
             return null
           }
 
@@ -59,16 +54,13 @@ export const authOptions: NextAuthOptions = {
             user.passwordHash
           )
           if (!passwordValid) {
-            console.log('비밀번호 불일치')
             return null
           }
 
-          // 성공 시 사용자 정보 반환
           return {
             id: user.id,
             name: user.name,
             email: user.email,
-            username: user.username,
             active: user.active,
           }
         } catch (error) {
@@ -82,7 +74,7 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string
-        session.user.username = token.username as string
+        session.user.email = token.email as string
         session.user.active = token.active as boolean
       }
       return session
@@ -90,7 +82,7 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id
-        token.username = user.username
+        token.email = user.email
         token.active = user.active
       }
       return token
@@ -98,7 +90,6 @@ export const authOptions: NextAuthOptions = {
   },
   pages: {
     signIn: '/admin/login',
-    // error: '/admin/error',
   },
   session: {
     strategy: 'jwt',

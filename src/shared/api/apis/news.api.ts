@@ -1,9 +1,15 @@
 import { News } from '@/src/generated/prisma/client'
+import {
+  ApiListResponse,
+  ApiSuccessResponse,
+} from '@/src/shared/api/types/api.types'
 
 const BASE_URL = '/admin/api/news'
 
 const newsApi = {
-  getNews: async (filters?: { published?: boolean }) => {
+  getNews: async (filters?: {
+    published?: boolean
+  }): Promise<ApiListResponse<News>> => {
     const queryParams = new URLSearchParams()
     if (filters?.published !== undefined) {
       queryParams.append('published', filters.published.toString())
@@ -21,10 +27,12 @@ const newsApi = {
     }
 
     const data = await response.json()
-    return data.news
+    return data
   },
 
-  getNewsById: async (id: string) => {
+  getNewsById: async (id: string): Promise<News | null> => {
+    if (!id) return null
+
     const response = await fetch(`${BASE_URL}/${id}`)
 
     if (!response.ok) {
@@ -37,7 +45,9 @@ const newsApi = {
     return data.news
   },
 
-  createNews: async (news: Omit<News, 'id' | 'createdAt' | 'updatedAt'>) => {
+  createNews: async (
+    news: Omit<News, 'id' | 'createdAt' | 'updatedAt'>
+  ): Promise<{ id: number }> => {
     const response = await fetch(BASE_URL, {
       method: 'POST',
       headers: {
@@ -55,10 +65,13 @@ const newsApi = {
     }
 
     const data = await response.json()
-    return data.news
+    return data
   },
 
-  updateNews: async (id: string, news: Partial<News>) => {
+  updateNews: async (
+    id: string,
+    news: Partial<News>
+  ): Promise<ApiSuccessResponse> => {
     const response = await fetch(`${BASE_URL}/${id}`, {
       method: 'PUT',
       headers: {
@@ -76,10 +89,10 @@ const newsApi = {
     }
 
     const data = await response.json()
-    return data.news
+    return data
   },
 
-  deleteNews: async (id: string) => {
+  deleteNews: async (id: string): Promise<ApiSuccessResponse> => {
     const response = await fetch(`${BASE_URL}/${id}`, {
       method: 'DELETE',
     })
@@ -92,7 +105,8 @@ const newsApi = {
       )
     }
 
-    return true
+    const data = await response.json()
+    return data
   },
 }
 

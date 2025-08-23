@@ -1,6 +1,5 @@
 import {
   Checkbox,
-  Skeleton,
   Table,
   TableBody,
   TableCell,
@@ -20,7 +19,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from '@tanstack/react-table'
-import { Inbox } from 'lucide-react'
+import { Inbox, Loader2 } from 'lucide-react'
 import * as React from 'react'
 import { useMemo } from 'react'
 import { DataTableHeader } from './data-table-header'
@@ -203,21 +202,8 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
       return (
         <TableRow>
           <TableCell colSpan={tableColumns.length} className="h-24 text-center">
-            <div className="flex flex-col justify-center gap-4 py-12 pl-8 md:py-8">
-              <div className="flex space-x-4">
-                <Skeleton className="h-12 w-12 rounded-full" />
-                <div className="space-y-2">
-                  <Skeleton className="h-4 w-[300px]" />
-                  <Skeleton className="h-4 w-[250px]" />
-                </div>
-              </div>
-              <div className="flex items-center space-x-4">
-                <Skeleton className="h-12 w-12 rounded-full" />
-                <div className="space-y-2">
-                  <Skeleton className="h-4 w-[300px]" />
-                  <Skeleton className="h-4 w-[250px]" />
-                </div>
-              </div>
+            <div className="flex flex-col items-center justify-center gap-4 py-12 md:py-16">
+              <Loader2 className="h-16 w-16 animate-spin" />
             </div>
           </TableCell>
         </TableRow>

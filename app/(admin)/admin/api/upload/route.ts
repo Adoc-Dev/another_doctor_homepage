@@ -5,12 +5,9 @@ import { getServerSession } from 'next-auth/next'
 import { NextRequest, NextResponse } from 'next/server'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-console.log('🚀 ~ supabaseUrl:', supabaseUrl)
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY! // 서비스 롤 키 (관리자 권한)
-console.log('🚀 ~ supabaseServiceKey:', supabaseServiceKey)
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
 
 export async function POST(req: NextRequest) {
-  // Next-Auth 세션 확인
   const session = await getServerSession(authOptions)
   if (!session) {
     return NextResponse.json({ error: '인증되지 않은 요청' }, { status: 401 })
@@ -25,14 +22,11 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: '파일이 없습니다' }, { status: 400 })
     }
 
-    // 서비스 롤 키를 사용한 Supabase 클라이언트 생성
     const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
-    // 파일 이름 생성
     const fileName = `${Date.now()}_${file.name.replace(/\s/g, '_')}`
     const filePath = `${folder}/${fileName}`
 
-    // 파일 업로드
     const { data, error } = await supabase.storage
       .from('images')
       .upload(filePath, await file.arrayBuffer(), {
@@ -44,7 +38,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
-    // 공개 URL 반환
     const { data: urlData } = supabase.storage
       .from('images')
       .getPublicUrl(filePath)

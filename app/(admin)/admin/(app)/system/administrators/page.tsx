@@ -20,6 +20,7 @@ function AdministratorsPage() {
     queryKey: [ADMINISTRATORS_QUERY_KEYS],
     queryFn: () => administratorsService.getAdministrators(),
   })
+  console.log('🚀 ~ AdministratorsPage ~ data:', data)
 
   const columns: ColumnDef<Administrator>[] = [
     {
@@ -63,10 +64,10 @@ function AdministratorsPage() {
     <>
       <div className="p-4">
         <DataTable
-          data={data?.users ?? []}
+          data={data?.data ?? []}
           onRow={handleRowClick}
           columns={columns}
-          total={data?.users?.length}
+          total={data?.total ?? 0}
           toolbar={{
             topRightItems: [
               <Button
@@ -93,7 +94,7 @@ function AdministratorsPage() {
           open={!!pageFilters.filters.modalAction}
           id={pageFilters.filters.id}
           type={pageFilters.filters.modalAction}
-          record={data?.users.find(
+          record={data?.data?.find(
             (user) => user.id === pageFilters.filters.id?.toString()
           )}
           onChangeType={(type) => pageFilters.navigate({ modalAction: type })}

@@ -4,10 +4,8 @@ import { hash } from 'bcryptjs'
 import { getServerSession } from 'next-auth'
 import { NextRequest, NextResponse } from 'next/server'
 
-// GET: 모든 관리자 계정 가져오기
 export async function GET(req: NextRequest) {
   try {
-    // 인증 확인
     const session = await getServerSession(authOptions)
     if (!session) {
       return NextResponse.json(
@@ -29,9 +27,11 @@ export async function GET(req: NextRequest) {
         createdAt: 'desc',
       },
     })
-    console.log('🚀 ~ GET ~ users:', users)
 
-    return NextResponse.json({ users }, { status: 200 })
+    return NextResponse.json(
+      { data: users, total: users.length },
+      { status: 200 }
+    )
   } catch (error) {
     console.error('Error fetching users:', error)
     return NextResponse.json(
@@ -41,10 +41,8 @@ export async function GET(req: NextRequest) {
   }
 }
 
-// POST: 새 관리자 계정 생성
 export async function POST(req: NextRequest) {
   try {
-    // 인증 확인
     const session = await getServerSession(authOptions)
     if (!session) {
       return NextResponse.json(
@@ -55,7 +53,6 @@ export async function POST(req: NextRequest) {
 
     const body = await req.json()
 
-    // 필수 필드 검증
     if (!body.name || !body.email || !body.password) {
       return NextResponse.json(
         { error: '모든 필수 정보를 입력해주세요.' },
@@ -63,7 +60,6 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // 이메일 중복 확인
     const existingEmail = await prisma.administrator.findUnique({
       where: { email: body.email },
     })
@@ -74,10 +70,8 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // 비밀번호 해싱
     const passwordHash = await hash(body.password, 12)
 
-    // 사용자 생성
     const user = await prisma.administrator.create({
       data: {
         name: body.name,
@@ -93,7 +87,7 @@ export async function POST(req: NextRequest) {
       },
     })
 
-    return NextResponse.json({ user }, { status: 201 })
+    return NextResponse.json({ id: user.id }, { status: 201 })
   } catch (error) {
     console.error('Error creating user:', error)
     return NextResponse.json(

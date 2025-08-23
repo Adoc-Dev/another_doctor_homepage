@@ -55,6 +55,7 @@
     "dayjs": "^1.11.13",
     "embla-carousel-react": "^8.6.0",
     "es-toolkit": "^1.39.10",
+    "isomorphic-dompurify": "^2.26.0",
     "lucide-react": "^0.539.0",
     "motion": "^12.23.12",
     "next": "15.4.6",

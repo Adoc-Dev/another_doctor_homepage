@@ -1,20 +1,25 @@
 'use client'
 
 import { NewsForm } from '@/src/features/admin/news/ui'
-import { News } from '@/src/generated/prisma'
-import newsService from '@/src/shared/api/services/news.service'
+import newsService, {
+  NEWS_QUERY_KEYS,
+} from '@/src/shared/api/services/news.service'
 import { useAlertDialog } from '@/src/shared/hooks/alert-dialog.hook'
 import { Button } from '@/src/shared/ui'
+import { useQuery } from '@tanstack/react-query'
 import { Save, Trash2, X } from 'lucide-react'
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import { useId, useState } from 'react'
 
-interface NewsPageProps {
-  record?: News
-}
+function NewsPage() {
+  const searchParams = useSearchParams()
+  const id = searchParams.get('id')
 
-function NewsPage(props: NewsPageProps) {
-  const { record } = props
+  const { data } = useQuery({
+    queryKey: [NEWS_QUERY_KEYS],
+    queryFn: () => newsService.getNewsById(id ?? ''),
+  })
+  console.log('🚀 ~ NewsPage ~ data:', data)
 
   const formId = useId()
   const [loading, setLoading] = useState(false)
@@ -35,7 +40,7 @@ function NewsPage(props: NewsPageProps) {
       confirmText: '삭제',
       destructive: true,
       onConfirm: async () => {
-        await newsService.deleteNews(record!.id.toString())
+        await newsService.deleteNews(data!.id.toString())
         await handleCancel()
       },
     })
@@ -57,7 +62,7 @@ function NewsPage(props: NewsPageProps) {
     <div className="p-2">
       <div className="mb-6 flex justify-between">
         <div>
-          {record && (
+          {data && (
             <Button variant="destructive" onClick={handleDelete}>
               <Trash2 className="h-4 w-4" />
               삭제
@@ -77,7 +82,7 @@ function NewsPage(props: NewsPageProps) {
       </div>
       <NewsForm
         formId={formId}
-        record={record}
+        record={data}
         onFinish={handleFinish}
         onLoading={handleLoading}
       />

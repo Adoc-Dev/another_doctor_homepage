@@ -10,6 +10,7 @@ import {
   DataModalCreateOrUpdate,
   DataModalShow,
 } from '@/src/shared/ui'
+import { useRouter } from 'next/navigation'
 import { useEffect, useId, useMemo, useState } from 'react'
 
 type ModalType = 'create' | 'update' | 'show'
@@ -27,6 +28,7 @@ interface NewsModalProps {
 function NewsModal(props: NewsModalProps) {
   const { type, open, id, record, onFinish, onChangeType, onClose } = props
 
+  const router = useRouter()
   const formId = useId()
   const alertDialog = useAlertDialog()
   const [modalType, setModalType] = useState(type)
@@ -66,10 +68,17 @@ function NewsModal(props: NewsModalProps) {
   }
 
   const handleDelete = async () => {
-    if (!id) return
-
-    const result = await newsService.deleteNews(id?.toString() ?? '')
-    console.log('🚀 ~ handleDelete ~ result:', result)
+    alertDialog.open({
+      title: '삭제',
+      description: '삭제하시겠습니끼?',
+      cancelText: '취소',
+      confirmText: '삭제',
+      destructive: true,
+      onConfirm: async () => {
+        await newsService.deleteNews(id!.toString())
+        await handleCancel()
+      },
+    })
   }
 
   return (
@@ -87,7 +96,9 @@ function NewsModal(props: NewsModalProps) {
               type="submit"
               variant="outline"
               loading={loading}
-              onClick={() => handleChangeType('update')}
+              onClick={() =>
+                router.push(`/admin/contents/news/create?id=${id}`)
+              }
             >
               수정
             </Button>

@@ -3,7 +3,6 @@ import prisma from '@/src/shared/lib/db'
 import { getServerSession } from 'next-auth'
 import { NextRequest, NextResponse } from 'next/server'
 
-// GET: 모든 뉴스 가져오기
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url)
@@ -16,7 +15,10 @@ export async function GET(req: NextRequest) {
       },
     })
 
-    return NextResponse.json({ news }, { status: 200 })
+    return NextResponse.json(
+      { data: news, total: news.length },
+      { status: 200 }
+    )
   } catch (error) {
     console.error('Error fetching news:', error)
     return NextResponse.json(
@@ -26,10 +28,8 @@ export async function GET(req: NextRequest) {
   }
 }
 
-// POST: 새 뉴스 생성
 export async function POST(req: NextRequest) {
   try {
-    // 인증 확인
     const session = await getServerSession(authOptions)
     if (!session) {
       return NextResponse.json({ error: '권한이 없습니다.' }, { status: 403 })
@@ -37,7 +37,6 @@ export async function POST(req: NextRequest) {
 
     const body = await req.json()
 
-    // 필수 필드 검증
     if (!body.title || !body.contents) {
       return NextResponse.json(
         { error: '제목과 내용은 필수 항목입니다.' },
@@ -45,7 +44,6 @@ export async function POST(req: NextRequest) {
       )
     }
 
-    // 뉴스 생성
     const news = await prisma.news.create({
       data: {
         title: body.title,
@@ -57,7 +55,7 @@ export async function POST(req: NextRequest) {
       },
     })
 
-    return NextResponse.json({ news }, { status: 201 })
+    return NextResponse.json({ id: news.id }, { status: 201 })
   } catch (error) {
     console.error('Error creating news:', error)
     return NextResponse.json(

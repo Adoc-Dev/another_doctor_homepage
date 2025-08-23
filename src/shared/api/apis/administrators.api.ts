@@ -1,16 +1,9 @@
 import { Administrator } from '@/src/generated/prisma'
-
-export interface AdminListResponse {
-  users: Administrator[]
-}
-
-export interface AdminResponse {
-  user: Administrator
-}
-
-export interface AdminSuccessResponse {
-  success: boolean
-}
+import {
+  ApiItemResponse,
+  ApiListResponse,
+  ApiSuccessResponse,
+} from '@/src/shared/api/types/api.types'
 
 export interface CreateAdminData {
   name: string
@@ -24,8 +17,7 @@ export interface UpdateAdminData {
 }
 
 const administratorsApi = {
-  // 모든 관리자 목록 조회
-  getAdministrators: async (): Promise<AdminListResponse> => {
+  getAdministrators: async (): Promise<ApiListResponse<Administrator>> => {
     try {
       const response = await fetch('/admin/api/administrator')
       if (!response.ok) {
@@ -39,8 +31,9 @@ const administratorsApi = {
     }
   },
 
-  // 특정 관리자 정보 조회
-  getAdministratorById: async (id: string): Promise<AdminResponse> => {
+  getAdministratorById: async (
+    id: string
+  ): Promise<ApiItemResponse<Administrator>> => {
     try {
       const response = await fetch(`/admin/api/administrator/${id}`)
       if (!response.ok) {
@@ -54,10 +47,9 @@ const administratorsApi = {
     }
   },
 
-  // 새 관리자 생성
   createAdministrator: async (
     data: CreateAdminData
-  ): Promise<AdminResponse> => {
+  ): Promise<{ id: string }> => {
     try {
       const response = await fetch('/admin/api/administrator', {
         method: 'POST',
@@ -77,11 +69,10 @@ const administratorsApi = {
     }
   },
 
-  // 관리자 정보 업데이트
   updateAdministrator: async (
     id: string,
     data: UpdateAdminData
-  ): Promise<AdminResponse> => {
+  ): Promise<ApiSuccessResponse> => {
     try {
       const response = await fetch(`/admin/api/administrator/${id}`, {
         method: 'PUT',
@@ -101,10 +92,7 @@ const administratorsApi = {
     }
   },
 
-  // 관리자 계정 비활성화 (소프트 삭제)
-  deactivateAdministrator: async (
-    id: string
-  ): Promise<AdminSuccessResponse> => {
+  deactivateAdministrator: async (id: string): Promise<ApiSuccessResponse> => {
     try {
       const response = await fetch(`/admin/api/administrator/${id}`, {
         method: 'DELETE',

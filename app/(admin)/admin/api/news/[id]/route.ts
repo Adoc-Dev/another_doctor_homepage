@@ -9,10 +9,10 @@ interface NewsParams {
   }
 }
 
-// GET: 특정 ID의 뉴스 가져오기
 export async function GET(_req: NextRequest, { params }: NewsParams) {
   try {
     const id = parseInt(params.id)
+
     if (isNaN(id)) {
       return NextResponse.json(
         { error: '유효하지 않은 ID입니다.' },
@@ -41,10 +41,8 @@ export async function GET(_req: NextRequest, { params }: NewsParams) {
   }
 }
 
-// PUT: 특정 ID의 뉴스 업데이트
 export async function PUT(req: NextRequest, { params }: NewsParams) {
   try {
-    // 인증 확인
     const session = await getServerSession(authOptions)
     if (!session) {
       return NextResponse.json({ error: '권한이 없습니다.' }, { status: 403 })
@@ -60,7 +58,6 @@ export async function PUT(req: NextRequest, { params }: NewsParams) {
 
     const body = await req.json()
 
-    // 업데이트할 뉴스가 존재하는지 확인
     const existingNews = await prisma.news.findUnique({
       where: { id },
     })
@@ -72,8 +69,7 @@ export async function PUT(req: NextRequest, { params }: NewsParams) {
       )
     }
 
-    // 뉴스 업데이트
-    const updatedNews = await prisma.news.update({
+    await prisma.news.update({
       where: { id },
       data: {
         title: body.title !== undefined ? body.title : undefined,
@@ -85,7 +81,7 @@ export async function PUT(req: NextRequest, { params }: NewsParams) {
       },
     })
 
-    return NextResponse.json({ news: updatedNews }, { status: 200 })
+    return NextResponse.json({ status: 200 })
   } catch (error) {
     console.error(`Error updating news ${params.id}:`, error)
     return NextResponse.json(
@@ -95,10 +91,8 @@ export async function PUT(req: NextRequest, { params }: NewsParams) {
   }
 }
 
-// DELETE: 특정 ID의 뉴스 삭제
 export async function DELETE(req: NextRequest, { params }: NewsParams) {
   try {
-    // 인증 확인
     const session = await getServerSession(authOptions)
     if (!session) {
       return NextResponse.json({ error: '권한이 없습니다.' }, { status: 403 })
@@ -112,7 +106,6 @@ export async function DELETE(req: NextRequest, { params }: NewsParams) {
       )
     }
 
-    // 삭제할 뉴스가 존재하는지 확인
     const existingNews = await prisma.news.findUnique({
       where: { id },
     })
@@ -124,12 +117,11 @@ export async function DELETE(req: NextRequest, { params }: NewsParams) {
       )
     }
 
-    // 뉴스 삭제
     await prisma.news.delete({
       where: { id },
     })
 
-    return NextResponse.json({ success: true }, { status: 200 })
+    return NextResponse.json({ status: 200 })
   } catch (error) {
     console.error(`Error deleting news ${params.id}:`, error)
     return NextResponse.json(

@@ -67,6 +67,7 @@ function AdministratorsPage() {
           data={data?.data ?? []}
           onRow={handleRowClick}
           columns={columns}
+          loading={isLoading}
           total={data?.total ?? 0}
           toolbar={{
             topRightItems: [

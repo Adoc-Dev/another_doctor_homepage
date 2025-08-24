@@ -1,25 +1,19 @@
 'use client'
 
-import NewsModal from '@/src/features/admin/news/ui/news-modal'
+import { NewsModal } from '@/src/features/admin/news/ui'
 import { News } from '@/src/generated/prisma'
-import newsService, {
-  NEWS_QUERY_KEYS,
-} from '@/src/shared/api/services/news.service'
+import { useNewsListQuery } from '@/src/shared/api/queries/news.query'
 import { usePageFilters } from '@/src/shared/hooks/page.hook'
 import { cn } from '@/src/shared/lib/utils'
 import { Button, DataTable } from '@/src/shared/ui'
 import { formatDateTime } from '@/src/shared/util/string'
-import { useQuery } from '@tanstack/react-query'
 import { ColumnDef } from '@tanstack/react-table'
 import { PlusCircle } from 'lucide-react'
 
 function NewsPage() {
   const pageFilters = usePageFilters()
 
-  const { data, isLoading } = useQuery({
-    queryKey: [NEWS_QUERY_KEYS],
-    queryFn: () => newsService.getNews(),
-  })
+  const { data, isLoading } = useNewsListQuery()
 
   const columns: ColumnDef<News>[] = [
     {
@@ -45,6 +39,10 @@ function NewsPage() {
     {
       accessorKey: 'title',
       header: '제목',
+      cell: ({ row }) => {
+        const value = row.original.title
+        return <div className="max-w-[300px] truncate">{value}</div>
+      },
     },
     {
       accessorKey: 'link',
@@ -76,7 +74,6 @@ function NewsPage() {
     {
       accessorKey: 'published',
       header: '공개 여부',
-
       cell: ({ row }) => {
         const value = row.original.published
         return (

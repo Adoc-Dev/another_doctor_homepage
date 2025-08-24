@@ -25,7 +25,10 @@ function AdministratorForm(props: AdministratorFormProps) {
 
   const form = useForm<AdministratorFormSchema>({
     resolver: zodResolver(administratorFormSchema),
-    defaultValues: record,
+    defaultValues: {
+      name: record?.name ?? '',
+      email: record?.email ?? '',
+    },
   })
 
   const handleSubmit = async (data: AdministratorFormSchema) => {

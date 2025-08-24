@@ -15,6 +15,7 @@ interface InputFileProps
   accept?: string
   placeholder?: string
   preview?: boolean
+  compact?: boolean
 }
 
 export const InputFile = forwardRef<HTMLDivElement, InputFileProps>(
@@ -27,6 +28,7 @@ export const InputFile = forwardRef<HTMLDivElement, InputFileProps>(
       accept = 'image/*',
       placeholder = '이미지 선택',
       preview = true,
+      compact = false,
       ...props
     },
     ref
@@ -95,6 +97,82 @@ export const InputFile = forwardRef<HTMLDivElement, InputFileProps>(
       onChange?.('')
       setPreviewUrl(undefined)
     }, [onChange])
+
+    if (compact) {
+      return (
+        <div
+          ref={ref}
+          className={cn('flex w-full items-center gap-2', className)}
+        >
+          {/* 컴팩트 모드 */}
+          <div className="flex h-9 flex-1 items-center gap-2 rounded-md border border-gray-200 bg-white px-3 py-1 text-base shadow-xs md:text-sm">
+            {preview && previewUrl ? (
+              <div className="flex flex-1 items-center gap-2 overflow-hidden">
+                <img
+                  src={previewUrl}
+                  alt="업로드 이미지"
+                  className="h-6 w-6 rounded-sm object-cover"
+                />
+                <span className="flex-1 truncate text-sm text-gray-600">
+                  {value?.split('/').pop() ||
+                    previewUrl?.split('/').pop() ||
+                    '업로드된 파일'}
+                </span>
+              </div>
+            ) : (
+              <span
+                className="flex flex-1 cursor-pointer items-center gap-2 text-sm text-gray-500"
+                onClick={() =>
+                  !loading && document.getElementById('file-upload')?.click()
+                }
+              >
+                <ImageIcon
+                  className={cn('h-4 w-4', loading && 'animate-pulse')}
+                />
+                {loading ? '업로드 중...' : placeholder}
+              </span>
+            )}
+
+            <div className="flex items-center">
+              {value || previewUrl ? (
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleRemove}
+                  className="h-6 w-6 p-0 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                >
+                  <XIcon className="h-3.5 w-3.5" />
+                </Button>
+              ) : (
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  onClick={() =>
+                    !loading && document.getElementById('file-upload')?.click()
+                  }
+                  className="h-6 w-6 p-0 text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                  disabled={loading}
+                >
+                  <UploadIcon className="h-3.5 w-3.5" />
+                </Button>
+              )}
+            </div>
+          </div>
+
+          <input
+            id="file-upload"
+            type="file"
+            accept={accept}
+            onChange={handleInputChange}
+            disabled={loading}
+            className="hidden"
+            {...props}
+          />
+        </div>
+      )
+    }
 
     return (
       <div ref={ref} className={cn('flex flex-col space-y-2', className)}>

@@ -44,10 +44,13 @@ function ToggleGroupItem({
   className,
   children,
   variant,
+  color,
   size,
   ...props
 }: React.ComponentProps<typeof ToggleGroupPrimitive.Item> &
-  VariantProps<typeof toggleVariants>) {
+  VariantProps<typeof toggleVariants> & {
+    color?: 'default' | 'primary'
+  }) {
   const context = React.useContext(ToggleGroupContext)
 
   return (
@@ -59,6 +62,7 @@ function ToggleGroupItem({
         toggleVariants({
           variant: context.variant || variant,
           size: context.size || size,
+          color: context.color || color,
         }),
         'min-w-0 flex-1 shrink-0 rounded-none shadow-none first:rounded-l-md last:rounded-r-md focus:z-10 focus-visible:z-10 data-[variant=outline]:border-l-0 data-[variant=outline]:first:border-l',
         className

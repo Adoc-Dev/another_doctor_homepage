@@ -2,7 +2,6 @@ import LogoIcon from '@/public/logo.svg'
 import {
   LayoutDashboardIcon,
   LucideIcon,
-  Settings,
   TableOfContentsIcon,
 } from 'lucide-react'
 
@@ -58,17 +57,17 @@ export const navData: DataType = {
         },
       ],
     },
-    {
-      title: '시스템',
-      url: '/admin/system',
-      icon: Settings,
-      items: [
-        {
-          title: '운영진 관리',
-          url: '/admin/system/administrators',
-        },
-      ],
-    },
+    // {
+    //   title: '시스템',
+    //   url: '/admin/system',
+    //   icon: Settings,
+    //   items: [
+    //     {
+    //       title: '운영진 관리',
+    //       url: '/admin/system/administrators',
+    //     },
+    //   ],
+    // },
   ],
   navSecondary: [],
 }

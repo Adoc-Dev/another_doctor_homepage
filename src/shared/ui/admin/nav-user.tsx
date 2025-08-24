@@ -69,7 +69,7 @@ export function NavUser({
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
+            className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg border-gray-200"
             side={isMobile ? 'bottom' : 'right'}
             align="end"
             sideOffset={4}
@@ -88,7 +88,7 @@ export function NavUser({
                 </div>
               </div>
             </DropdownMenuLabel>
-            <DropdownMenuSeparator />
+            <DropdownMenuSeparator className="bg-gray-200" />
 
             {actions?.length && (
               <>
@@ -106,7 +106,10 @@ export function NavUser({
               </>
             )}
 
-            <DropdownMenuItem onSelect={onLogout}>
+            <DropdownMenuItem
+              onSelect={onLogout}
+              className="focus:bg-gray-100 focus:text-gray-800"
+            >
               <LogOut />
               {logoutTitle}
             </DropdownMenuItem>

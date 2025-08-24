@@ -1,12 +1,12 @@
 'use client'
 
 import { NewsForm } from '@/src/features/admin/news/ui'
-import newsService, {
-  NEWS_QUERY_KEYS,
-} from '@/src/shared/api/services/news.service'
+import {
+  useDeleteNewsMutation,
+  useNewsDetailQuery,
+} from '@/src/shared/api/queries/news.query'
 import { useAlertDialog } from '@/src/shared/hooks/alert-dialog.hook'
 import { Button } from '@/src/shared/ui'
-import { useQuery } from '@tanstack/react-query'
 import { Save, Trash2, X } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useId, useState } from 'react'
@@ -15,17 +15,15 @@ function NewsPage() {
   const searchParams = useSearchParams()
   const id = searchParams.get('id')
 
-  const { data } = useQuery({
-    queryKey: [NEWS_QUERY_KEYS],
-    queryFn: () => newsService.getNewsById(id ?? ''),
+  const { data } = useNewsDetailQuery(id ?? '')
+  const deleteNews = useDeleteNewsMutation({
+    onSuccess: handleCancel,
   })
-  console.log('🚀 ~ NewsPage ~ data:', data)
 
   const formId = useId()
   const [loading, setLoading] = useState(false)
 
   const router = useRouter()
-
   const alertDialog = useAlertDialog()
 
   function handleLoading(loading: boolean) {
@@ -40,8 +38,9 @@ function NewsPage() {
       confirmText: '삭제',
       destructive: true,
       onConfirm: async () => {
-        await newsService.deleteNews(data!.id.toString())
-        await handleCancel()
+        if (data?.id) {
+          deleteNews.mutate(data.id.toString())
+        }
       },
     })
   }

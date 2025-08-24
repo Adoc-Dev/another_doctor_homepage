@@ -70,7 +70,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           <NavUser
             onLogout={handleLogout}
             user={{
-              name: session.user.name ?? session.user.username ?? '',
+              name: session.user.name ?? '',
               description: '관리자',
             }}
           />

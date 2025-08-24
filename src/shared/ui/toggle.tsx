@@ -20,6 +20,12 @@ const toggleVariants = cva(
         sm: 'h-8 px-1.5 min-w-8',
         lg: 'h-10 px-2.5 min-w-10',
       },
+      color: {
+        default:
+          'text-gray-500 data-[state=on]:bg-gray-500 data-[state=on]:text-white hover:bg-gray-50 hover:text-gray-500',
+        primary:
+          'text-primary data-[state=on]:bg-primary data-[state=on]:text-white hover:bg-primary/10 hover:text-primary',
+      },
     },
     defaultVariants: {
       variant: 'default',

@@ -78,7 +78,7 @@ export async function PUT(
         published: body.published !== undefined ? body.published : undefined,
         thumbnail: body.thumbnail !== undefined ? body.thumbnail : undefined,
         link: body.link !== undefined ? body.link : undefined,
-        date: body.date !== undefined ? new Date(body.date) : undefined,
+        date: body.date !== undefined ? new Date(body.date) : existingNews.date,
       },
     })
 

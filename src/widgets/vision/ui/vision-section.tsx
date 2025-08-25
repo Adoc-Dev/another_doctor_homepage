@@ -23,6 +23,11 @@ function VisionSection() {
             {t('title')}
           </h2>
         </BlurFade>
+        <BlurFade delay={0.6} inView>
+          <p className="xs:text-header-01 text-body-01 text-foreground/80 font-semibold">
+            {t('subTitle')}
+          </p>
+        </BlurFade>
       </div>
 
       <div className="mt-8 flex w-full flex-col items-center justify-center gap-8 p-2 sm:mt-10 sm:p-4 md:mt-12 md:flex-row md:gap-2 md:p-6">

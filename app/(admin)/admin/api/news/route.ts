@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
         published: body.published ?? false,
         thumbnail: body.thumbnail,
         link: body.link,
-        date: body.date ? new Date(body.date) : undefined,
+        date: body.date ? new Date(body.date) : new Date(),
       },
     })
 

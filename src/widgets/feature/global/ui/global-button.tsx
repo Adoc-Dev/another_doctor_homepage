@@ -4,11 +4,11 @@ import KoreaFlag from '@/public/icons/korea-flag.svg'
 import USAFlag from '@/public/icons/united-states-flag.svg'
 import { usePathname, useRouter } from '@/src/i18n/navigation'
 import { Button } from '@/src/shared/ui'
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 
 function GlobalButton() {
   const locale = useLocale() as 'ko' | 'en'
-  const t = useTranslations('header.language')
+
   const router = useRouter()
   const pathname = usePathname()
 
@@ -18,7 +18,15 @@ function GlobalButton() {
   }
 
   const handleLanguageChange = (newLocale: 'ko' | 'en') => {
-    router.replace(pathname, { locale: newLocale })
+    if (newLocale !== locale) {
+      console.log(`Changing locale from ${locale} to ${newLocale}`)
+
+      // Next.js 라우터 대신 window.location 사용하여 하드 리프레시 유도
+      const newPath = `/${newLocale}${pathname}`
+      window.location.href = newPath
+
+      localStorage.setItem('preferred-locale', newLocale)
+    }
   }
 
   return (

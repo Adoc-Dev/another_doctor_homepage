@@ -26,11 +26,9 @@ export function usePageFilters(
 
   const navigate = useCallback(
     (partialFilters: Record<string, any> & { to?: string }) => {
-      // to 파라미터가 있으면 직접 해당 경로로 이동
       if (partialFilters.to) {
         const { to, ...restFilters } = partialFilters
 
-        // 추가 필터가 있는 경우 쿼리스트링 구성
         if (Object.keys(restFilters).length > 0) {
           const newParams = new URLSearchParams()
 
@@ -43,13 +41,11 @@ export function usePageFilters(
           const queryString = newParams.toString()
           router.push(`${to}${queryString ? `?${queryString}` : ''}`)
         } else {
-          // 추가 필터 없이 경로만 이동
           router.push(to)
         }
         return
       }
 
-      // 기존 로직 (현재 경로에서 쿼리 파라미터만 변경)
       const newParams = new URLSearchParams(searchParams.toString())
 
       Object.entries(partialFilters).forEach(([key, value]) => {

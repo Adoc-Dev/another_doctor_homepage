@@ -6,8 +6,9 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(
   _req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params
   try {
     const session = await getServerSession(authOptions)
     if (!session) {
@@ -17,12 +18,12 @@ export async function GET(
       )
     }
 
-    if (session.user.id !== params.id) {
+    if (session.user.id !== id) {
       return NextResponse.json({ error: '권한이 없습니다.' }, { status: 403 })
     }
 
     const user = await prisma.administrator.findUnique({
-      where: { id: params.id },
+      where: { id: id },
       select: {
         id: true,
         name: true,
@@ -42,7 +43,7 @@ export async function GET(
 
     return NextResponse.json({ user }, { status: 200 })
   } catch (error) {
-    console.error(`Error fetching user ${params.id}:`, error)
+    console.error(`Error fetching user ${id}:`, error)
     return NextResponse.json(
       { error: '사용자 정보를 가져오는 중 오류가 발생했습니다.' },
       { status: 500 }
@@ -52,8 +53,9 @@ export async function GET(
 
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params
   try {
     const session = await getServerSession(authOptions)
     if (!session) {
@@ -63,7 +65,7 @@ export async function PUT(
       )
     }
 
-    if (session.user.id !== params.id) {
+    if (session.user.id !== id) {
       return NextResponse.json({ error: '권한이 없습니다.' }, { status: 403 })
     }
 
@@ -80,8 +82,8 @@ export async function PUT(
       )
     }
 
-    const updatedUser = await prisma.administrator.update({
-      where: { id: params.id },
+    await prisma.administrator.update({
+      where: { id: id },
       data: updateData,
       select: {
         id: true,
@@ -94,7 +96,7 @@ export async function PUT(
 
     return NextResponse.json({ status: 200 })
   } catch (error) {
-    console.error(`Error updating user ${params.id}:`, error)
+    console.error(`Error updating user ${id}:`, error)
     return NextResponse.json(
       { error: '사용자 정보를 업데이트하는 중 오류가 발생했습니다.' },
       { status: 500 }
@@ -104,8 +106,9 @@ export async function PUT(
 
 export async function DELETE(
   _req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params
   try {
     const session = await getServerSession(authOptions)
     if (!session) {
@@ -115,12 +118,12 @@ export async function DELETE(
       )
     }
 
-    if (session.user.id !== params.id) {
+    if (session.user.id !== id) {
       return NextResponse.json({ error: '권한이 없습니다.' }, { status: 403 })
     }
 
     const user = await prisma.administrator.findUnique({
-      where: { id: params.id },
+      where: { id: id },
     })
 
     if (!user) {
@@ -131,13 +134,13 @@ export async function DELETE(
     }
 
     await prisma.administrator.update({
-      where: { id: params.id },
+      where: { id: id },
       data: { active: false },
     })
 
     return NextResponse.json({ status: 200 })
   } catch (error) {
-    console.error(`Error deactivating user ${params.id}:`, error)
+    console.error(`Error deactivating user ${id}:`, error)
     return NextResponse.json(
       { error: '계정 비활성화 중 오류가 발생했습니다.' },
       { status: 500 }

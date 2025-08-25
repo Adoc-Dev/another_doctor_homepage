@@ -5,7 +5,7 @@
 import * as React from 'react'
 import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts'
 
-import { useIsMobile } from '@/src/shared/hooks/use-mobile'
+import { useIsMobile } from '@/src/shared/hooks/mobile.hook'
 import {
   Card,
   CardAction,

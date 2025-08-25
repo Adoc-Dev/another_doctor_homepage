@@ -1,14 +1,11 @@
 'use client'
 
-import { useMediaQuery } from '@/src/shared/hooks/use-media-query'
 import { cn } from '@/src/shared/lib/utils'
 import { AnimatedGridPattern, BlurFade, Globe } from '@/src/shared/ui'
 import { useTranslations } from 'next-intl'
 
 function VisionSection() {
   const t = useTranslations('vision')
-  const isMobile = useMediaQuery('(max-width: 640px)')
-  const isTablet = useMediaQuery('(min-width: 641px) and (max-width: 1023px)')
 
   return (
     <section

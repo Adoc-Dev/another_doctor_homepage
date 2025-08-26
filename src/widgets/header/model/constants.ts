@@ -5,23 +5,18 @@ const navItems: NavItemType[] = [
     type: 'dropdown',
     key: 'company',
     translationKey: 'navigation.companyInfo',
-    content: {
-      href: '/company/about',
-      titleKey: 'about.introduction.title',
-      descriptionKey: 'about.introduction.description',
-      minWidth: '350px',
-    },
-  },
-  {
-    type: 'dropdown',
-    key: 'product',
-    translationKey: 'navigation.productInfo',
-    content: {
-      href: '/product/t-grid',
-      titleKey: 'product.introduction.title',
-      descriptionKey: 'product.introduction.description',
-      minWidth: '300px',
-    },
+    contents: [
+      {
+        href: '/company/about',
+        titleKey: 'about.introduction.title',
+        descriptionKey: 'about.introduction.description',
+      },
+      {
+        href: '/company/message',
+        titleKey: 'about.ceoMessage.title',
+        descriptionKey: 'about.ceoMessage.description',
+      },
+    ],
   },
   {
     type: 'link',

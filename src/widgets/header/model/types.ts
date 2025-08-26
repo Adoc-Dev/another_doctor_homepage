@@ -3,12 +3,11 @@ type NavItemType = {
   key: string
   translationKey: string
   href?: string
-  content?: {
+  contents?: {
     href: string
     titleKey: string
     descriptionKey: string
-    minWidth: string
-  }
+  }[]
 }
 
 export type { NavItemType }

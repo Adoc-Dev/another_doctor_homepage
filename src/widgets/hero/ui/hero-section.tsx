@@ -1,83 +1,55 @@
 'use client'
 
-import { cn } from '@/src/shared/lib/utils'
-import { AuroraText, BlurFade } from '@/src/shared/ui'
-import { HERO_TEXT } from '@/src/widgets/hero/model/constants'
-import { MemoizedHeroRing } from '@/src/widgets/hero/ui/hero-ring'
-import { MouseIcon } from 'lucide-react'
-import { motion } from 'motion/react'
-import { useTranslations } from 'next-intl'
-import { memo, useEffect, useState } from 'react'
+import { AuroraText, BlurFade, FlipWords, SparklesCore } from '@/src/shared/ui'
+import { useLocale, useTranslations } from 'next-intl'
 
 function HeroSection() {
+  const locale = useLocale() as 'ko' | 'en'
   const t = useTranslations('hero')
 
-  const [loaded, setLoaded] = useState(false)
-  const [spinning, setSpinning] = useState(false)
-
-  useEffect(() => {
-    const loadTimeout = setTimeout(() => {
-      requestAnimationFrame(() => setLoaded(true))
-    }, 10)
-
-    const spinTimeout = setTimeout(() => setSpinning(true), 5500)
-
-    return () => {
-      clearTimeout(loadTimeout)
-      clearTimeout(spinTimeout)
-    }
-  }, [])
+  const words =
+    locale === 'ko'
+      ? ['티그리드하다', '정확한 색을 찾다']
+      : ['T-GRID', 'Find the exact color']
 
   return (
     <section
       id="hero-section"
-      className="relative flex h-dvh w-full items-center justify-center"
+      className="relative flex min-h-dvh w-full flex-col items-center justify-center overflow-hidden"
     >
-      <div className="relative mx-auto w-full">
-        <div
-          className={cn(
-            'bg-primary-300 dark:bg-primary-700 xs:h-[250px] xs:w-[250px] absolute top-1/2 left-1/2 z-0 h-[200px] w-[200px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-0 blur-[300px] transition-all duration-600 ease-[cubic-bezier(0.5,0.01,0.14,0.99)] sm:h-[350px] sm:w-[350px] sm:blur-[400px] md:h-[450px] md:w-[450px] md:blur-[500px] lg:h-[600px] lg:w-[600px] lg:blur-[600px]',
-            loaded && 'opacity-100'
-          )}
-        />
-        <MemoizedHeroRing spinning={spinning} loaded={loaded} />
-
-        <div className="xs:max-w-[300px] absolute top-1/2 left-1/2 z-10 w-full max-w-full -translate-x-1/2 -translate-y-1/2 sm:max-w-[400px] sm:px-5 md:max-w-[500px] lg:max-w-[600px]">
-          <BlurFade delay={0.2} duration={1.5} className="text-center">
-            <h1 className="text-center text-4xl font-black tracking-tighter text-balance whitespace-pre-wrap drop-shadow-xl lg:text-5xl xl:text-7xl">
-              <AuroraText colors={HERO_TEXT.auroraColors}>
-                {t('title')}
-              </AuroraText>
-            </h1>
-          </BlurFade>
-          <BlurFade delay={0.6} duration={1.5} className="text-center">
-            <p className="text-foreground/80 md:text-header-02 lg:text-header-01 xl:text-title-01 text-body-01 mt-5 text-center font-semibold tracking-tight text-balance whitespace-pre-wrap drop-shadow-md">
-              {t('description')}
-            </p>
-          </BlurFade>
-        </div>
+      <div className="relative">
+        <BlurFade delay={0.2} inView>
+          <h1 className="text-foreground relative z-20 text-center text-3xl font-bold tracking-tighter drop-shadow-xl md:text-7xl lg:text-8xl">
+            <AuroraText>{t('title')}</AuroraText>
+          </h1>
+        </BlurFade>
+        <BlurFade delay={0.4} inView>
+          <p className="absolute top-10 right-1/2 translate-x-1/2 text-center text-3xl font-bold tracking-tighter drop-shadow-xl md:text-7xl lg:text-3xl">
+            <FlipWords words={words} />
+          </p>
+        </BlurFade>
       </div>
+      <BlurFade duration={0.8} delay={0.8} inView>
+        <div className="relative mt-4 h-40 w-[60rem]">
+          <div className="absolute inset-x-20 top-0 h-[2px] w-3/4 bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm" />
+          <div className="absolute inset-x-20 top-0 h-px w-3/4 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
+          <div className="absolute inset-x-60 top-0 h-[5px] w-1/4 bg-gradient-to-r from-transparent via-sky-500 to-transparent blur-sm" />
+          <div className="absolute inset-x-60 top-0 h-px w-1/4 bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
 
-      <MemoizedChevronAnimation />
+          <SparklesCore
+            background="transparent"
+            minSize={0.4}
+            maxSize={1}
+            particleDensity={1200}
+            className="h-full w-full"
+            particleColor="#1199A9"
+          />
+
+          <div className="bg-background absolute inset-0 h-full w-full [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]"></div>
+        </div>
+      </BlurFade>
     </section>
   )
 }
 
 export { HeroSection }
-
-const MemoizedChevronAnimation = memo(() => (
-  <motion.div
-    initial={{ opacity: 0, y: 10 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{
-      duration: 2,
-      ease: 'easeInOut',
-      repeat: Infinity,
-      repeatType: 'reverse',
-    }}
-    className="absolute bottom-6 flex w-full flex-col items-center justify-center gap-1"
-  >
-    <MouseIcon className="text-foreground/50 size-5 sm:size-6" />
-    <p className="text-foreground/50 text-body-03 font-semibold">Scroll down</p>
-  </motion.div>
-))

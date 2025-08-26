@@ -10,7 +10,7 @@ type ThemeTogglerProps = {
   className?: string
 }
 
-const AnimatedThemeToggler = memo(({ className }: ThemeTogglerProps) => {
+const ThemeToggler = memo(({ className }: ThemeTogglerProps) => {
   const { theme, setTheme } = useTheme()
   const isDarkTheme = theme === 'dark'
 
@@ -38,6 +38,6 @@ const AnimatedThemeToggler = memo(({ className }: ThemeTogglerProps) => {
   )
 })
 
-AnimatedThemeToggler.displayName = 'AnimatedThemeToggler'
+ThemeToggler.displayName = 'ThemeToggler'
 
-export { AnimatedThemeToggler }
+export { ThemeToggler }

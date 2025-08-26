@@ -11,8 +11,14 @@
       "en": "영어"
     },
     "about": {
-      "introduction": { "title": "기업 소개", "description": "기업 소개 내용" },
-      "ceoMessage": { "title": "CEO 인사말", "description": "CEO 인사말 내용" }
+      "introduction": {
+        "title": "기업 소개",
+        "description": "어나더닥터를 소개합니다."
+      },
+      "ceoMessage": {
+        "title": "CEO 메세지",
+        "description": "CEO의 메세지를 확인하세요."
+      }
     },
     "product": {
       "introduction": { "title": "T-GRID", "description": "제품 소개 내용" }
@@ -20,7 +26,7 @@
   },
   "hero": {
     "title": "나만의 치아색을 찾다",
-    "description": "티그리드하다"
+    "words": ["티그리드하다", "정확한 색을 찾다"]
   },
   "vision": {
     "title": "아름다운 색, 정확한 기준",

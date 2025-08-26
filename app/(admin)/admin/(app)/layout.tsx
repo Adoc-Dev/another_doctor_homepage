@@ -1,7 +1,7 @@
 'use client'
 
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/src/shared/ui'
-import { AnimatedThemeToggler } from '@/src/widgets/header/ui/animated-theme-toggler'
+import { ThemeToggler } from '@/src/widgets/header/ui/animated-theme-toggler'
 import { AppSidebar } from '@/src/widgets/nav/ui'
 import { AppBreadcrumb } from '@/src/widgets/nav/ui/app-breadcrumb'
 import { useSession } from 'next-auth/react'
@@ -28,7 +28,7 @@ function AdminAppLayout({ children }: { children: React.ReactNode }) {
 
                   <AppBreadcrumb />
                 </div>
-                <AnimatedThemeToggler className="mr-4 ml-auto cursor-pointer" />
+                <ThemeToggler className="mr-4 ml-auto cursor-pointer" />
               </header>
               <div className="flex flex-1 flex-col gap-4 overflow-x-auto p-4 pt-0">
                 {children}

@@ -11,6 +11,7 @@ import { useRef, useState } from 'react'
 
 export const AnimatedTooltip = ({
   items,
+  onClick,
 }: {
   items: {
     id: number
@@ -18,6 +19,7 @@ export const AnimatedTooltip = ({
     designation: string
     image: string
   }[]
+  onClick?: (index: number) => void
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const springConfig = { stiffness: 100, damping: 15 }
@@ -50,8 +52,9 @@ export const AnimatedTooltip = ({
         <div
           className="group relative -mr-4"
           key={item.name}
-          onMouseEnter={() => setHoveredIndex(item.id)}
-          onMouseLeave={() => setHoveredIndex(null)}
+          // onMouseEnter={() => setHoveredIndex(item.id)}
+          // onMouseLeave={() => setHoveredIndex(null)}
+          onClick={() => onClick?.(item.id)}
         >
           <AnimatePresence>
             {hoveredIndex === item.id && (

@@ -2,7 +2,20 @@ import { News } from '@/src/generated/prisma'
 import newsService, {
   NEWS_QUERY_KEYS,
 } from '@/src/shared/api/services/news.service'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import {
+  QueryClient,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from '@tanstack/react-query'
+
+// 뉴스 목록 프리패치
+export function prefetchNewsList(queryClient: QueryClient) {
+  return queryClient.prefetchQuery({
+    queryKey: [NEWS_QUERY_KEYS, 'list'],
+    queryFn: () => newsService.getNews(),
+  })
+}
 
 // 뉴스 목록 쿼리
 export function useNewsListQuery(filters?: { published?: boolean }) {

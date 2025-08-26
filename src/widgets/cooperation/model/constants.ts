@@ -1,4 +1,4 @@
-import { Logo } from '@/src/widgets/cooperation/ui/types'
+import { Logo } from '@/src/widgets/cooperation/model/types'
 
 const COOPERATION_TEXT = {
   title: 'COOPERATION',

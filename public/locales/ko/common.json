@@ -2,7 +2,6 @@
   "header": {
     "navigation": {
       "companyInfo": "기업정보",
-      "productInfo": "제품정보",
       "newsroom": "뉴스룸",
       "support": "고객지원"
     },
@@ -28,25 +27,6 @@
     "title": "나만의 치아색을 찾다",
     "words": ["티그리드하다", "정확한 색을 찾다"]
   },
-  "timeline": {
-    "title": "문제에서 비전까지, T-GRID의 여정",
-    "subTitle": "치과 산업의 오랜 고민에서 출발해, 기술로 해결하고 환자와 산업에 새로운 가치를 만들어갑니다. 이제 우리는 글로벌 기준을 넘어 다양한 산업으로 확장하고 있습니다."
-  },
-  "vision": {
-    "title": "문제에서 비전까지, T-GRID의 여정",
-    "subTitle": "T-GRID는 문제 인식에서 출발해, 기술·워크플로우·임팩트를 거쳐 비전과 새로운 산업 확장으로 나아갑니다.",
-    "description1": {
-      "title": "정확함",
-      "description": "감각이 아닌 알고리즘, 초정밀 측정으로 신뢰할 수 있는 '진짜 색'을 제공합니다."
-    },
-    "description2": {
-      "title": "글로벌 표준",
-      "description": "정확산 색은 국경을 넘어 통용되는 새로운 언어. 어나더닥터는 세계 산업이 공유할 수 있는 표준을 만듭니다."
-    }
-  },
-  "cooperation": {
-    "title": "함께 성장하는 협력사"
-  },
   "technologyImpact": {
     "title": "원색을 왜곡없이 전달\nAI 초정밀 색 측정 솔루션",
     "description": "알고리즘과 특허 기술을 결합해 감각이 아닌 수치로 색을 정의합니다.",
@@ -67,7 +47,7 @@
     "grid": {
       "item1": {
         "title": "Calibration, 진짜 색의 기준",
-        "description": "TGRID는 Ground Truth 기반 보정으로, 색차를 최소화하여 최적의 색상을 제공합니다."
+        "description": "TGRID는 Ground Truth 기반 보정으로,\n색차를 최소화하여 최적의 색상을 제공합니다."
       },
       "item2": {
         "title": "알고리즘으로 완성한 정밀도",
@@ -75,13 +55,62 @@
       },
       "item3": {
         "title": "특허로 증명된 티그리드",
-        "description": "국내외 특허와 논문으로 검증된 기술. 티그리드는 메디컬 컬러 표준을 위한 최적의 솔루션입니다."
+        "description": "국내외 특허와 논문으로 검증된 기술. 티그리드는 메디컬 컬러 표준을 위한 최적의 솔루션입니다.",
+        "patent1": {
+          "title": "특허 1",
+          "subTitle": "치아색 보정 및 판정",
+          "description": "임상 사진 내 표본 치아를 활용한 치아색 보정과 판정 방법"
+        },
+        "patent2": {
+          "title": "특허 2",
+          "subTitle": "객체 색상 측정",
+          "description": "객체의 색상을 측정하는 방법 및 장치"
+        },
+        "patent3": {
+          "title": "특허 3",
+          "subTitle": "치아 색상 보정 장치",
+          "description": "치아 색상 보정 서비스 제공 방법 및 이를 위한 장치"
+        }
       },
       "item4": {
         "title": "컬러를 플로팅하다",
         "description": "새로운 Inventory 체계를 제시하고, 컬러맵(Plotting)으로 색을 시각화합니다."
       }
     }
+  },
+  "timeline": {
+    "title": "T-GRID의",
+    "subTitle": "색을 정의하고, 산업을 바꾸는 여정.",
+    "warp": "여정",
+    "data": {
+      "problem": {
+        "title": "Challenge",
+        "content": "치아 색 재현은 늘 어렵고\n재제작률이 높았습니다."
+      },
+      "technology": {
+        "title": "Solution",
+        "content": "AI와 딥러닝으로 색을 정량화하고,\n특허로 신뢰를 입증했습니다."
+      },
+      "workflow": {
+        "title": "Integration",
+        "content": "디지털 치과 프로세스에 정확한 색 분석을 더했습니다."
+      },
+      "impact": {
+        "title": "Result",
+        "content": "재제작률 감소와 환자 만족도 향상을 이끌었습니다."
+      },
+      "vision": {
+        "title": "Global Standard",
+        "content": "정확한 색은 국경을 넘어 통용되는 새로운 기준이 됩니다."
+      },
+      "beyondDentistry": {
+        "title": "Beyond Dentistry",
+        "content": "농업, 교육, XR까지 다양한 산업으로 확장됩니다."
+      }
+    }
+  },
+  "cooperation": {
+    "title": "함께 성장하는 협력사"
   },
   "news": {
     "title": "뉴스룸",
@@ -91,5 +120,17 @@
     "title": "Contact",
     "description": "어나더닥터와 함께 하세요.",
     "button": "Contact Us"
+  },
+  "vision": {
+    "title": "문제에서 비전까지, T-GRID의 여정",
+    "subTitle": "T-GRID는 문제 인식에서 출발해, 기술·워크플로우·임팩트를 거쳐 비전과 새로운 산업 확장으로 나아갑니다.",
+    "description1": {
+      "title": "정확함",
+      "description": "감각이 아닌 알고리즘, 초정밀 측정으로 신뢰할 수 있는 '진짜 색'을 제공합니다."
+    },
+    "description2": {
+      "title": "글로벌 표준",
+      "description": "정확산 색은 국경을 넘어 통용되는 새로운 언어. 어나더닥터는 세계 산업이 공유할 수 있는 표준을 만듭니다."
+    }
   }
 }

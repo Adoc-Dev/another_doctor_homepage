@@ -1,5 +1,5 @@
 import { AnimatedShinyText, BlurFade } from '@/src/shared/ui'
-import { FeatureGrid } from '@/src/widgets/product/ui/feature-grid'
+import { BentoDemo } from '@/src/widgets/product/ui/feature-grid'
 import { useTranslations } from 'next-intl'
 
 function TechnologyImpactSection() {
@@ -27,7 +27,7 @@ function TechnologyImpactSection() {
           </BlurFade>
         </div>
         {/* <MetricsSection /> */}
-        <FeatureGrid />
+        <BentoDemo />
       </div>
     </section>
   )

@@ -50,17 +50,34 @@ function Button({
     loading?: boolean
     asChild?: boolean
   }) {
-  const Comp = asChild ? SlotPrimitive.Slot : 'button'
+  const content = (
+    <>
+      {loading && <Loader2Icon className="animate-spin" />}
+      {!loading && children}
+    </>
+  )
+
+  if (asChild) {
+    return (
+      <SlotPrimitive.Slot
+        data-slot="button"
+        className={cn(buttonVariants({ variant, size, className }))}
+        {...(props as any)}
+      >
+        {content}
+      </SlotPrimitive.Slot>
+    )
+  }
+
   return (
-    <Comp
+    <button
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       disabled={disabled || loading}
-      {...props}
+      {...(props as any)}
     >
-      {loading && <Loader2Icon className="animate-spin" />}
-      {!loading && children}
-    </Comp>
+      {content}
+    </button>
   )
 }
 

@@ -33,7 +33,7 @@ export const EvervaultCard = ({
   return (
     <div
       className={cn(
-        'relative flex aspect-square h-full w-full items-center justify-center bg-transparent p-0.5',
+        'relative flex aspect-square h-34 w-full items-center justify-center bg-transparent p-0.5 sm:h-full',
         className
       )}
     >
@@ -47,7 +47,7 @@ export const EvervaultCard = ({
           randomString={randomString}
         />
         <div className="relative z-10 flex items-center justify-center">
-          <div className="relative flex h-44 w-44 items-center justify-center rounded-full text-4xl font-bold text-white">
+          <div className="relative flex size-full items-center justify-center rounded-full text-4xl font-bold text-white sm:h-44 sm:w-44">
             <div className="absolute h-full w-full rounded-full bg-white/[0.6] blur-sm dark:bg-black/[0.6]" />
 
             <BrainCog className="size-20 text-black dark:text-white" />

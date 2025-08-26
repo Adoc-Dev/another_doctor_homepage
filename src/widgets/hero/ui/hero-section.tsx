@@ -1,16 +1,11 @@
 'use client'
 
 import { AuroraText, BlurFade, FlipWords, SparklesCore } from '@/src/shared/ui'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 
 function HeroSection() {
-  const locale = useLocale() as 'ko' | 'en'
   const t = useTranslations('hero')
-
-  const words =
-    locale === 'ko'
-      ? ['티그리드하다', '정확한 색을 찾다']
-      : ['T-GRID', 'Find the exact color']
+  const words = t.raw('words') as string[]
 
   return (
     <section
@@ -19,29 +14,29 @@ function HeroSection() {
     >
       <div className="relative">
         <BlurFade delay={0.2} inView>
-          <h1 className="text-foreground relative z-20 text-center text-3xl font-bold tracking-tighter drop-shadow-xl md:text-7xl lg:text-8xl">
+          <h1 className="text-foreground relative z-20 text-center text-4xl font-bold tracking-tighter whitespace-pre-wrap drop-shadow-xl sm:text-5xl md:text-7xl lg:text-8xl">
             <AuroraText>{t('title')}</AuroraText>
           </h1>
         </BlurFade>
         <BlurFade delay={0.4} inView>
-          <p className="absolute top-10 right-1/2 translate-x-1/2 text-center text-3xl font-bold tracking-tighter drop-shadow-xl md:text-7xl lg:text-3xl">
+          <div className="absolute top-10 right-1/2 translate-x-1/2 text-center text-lg font-bold tracking-tighter drop-shadow-xl sm:text-xl md:text-2xl lg:text-3xl">
             <FlipWords words={words} />
-          </p>
+          </div>
         </BlurFade>
       </div>
       <BlurFade duration={0.8} delay={0.8} inView>
-        <div className="relative mt-4 h-40 w-[60rem]">
-          <div className="absolute inset-x-20 top-0 h-[2px] w-3/4 bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm" />
-          <div className="absolute inset-x-20 top-0 h-px w-3/4 bg-gradient-to-r from-transparent via-indigo-500 to-transparent" />
-          <div className="absolute inset-x-60 top-0 h-[5px] w-1/4 bg-gradient-to-r from-transparent via-sky-500 to-transparent blur-sm" />
-          <div className="absolute inset-x-60 top-0 h-px w-1/4 bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
+        <div className="relative mt-4 h-40 w-[25rem] md:w-[40rem] lg:w-[60rem]">
+          <div className="absolute inset-x-20 top-0 h-[2px] w-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm sm:inset-x-30 md:w-3/4" />
+          <div className="absolute inset-x-20 top-0 h-px w-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent sm:inset-x-30 md:w-3/4" />
+          <div className="absolute inset-x-40 top-0 h-[5px] w-1/2 bg-gradient-to-r from-transparent via-sky-500 to-transparent blur-sm sm:inset-x-60 md:w-1/4" />
+          <div className="absolute inset-x-40 top-0 h-px w-1/2 bg-gradient-to-r from-transparent via-sky-500 to-transparent sm:inset-x-60 md:w-1/4" />
 
           <SparklesCore
             background="transparent"
             minSize={0.4}
             maxSize={1}
             particleDensity={1200}
-            className="h-full w-full"
+            className="h-full"
             particleColor="#1199A9"
           />
 

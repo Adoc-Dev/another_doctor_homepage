@@ -2,7 +2,6 @@
   "header": {
     "navigation": {
       "companyInfo": "Company",
-      "productInfo": "Products",
       "newsroom": "Newsroom",
       "support": "Support"
     },
@@ -13,11 +12,11 @@
     "about": {
       "introduction": {
         "title": "About Us",
-        "description": "About Us description"
+        "description": "Introduce Another Doctor"
       },
       "ceoMessage": {
         "title": "CEO's Message",
-        "description": "CEO's Message description"
+        "description": "Check out the CEO's message"
       }
     },
     "product": {
@@ -29,7 +28,107 @@
   },
   "hero": {
     "title": "FIND YOUR OWN\nDENTAL COLOR",
-    "description": "T-GRID"
+    "description": "T-GRID",
+    "words": ["T-GRID", "Find the exact color"]
+  },
+  "technologyImpact": {
+    "title": "Deliver the Color Without Distortion\nAI-Based High-Precision Color Measurement Solution",
+    "description": "We define color without sensation by combining algorithms and patented technologies.",
+    "matrix": {
+      "card1": {
+        "title": "Color Error Reduction",
+        "description": "Color error reduction"
+      },
+      "card2": {
+        "title": "Reduction of Re-work Rate",
+        "description": "Reduction of re-work rate"
+      },
+      "card3": {
+        "title": "Shortening of Work Time",
+        "description": "Shortening of work time"
+      }
+    },
+    "grid": {
+      "item1": {
+        "title": "Calibration, the Standard of True Color",
+        "description": "TGRID minimizes color difference by using Ground Truth-based calibration, providing the optimal color."
+      },
+      "item2": {
+        "title": "Precision Achieved by Algorithm",
+        "description": "TGRID's algorithm, trained with OpenCV and deep learning libraries, defines color without sensation."
+      },
+      "item3": {
+        "title": "TGRID, Proven by Patents",
+        "description": "TGRID is a solution for medical color standards, validated by patents and papers.",
+        "patent1": {
+          "title": "Patent 1",
+          "subTitle": "Dental Color Correction and Determination",
+          "description": "Use sample teeth in clinical photos to correct and determine dental color"
+        },
+        "patent2": {
+          "title": "Patent 2",
+          "subTitle": "Object Color Measurement",
+          "description": "Method and device for measuring the color of an object"
+        },
+        "patent3": {
+          "title": "Patent 3",
+          "subTitle": "Dental Color Correction Device",
+          "description": "Method and device for providing dental color correction service and for the device"
+        }
+      },
+      "item4": {
+        "title": "Visualizing Color with New Inventory System",
+        "description": "TGRID introduces a new inventory system and visualizes color with color maps."
+      }
+    }
+  },
+  "timeline": {
+    "title": "From Problem to Vision\nT-GRID's Journey",
+    "subTitle": "Starting from the long-standing problem in dentistry and dental labs, we have developed a technology that solves the problem and creates new value for patients and the industry. Now, we are expanding our technology to various industries beyond dentistry.",
+    "data": {
+      "problem": {
+        "title": "Problem",
+        "subTitle": "The long-standing problem in dentistry and dental labs",
+        "content": "It has always been difficult to match the color of teeth. Even with high-priced equipment and a complex shooting process, it was not satisfactory, and the rework rate was high. Dental labs still had to rely on subjective judgment."
+      },
+      "technology": {
+        "title": "Technology",
+        "subTitle": "AI-based high-precision color measurement",
+        "content": "We defined color without sensation by combining algorithms and patented technologies. Calibration and Ground Truth-based correction, OpenCV and deep learning enable everyone to reproduce the same color under the same conditions. We have proven the reliability of our technology through patents and papers."
+      },
+      "workflow": {
+        "title": "Workflow",
+        "subTitle": "Optimized for digital dentistry processes",
+        "content": "Dental scanning → CAD design → production → color application and shade adjustment → final staining. T-GRID provides precise color analysis at the color application stage, improving patient satisfaction and production efficiency."
+      },
+      "impact": {
+        "title": "Impact",
+        "subTitle": "Improved patient satisfaction and production efficiency",
+        "content": "Quantified color data reduces rework rates and eliminates unnecessary complaints. Improved communication between dental clinics and dental labs, and patients can enjoy a better experience."
+      },
+      "vision": {
+        "title": "Vision",
+        "subTitle": "Precise color, global standard",
+        "content": "We are expanding our technology to various industries beyond dentistry. Precise color is a new language that transcends borders, and a global standard that all industries can share."
+      },
+      "beyondDentistry": {
+        "title": "Beyond Dentistry",
+        "subTitle": "Agriculture, education platforms, XR-based real-time color recognition, and more. Our technology is expanding to various industries beyond dentistry.",
+        "content": "Agriculture, education platforms, XR-based real-time color recognition, and more. Our technology is expanding to various industries beyond dentistry."
+      }
+    }
+  },
+  "cooperation": {
+    "title": "Growth with Our Partners"
+  },
+  "news": {
+    "title": "Newsroom",
+    "description": "Check out the latest news and events from Additional Doctor."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Join us and create a brighter future together.",
+    "button": "Contact Us"
   },
   "vision": {
     "title": "Precise Color, New Standard",
@@ -42,35 +141,5 @@
       "title": "Global Standard",
       "description": "Precise color is a new language that transcends borders.\nWe create a global standard that all industries can share."
     }
-  },
-  "cooperation": {
-    "title": "Cooperation"
-  },
-  "technologyImpact": {
-    "title": "The Standard of Innovation that Creates Precise Color",
-    "description": "With AI-based high-precision color measurement technology and proprietary patents,\nwe are solving problems in the dental industry and expanding globally.\nOur technology goes beyond simple analysis to create a new standard for the industry.",
-    "matrix": {
-      "card1": {
-        "title": "Color Error Reduction",
-        "description": "Color Error Reduction"
-      },
-      "card2": {
-        "title": "Redo Rate Reduction",
-        "description": "Redo Rate Reduction"
-      },
-      "card3": {
-        "title": "Work Time Reduction",
-        "description": "Work Time Reduction"
-      }
-    }
-  },
-  "news": {
-    "title": "Newsroom",
-    "description": "Check out the latest news and events from Additional Doctor."
-  },
-  "contact": {
-    "title": "Contact",
-    "description": "Join us and create a brighter future together.",
-    "button": "Contact Us"
   }
 }

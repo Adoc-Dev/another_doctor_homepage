@@ -1,4 +1,5 @@
 import { BlurFade } from '@/src/shared/ui'
+import { BentoGridThirdDemo } from '@/src/widgets/product/ui/bento-grid-demo2'
 import { MetricsSection } from '@/src/widgets/product/ui/metrics-section'
 import { useTranslations } from 'next-intl'
 
@@ -8,7 +9,7 @@ function TechnologyImpactSection() {
   return (
     <section
       id="product-section"
-      className="flex w-full flex-col items-center justify-center bg-gray-50 py-16 sm:py-20 md:py-24 lg:py-32"
+      className="relative flex w-full flex-col items-center justify-center bg-gray-50/90 py-16 sm:py-20 md:py-24 lg:py-32"
     >
       <div className="container flex max-w-6xl flex-col items-center justify-center px-4 md:px-8">
         <div className="flex flex-col items-center justify-center text-center">
@@ -30,6 +31,7 @@ function TechnologyImpactSection() {
         </div>
 
         <MetricsSection />
+        <BentoGridThirdDemo />
       </div>
     </section>
   )

@@ -1,7 +1,6 @@
 'use client'
 
-import { cn } from '@/src/shared/lib/utils'
-import { AnimatedGridPattern, BlurFade, Globe } from '@/src/shared/ui'
+import { GlobalVision } from '@/src/widgets/vision/ui/global-vision'
 import { useTranslations } from 'next-intl'
 
 function VisionSection() {
@@ -12,7 +11,8 @@ function VisionSection() {
       id="vision-section"
       className="relative my-10 flex min-h-[100vh] w-full max-w-[1200px] flex-col items-center justify-center px-4 sm:my-16 sm:min-h-[50vh] sm:px-6 md:my-20 md:min-h-[60vh]"
     >
-      <div className="flex w-full flex-col items-center justify-center gap-2 sm:gap-3 md:gap-4">
+      <GlobalVision />
+      {/* <div className="flex w-full flex-col items-center justify-center gap-2 sm:gap-3 md:gap-4">
         <BlurFade delay={0.2} inView>
           <p className="xs:text-header-01 text-body-01 text-primary-500 font-semibold">
             OUR VISION
@@ -23,8 +23,8 @@ function VisionSection() {
             {t('title')}
           </h2>
         </BlurFade>
-        <BlurFade delay={0.6} inView>
-          <p className="xs:text-header-01 text-body-01 text-foreground/80 font-semibold">
+        <BlurFade delay={0.6} inView className="mt-4">
+          <p className="text-header-01 text-foreground/80 font-semibold">
             {t('subTitle')}
           </p>
         </BlurFade>
@@ -70,7 +70,7 @@ function VisionSection() {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   )
 }

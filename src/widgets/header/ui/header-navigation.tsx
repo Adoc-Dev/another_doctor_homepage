@@ -1,6 +1,7 @@
 'use client'
 
 import { NavItem } from '@/src/entities/header/ui'
+import { GlobalButton } from '@/src/features/global/ui'
 import { Link } from '@/src/i18n/navigation'
 import { cn } from '@/src/shared/lib/utils'
 import {
@@ -11,7 +12,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/src/shared/ui'
-import { GlobalButton } from '@/src/widgets/feature/global/ui'
 import { navItems } from '@/src/widgets/header/model/constants'
 import { NavItemType } from '@/src/widgets/header/model/types'
 import { AnimatedThemeToggler } from '@/src/widgets/header/ui/animated-theme-toggler'

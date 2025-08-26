@@ -5,11 +5,11 @@ import { notFound } from 'next/navigation'
 
 interface WebLayoutProps {
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
-function WebLayout({ children, params }: WebLayoutProps) {
-  const { locale } = params
+async function WebLayout({ children, params }: WebLayoutProps) {
+  const { locale } = await params
 
   if (!hasLocale(routing.locales, locale)) {
     notFound()

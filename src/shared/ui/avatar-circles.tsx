@@ -1,50 +1,56 @@
-/* eslint-disable @next/next/no-img-element */
 'use client'
+import { AnimatedTooltip } from '../ui/animated-tooltip'
+const people = [
+  {
+    id: 1,
+    name: 'John Doe',
+    designation: 'Software Engineer',
+    image:
+      'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80',
+  },
+  {
+    id: 2,
+    name: 'Robert Johnson',
+    designation: 'Product Manager',
+    image:
+      'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
+  },
+  {
+    id: 3,
+    name: 'Jane Smith',
+    designation: 'Data Scientist',
+    image:
+      'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
+  },
+  {
+    id: 4,
+    name: 'Emily Davis',
+    designation: 'UX Designer',
+    image:
+      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60',
+  },
+  {
+    id: 5,
+    name: 'Tyler Durden',
+    designation: 'Soap Developer',
+    image:
+      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80',
+  },
+  {
+    id: 6,
+    name: 'Dora',
+    designation: 'The Explorer',
+    image:
+      'https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3534&q=80',
+  },
+]
 
-import { cn } from '@/src/shared/lib/utils'
-
-interface Avatar {
-  imageUrl: string
-  profileUrl: string
-}
-interface AvatarCirclesProps {
-  className?: string
-  numPeople?: number
-  avatarUrls: Avatar[]
-}
-
-export const AvatarCircles = ({
-  numPeople,
-  className,
-  avatarUrls,
-}: AvatarCirclesProps) => {
+function AvatarCircles() {
   return (
-    <div className={cn('z-10 flex -space-x-4 rtl:space-x-reverse', className)}>
-      {avatarUrls.map((url, index) => (
-        <a
-          key={index}
-          href={url.profileUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            key={index}
-            className="h-10 w-10 rounded-full border-2 border-white dark:border-gray-800"
-            src={url.imageUrl}
-            width={40}
-            height={40}
-            alt={`Avatar ${index + 1}`}
-          />
-        </a>
-      ))}
-      {(numPeople ?? 0) > 0 && (
-        <a
-          className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-white bg-black text-center text-xs font-medium text-white hover:bg-gray-600 dark:border-gray-800 dark:bg-white dark:text-black"
-          href=""
-        >
-          +{numPeople}
-        </a>
-      )}
+    <div className="mb-10 flex w-full flex-row items-center justify-center">
+      <AnimatedTooltip items={people} />
     </div>
   )
 }
+
+export { AvatarCircles }

@@ -1,6 +1,5 @@
-import { BlurFade } from '@/src/shared/ui'
-import { BentoGridThirdDemo } from '@/src/widgets/product/ui/bento-grid-demo2'
-import { MetricsSection } from '@/src/widgets/product/ui/metrics-section'
+import { AnimatedShinyText, BlurFade } from '@/src/shared/ui'
+import { FeatureGrid } from '@/src/widgets/product/ui/feature-grid'
 import { useTranslations } from 'next-intl'
 
 function TechnologyImpactSection() {
@@ -9,29 +8,26 @@ function TechnologyImpactSection() {
   return (
     <section
       id="product-section"
-      className="bg-foreground/5 relative flex w-full flex-col items-center justify-center py-16 sm:py-20 md:py-24 lg:py-32"
+      className="relative flex w-full flex-col items-center justify-center py-16 sm:py-20 md:py-24 lg:py-32"
     >
       <div className="container flex max-w-6xl flex-col items-center justify-center px-4 md:px-8">
         <div className="flex flex-col items-center justify-center text-center">
           <BlurFade delay={0.2} inView>
-            <p className="text-primary-500 text-base font-bold sm:text-lg md:text-xl">
-              Technology & Impact
-            </p>
+            <AnimatedShinyText>Technology & Impact</AnimatedShinyText>
           </BlurFade>
           <BlurFade delay={0.4} inView>
-            <h2 className="pointer-events-none mt-3 text-center text-3xl font-black whitespace-pre-wrap sm:mt-4 sm:text-4xl md:text-5xl">
+            <h2 className="pointer-events-none mt-3 text-center text-3xl leading-tight font-bold tracking-tighter whitespace-pre-wrap text-gray-900 sm:mt-4 sm:text-4xl md:text-5xl dark:text-gray-100">
               {t('title')}
             </h2>
           </BlurFade>
           <BlurFade delay={0.6} inView>
-            <p className="text-foreground mt-4 max-w-3xl text-sm font-semibold text-balance whitespace-pre-wrap sm:mt-5 sm:text-base md:mt-6 md:text-lg lg:text-xl">
+            <p className="mt-4 max-w-3xl text-sm font-medium text-balance whitespace-pre-wrap text-gray-900 sm:mt-5 sm:text-base md:mt-6 md:text-lg lg:text-xl dark:text-gray-100">
               {t('description')}
             </p>
           </BlurFade>
         </div>
-
-        <MetricsSection />
-        <BentoGridThirdDemo />
+        {/* <MetricsSection /> */}
+        <FeatureGrid />
       </div>
     </section>
   )

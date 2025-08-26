@@ -1,5 +1,5 @@
 import { cn } from '@/src/shared/lib/utils'
-import { BlurFade } from '@/src/shared/ui'
+import { AnimatedShinyText, BlurFade } from '@/src/shared/ui'
 import { useTranslations } from 'next-intl'
 
 function Cooperation() {
@@ -64,17 +64,16 @@ function Cooperation() {
       id="cooperation-section"
       className="container mx-auto px-4 py-32 md:px-8"
     >
-      <BlurFade delay={0.2} inView>
-        <p className="text-header-02 text-primary-500 text-center font-bold">
-          COOPERATION
-        </p>
-      </BlurFade>
-
-      <BlurFade delay={0.4} inView>
-        <p className="text-display-00 mt-4 text-center leading-16 font-black tracking-tighter">
-          {t('title')}
-        </p>
-      </BlurFade>
+      <div className="flex flex-col items-center justify-center text-center">
+        <BlurFade delay={0.2} inView>
+          <AnimatedShinyText>Cooperation</AnimatedShinyText>
+        </BlurFade>
+        <BlurFade delay={0.4} inView>
+          <h2 className="pointer-events-none mt-3 text-center text-3xl leading-tight font-bold tracking-tighter whitespace-pre-wrap text-gray-900 sm:mt-4 sm:text-4xl md:text-5xl dark:text-gray-100">
+            {t('title')}
+          </h2>
+        </BlurFade>
+      </div>
 
       <BlurFade delay={0.6} inView>
         <div className="relative mt-6">

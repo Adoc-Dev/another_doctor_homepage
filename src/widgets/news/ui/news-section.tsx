@@ -1,19 +1,11 @@
 'use client'
 
-import { useNewsListQuery } from '@/src/shared/api/queries/news.query'
+import { NewsList } from '@/src/features/news/ui'
 import { AnimatedShinyText, BlurFade } from '@/src/shared/ui'
-import { HackathonCard } from '@/src/widgets/news/ui/hackathon-card'
-import dayjs from 'dayjs'
 import { useTranslations } from 'next-intl'
-
-const BLUR_FADE_DELAY = 0.04
 
 function NewsSection() {
   const t = useTranslations('news')
-
-  const { data, isLoading } = useNewsListQuery({
-    published: true,
-  })
 
   return (
     <section id="news-section" className="min-h-[50vh]">
@@ -33,21 +25,8 @@ function NewsSection() {
             </p>
           </BlurFade>
         </div>
-        <BlurFade delay={BLUR_FADE_DELAY * 14} inView>
-          <ul className="border-foreground/10 divide-foreground/10 mb-4 ml-4 divide-y divide-dashed border-l">
-            {data?.data.map((news, id) => (
-              <BlurFade key={news.id} delay={BLUR_FADE_DELAY * 15 + id * 0.05}>
-                <HackathonCard
-                  title={news.title}
-                  description={news.contents}
-                  dates={dayjs(news.date).format('YYYY-MM-DD')}
-                  image={news.thumbnail ?? ''}
-                  link={news.link ?? ''}
-                />
-              </BlurFade>
-            ))}
-          </ul>
-        </BlurFade>
+
+        <NewsList />
       </div>
     </section>
   )

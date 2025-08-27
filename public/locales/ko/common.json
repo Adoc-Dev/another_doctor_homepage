@@ -28,7 +28,7 @@
     "words": ["티그리드하다", "정확한 색을 찾다"]
   },
   "technologyImpact": {
-    "title": "원색을 왜곡없이 전달\nAI 초정밀 색 측정 솔루션",
+    "title": "AI 기반 초정밀 색 측정 솔루션",
     "description": "알고리즘과 특허 기술을 결합해 감각이 아닌 수치로 색을 정의합니다.",
     "matrix": {
       "card1": {
@@ -47,7 +47,7 @@
     "grid": {
       "item1": {
         "title": "Calibration, 진짜 색의 기준",
-        "description": "TGRID는 Ground Truth 기반 보정으로,\n색차를 최소화하여 최적의 색상을 제공합니다."
+        "description": "독자적인 색상 보정 기술로 색을\n정량적인 수치로 제시합니다."
       },
       "item2": {
         "title": "알고리즘으로 완성한 정밀도",

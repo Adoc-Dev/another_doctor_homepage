@@ -3,14 +3,6 @@
 import { cn } from '@/src/shared/lib/utils'
 import { AnimatedList } from '@/src/shared/ui/animated-list'
 
-interface Item {
-  name: string
-  description: string
-  icon: string
-  color: string
-  time: string
-}
-
 const colors = [
   '#ECEEDF',
   '#D9C4B0',
@@ -20,7 +12,7 @@ const colors = [
   '#DDDAD0',
 ]
 
-const TCheckerItem = ({ name, description, icon, color, time }: Item) => {
+const TCheckerItem = () => {
   // 각 TCheckerItem마다 colors 배열을 랜덤하게 섞기
   const shuffledColors = [...colors].sort(() => Math.random() - 0.5)
 
@@ -61,10 +53,7 @@ export function AnimatedListDemo({ className }: { className?: string }) {
     >
       <AnimatedList>
         {Array.from({ length: 6 }).map((_, idx) => (
-          <TCheckerItem
-            key={idx}
-            color="" // color prop은 더 이상 사용하지 않음
-          />
+          <TCheckerItem key={idx} />
         ))}
       </AnimatedList>
 

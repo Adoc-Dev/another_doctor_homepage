@@ -1,17 +1,14 @@
 import LogoIcon from '@/public/logo.svg'
-import { Link, usePathname } from '@/src/i18n/navigation'
-import { cn } from '@/src/shared/lib/utils'
+import { usePathname } from '@/src/i18n/navigation'
 import {
   Button,
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from '@/src/shared/ui'
-import { navItems } from '@/src/widgets/header/model/constants'
 import { MenuIcon, XIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
@@ -58,11 +55,11 @@ function MobileNavigationMenu() {
             </Button>
           </DrawerClose>
         </DrawerHeader>
-        <DrawerFooter className="m-4 flex flex-col gap-0 rounded-xl border border-gray-200 p-0 dark:border-gray-800">
+        {/* <DrawerFooter className="m-4 flex flex-col gap-0 rounded-xl border border-gray-200 p-0 dark:border-gray-800">
           {navItems.map((item) => {
             // 각 항목의 href 결정
             const itemHref =
-              item.type === 'dropdown' ? item.content?.href : item.href
+              item.type === 'dropdown' ? item.contents?.href : item.href
 
             // href가 현재 경로와 일치하는지 확인
             const isActiveRoute = itemHref ? isActive(itemHref) : false
@@ -77,7 +74,7 @@ function MobileNavigationMenu() {
                 )}
               >
                 {item.type === 'dropdown' ? (
-                  <Link href={item.content?.href ?? ''}>
+                  <Link href={item.contents?.href ?? ''}>
                     {t(item.translationKey)}
                   </Link>
                 ) : (
@@ -86,7 +83,7 @@ function MobileNavigationMenu() {
               </li>
             )
           })}
-        </DrawerFooter>
+        </DrawerFooter> */}
       </DrawerContent>
     </Drawer>
   )

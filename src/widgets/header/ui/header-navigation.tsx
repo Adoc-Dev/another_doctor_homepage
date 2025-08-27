@@ -11,7 +11,7 @@ import {
   NavItems,
   Navbar,
   NavbarLogo,
-} from '@/src/shared/ui/resizable-navbar'
+} from '@/src/shared/ui'
 import { navItems } from '@/src/widgets/header/model/constants'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'

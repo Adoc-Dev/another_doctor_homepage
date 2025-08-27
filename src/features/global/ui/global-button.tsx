@@ -3,7 +3,7 @@
 import KoreaFlag from '@/public/icons/korea-flag.svg'
 import USAFlag from '@/public/icons/united-states-flag.svg'
 import { usePathname } from '@/src/i18n/navigation'
-import { Button } from '@/src/shared/ui'
+import { NavbarButton } from '@/src/shared/ui/resizable-navbar'
 import { useLocale } from 'next-intl'
 
 function GlobalButton() {
@@ -12,8 +12,8 @@ function GlobalButton() {
   const pathname = usePathname()
 
   const flags = {
-    ko: <KoreaFlag className="size-6" />,
-    en: <USAFlag className="size-6" />,
+    ko: <KoreaFlag className="size-7" />,
+    en: <USAFlag className="size-7" />,
   }
 
   const handleLanguageChange = (newLocale: 'ko' | 'en') => {
@@ -28,13 +28,13 @@ function GlobalButton() {
   }
 
   return (
-    <Button
-      className="min-h-0 cursor-pointer rounded-xl border-gray-200 px-2 py-1 hover:bg-transparent hover:text-gray-800 focus:ring-0 focus-visible:ring-gray-300 focus-visible:ring-offset-0 dark:border-gray-800"
-      variant="outline"
+    <NavbarButton
+      variant="primary"
       onClick={() => handleLanguageChange(locale === 'ko' ? 'en' : 'ko')}
+      className="p-1 px-2"
     >
       {flags[locale]}
-    </Button>
+    </NavbarButton>
   )
 }
 

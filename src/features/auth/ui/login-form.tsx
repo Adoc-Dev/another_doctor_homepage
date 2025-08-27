@@ -1,6 +1,6 @@
 'use client'
 
-import LogoIcon from '@/public/logo.svg'
+import LogoIcon from '@/public/icons/logo.svg'
 import { useAlertDialog } from '@/src/shared/hooks/alert-dialog.hook'
 import {
   Button,

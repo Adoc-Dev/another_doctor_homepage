@@ -1,4 +1,5 @@
 'use client'
+
 import { cn } from '@/src/shared/lib/utils'
 import React, { useMemo, useRef, useState } from 'react'
 
@@ -35,7 +36,7 @@ export const BackgroundRippleEffect = ({
           rows={rows}
           cols={cols}
           cellSize={cellSize}
-          borderColor="var(--cell-border-color)"
+          borderColor="#CFAB8D"
           fillColor="var(--cell-fill-color)"
           clickedCell={clickedCell}
           onCellClick={(row, col) => {
@@ -71,7 +72,7 @@ const DivGrid = ({
   rows = 7,
   cols = 30,
   cellSize = 56,
-  borderColor = '#3f3f46',
+  borderColor = '#D9C4B0',
   fillColor = 'rgba(14,165,233,0.3)',
   clickedCell = null,
   onCellClick = () => {},

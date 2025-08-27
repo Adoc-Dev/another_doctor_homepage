@@ -1,4 +1,4 @@
-import LogoIcon from '@/public/logo.svg'
+import LogoIcon from '@/public/icons/logo.svg'
 import {
   LayoutDashboardIcon,
   LucideIcon,

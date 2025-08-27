@@ -1,5 +1,6 @@
 'use client'
 
+import { useIsMobile } from '@/src/shared/hooks/mobile.hook'
 import { cn } from '@/src/shared/lib/utils'
 import React, { useMemo, useRef, useState } from 'react'
 
@@ -12,6 +13,7 @@ export const BackgroundRippleEffect = ({
   cols?: number
   cellSize?: number
 }) => {
+  const isMobile = useIsMobile()
   const [clickedCell, setClickedCell] = useState<{
     row: number
     col: number
@@ -33,7 +35,7 @@ export const BackgroundRippleEffect = ({
         <DivGrid
           key={`base-${rippleKey}`}
           className="mask-radial-from-20% mask-radial-at-top opacity-600"
-          rows={rows}
+          rows={isMobile ? 4 : rows}
           cols={cols}
           cellSize={cellSize}
           borderColor="#CFAB8D"

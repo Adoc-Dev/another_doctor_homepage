@@ -50,7 +50,7 @@ export const AnimatedTooltip = ({
     <>
       {items.map((item, idx) => (
         <div
-          className="group relative -mr-4 cursor-pointer"
+          className="group relative z-[999] -mr-4 cursor-pointer"
           key={item.name}
           onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -80,10 +80,12 @@ export const AnimatedTooltip = ({
               >
                 <div className="absolute inset-x-10 -bottom-px z-30 h-px w-[20%] bg-gradient-to-r from-transparent via-emerald-500 to-transparent" />
                 <div className="absolute -bottom-px left-10 z-30 h-px w-[40%] bg-gradient-to-r from-transparent via-sky-500 to-transparent" />
-                <div className="relative z-30 text-base font-bold text-white">
+                <div className="text-body-03 relative z-30 font-bold text-white sm:text-base">
                   {item.name}
                 </div>
-                <div className="text-xs text-white">{item.designation}</div>
+                <div className="text-body-03 text-white sm:text-xs">
+                  {item.designation}
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -93,7 +95,7 @@ export const AnimatedTooltip = ({
             width={100}
             src={item.image}
             alt={item.name}
-            className="relative !m-0 size-20 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105"
+            className="relative !m-0 size-12 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105 sm:size-20"
           />
         </div>
       ))}

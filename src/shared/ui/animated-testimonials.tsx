@@ -125,7 +125,7 @@ export const AnimatedTestimonials = ({
         />
       </div>
       <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
-        <div className="flex flex-col items-center">
+        <div className="hidden flex-col items-center sm:flex">
           <div className="relative h-80 w-full">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
@@ -162,8 +162,6 @@ export const AnimatedTestimonials = ({
                   <img
                     src={testimonial.src}
                     alt={testimonial.name}
-                    width={500}
-                    height={500}
                     draggable={false}
                     className="h-full w-full rounded-3xl object-cover object-center"
                   />
@@ -187,7 +185,7 @@ export const AnimatedTestimonials = ({
           </div>
         </div>
 
-        <div className="flex flex-col justify-between py-4">
+        <div className="flex flex-col justify-between px-4 pb-2 sm:px-0 sm:py-4">
           <motion.div
             key={active}
             initial={{
@@ -239,9 +237,9 @@ export const AnimatedTestimonials = ({
                           ease: 'easeOut',
                           delay: 0.15 + 0.05 * index,
                         }}
-                        className="flex items-start gap-2 text-sm text-gray-600 dark:text-neutral-400"
+                        className="flex items-start gap-2 text-xs text-gray-600 sm:text-sm dark:text-neutral-400"
                       >
-                        <CheckIcon className="text-primary-500 h-4 w-4 shrink-0" />
+                        <CheckIcon className="text-primary-500 size-3 shrink-0 sm:size-4" />
                         <span>{item}</span>
                       </motion.li>
                     ))}
@@ -281,7 +279,7 @@ export const AnimatedTestimonials = ({
                           (lineIndex * line.split(' ').length + wordIndex) *
                           0.02,
                       }}
-                      className="inline-block"
+                      className="text-body-01 sm:text-header-02 md:text-header-01 lg:text-title-01 inline-block"
                     >
                       {word}&nbsp;
                     </motion.span>

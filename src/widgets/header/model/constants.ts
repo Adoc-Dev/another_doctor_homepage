@@ -24,12 +24,6 @@ const navItems: NavItemType[] = [
     translationKey: 'navigation.newsroom',
     href: '/newsroom',
   },
-  {
-    type: 'link',
-    key: 'support',
-    translationKey: 'navigation.support',
-    href: '/support',
-  },
 ]
 
 export { navItems }

@@ -21,11 +21,11 @@ function TCheckerItem() {
         'transform-gpu dark:bg-transparent dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)]'
       )}
     >
-      <div className="flex flex-row items-center gap-3">
+      <div className="flex flex-row items-center justify-center gap-3">
         {Array.from({ length: 6 }).map((_, idx) => (
           <div
             key={idx}
-            className="flex size-10 items-center justify-center rounded-2xl"
+            className="flex size-10 items-center justify-center rounded-lg"
             style={{
               backgroundColor: shuffledColors[idx],
             }}

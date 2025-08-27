@@ -12,7 +12,7 @@ async function AboutPage() {
   await prefetchNewsList(queryClient)
 
   return (
-    <div className="bg-background flex flex-col items-center justify-center">
+    <div className="bg-background mb-20 flex flex-col items-center justify-center">
       <HeroSection />
       <FeatureSection />
       <Cooperation />

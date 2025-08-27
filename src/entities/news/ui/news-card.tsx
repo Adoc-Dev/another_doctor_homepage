@@ -12,14 +12,9 @@ interface Props {
   link?: string
 }
 
-export function HackathonCard({
-  title,
-  description,
-  dates,
-  image,
-  link,
-}: Props) {
-  // HTML 내용을 텍스트로 변환하고 길이 제한 (약 2줄 정도 표시)
+function NewsCard(props: Props) {
+  const { title, description, dates, image, link } = props
+
   const plainDescription = truncateHtmlContent(description, 120)
 
   return (
@@ -46,7 +41,7 @@ export function HackathonCard({
         <Link href={link ?? ''} key={link}>
           <Badge
             title="기사 보기"
-            className="bg-foreground flex gap-2 text-white"
+            className="bg-foreground flex gap-2 text-white dark:bg-gray-900"
           >
             <Globe className="h-4 w-4 text-white" />
             <p>기사 보기</p>
@@ -56,3 +51,5 @@ export function HackathonCard({
     </li>
   )
 }
+
+export { NewsCard }

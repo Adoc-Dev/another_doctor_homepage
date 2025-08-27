@@ -14,9 +14,9 @@ import {
 } from '@/src/shared/ui'
 import { navItems } from '@/src/widgets/header/model/constants'
 import { NavItemType } from '@/src/widgets/header/model/types'
-import { ThemeToggler } from '@/src/widgets/header/ui/animated-theme-toggler'
 import { Logo } from '@/src/widgets/header/ui/header-logo'
 import { MobileNavigationMenu } from '@/src/widgets/header/ui/mobile-navigation-menu'
+import { ThemeToggler } from '@/src/widgets/header/ui/theme-toggler'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
@@ -27,7 +27,7 @@ const MENU_LINK_CLASS =
   'text-[18px] bg-transparent px-4 font-semibold hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent data-[state=open]:hover:bg-transparent data-[state=open]:focus:bg-transparent data-[state=open]:hover:text-foreground data-[state=open]:text-foreground hover:text-foreground focus:text-foreground text-foreground/70 dark:text-foreground/80'
 
 const MENU_CONTENT_CLASS =
-  'w-full border-none p-0 data-[state=open]:bg-background/80 data-[state=open]:text-foreground data-[state=open]:backdrop-blur-xl'
+  'w-full border-none p-0 data-[state=open]:bg-background/80 data-[state=open]:text-foreground data-[state=open]:backdrop-blur-xl dark:data-[state=open]:bg-gray-900/80'
 
 function HeaderNavigation() {
   const t = useTranslations('header')

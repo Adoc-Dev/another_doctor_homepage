@@ -13,7 +13,7 @@ function TCheckerAnimatedList({ className }: { className?: string }) {
       )}
     >
       <AnimatedList>
-        {Array.from({ length: 6 }).map((_, idx) => (
+        {Array.from({ length: 12 }).map((_, idx) => (
           <TCheckerItem key={idx} />
         ))}
       </AnimatedList>

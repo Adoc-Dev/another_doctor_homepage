@@ -22,7 +22,7 @@ const ThemeToggler = memo(({ className }: ThemeTogglerProps) => {
     <Button
       onClick={changeTheme}
       className={cn(
-        'min-h-0 cursor-pointer rounded-full border-gray-200 p-0 hover:bg-transparent hover:text-gray-800 focus:ring-0 focus-visible:ring-gray-300 focus-visible:ring-offset-0 dark:border-gray-800',
+        'min-h-0 cursor-pointer rounded-full border-gray-200 p-0 hover:bg-transparent hover:text-gray-800 focus:ring-0 focus-visible:ring-gray-300 focus-visible:ring-offset-0 dark:border-gray-800 dark:hover:text-gray-100',
         className
       )}
       variant="outline"

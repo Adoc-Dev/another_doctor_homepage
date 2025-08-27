@@ -1,43 +1,55 @@
-import { Logo } from '@/src/widgets/cooperation/model/types'
-
-const COOPERATION_TEXT = {
-  title: 'COOPERATION',
-  description: '함께 성장하는 파트너들',
-}
-
-const defaultLogos: Logo[] = [
+const logos = [
   {
-    name: 'Google',
-    src: '/cooperation/춘천예치과.png',
+    src: '/cooperation/gangwon_technopark_logo.jpg',
+    alt: 'Gangwon Technopark',
+    height: 32,
   },
   {
-    name: 'Microsoft',
-    src: '/cooperation/춘천예치과.png',
+    src: '/cooperation/google_startup_logo.jpg',
+    alt: 'Google Startup',
+    height: 28,
   },
   {
-    name: 'Amazon',
-    src: 'https://cdn.magicui.design/companies/Amazon.svg',
+    src: '/cooperation/js_dental_lab_logo.png',
+    alt: 'JS Dental Lab',
+    height: 38,
   },
   {
-    name: 'Netflix',
-    src: 'https://cdn.magicui.design/companies/Netflix.svg',
+    src: '/cooperation/jungso_logo.png',
+    alt: 'Jungso',
+    height: 42,
   },
   {
-    name: 'YouTube',
-    src: 'https://cdn.magicui.design/companies/YouTube.svg',
+    src: '/cooperation/kdoc_logo.png',
+    alt: 'KDOC',
+    height: 30,
+    invert: true,
   },
   {
-    name: 'Instagram',
-    src: 'https://cdn.magicui.design/companies/Instagram.svg',
+    src: '/cooperation/seoul_samsung_logo.png',
+    alt: 'Seoul Samsung',
+    height: 36,
   },
   {
-    name: 'Uber',
-    src: 'https://cdn.magicui.design/companies/Uber.svg',
+    src: '/cooperation/snudh_logo.png',
+    alt: 'SNUDH',
+    height: 38,
   },
   {
-    name: 'Spotify',
-    src: 'https://cdn.magicui.design/companies/Spotify.svg',
+    src: '/cooperation/sopoong_logo.png',
+    alt: 'Sopoong',
+    height: 30,
+  },
+  {
+    src: '/cooperation/stup_logo.png',
+    alt: 'STUP',
+    height: 80,
+  },
+  {
+    src: '/cooperation/ye_logo.png',
+    alt: 'Ye',
+    height: 36,
   },
 ]
 
-export { COOPERATION_TEXT, defaultLogos }
+export { logos }

@@ -1,5 +1,5 @@
 'use client'
-import { AnimatedShinyText, BlurFade } from '@/src/shared/ui'
+import { AnimatedShinyText, BlurFade, WorldMap } from '@/src/shared/ui'
 import { motion } from 'motion/react'
 
 function GlobalVision() {
@@ -34,7 +34,7 @@ function GlobalVision() {
           </p>
         </BlurFade>
       </div>
-      {/* <WorldMap
+      <WorldMap
         dots={[
           {
             start: {
@@ -67,7 +67,7 @@ function GlobalVision() {
             end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
           },
         ]}
-      /> */}
+      />
     </div>
   )
 }

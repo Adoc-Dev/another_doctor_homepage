@@ -1,6 +1,10 @@
+'use client'
+
 import { Button } from '@/src/shared/ui'
 import { ColorMapVertical } from '@/src/widgets/contact/ui/color-map-vertical'
 import { useTranslations } from 'next-intl'
+
+const EMAIL = 'contact@anotherdoctor.com'
 
 function ContactSection() {
   const t = useTranslations('contact')
@@ -41,6 +45,7 @@ function ContactSection() {
               color="primary"
               size="lg"
               variant="outline"
+              onClick={() => (window.location.href = `mailto:${EMAIL}`)}
             >
               {t('button')}
             </Button>

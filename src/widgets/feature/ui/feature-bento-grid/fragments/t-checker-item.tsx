@@ -1,4 +1,7 @@
+'use client'
+
 import { cn } from '@/src/shared/lib/utils'
+import { useEffect, useState } from 'react'
 
 const colors = [
   '#ECEEDF',
@@ -10,7 +13,11 @@ const colors = [
 ]
 
 function TCheckerItem() {
-  const shuffledColors = [...colors].sort(() => Math.random() - 0.5)
+  const [shuffledColors, setShuffledColors] = useState(colors)
+
+  useEffect(() => {
+    setShuffledColors([...colors].sort(() => Math.random() - 0.5))
+  }, [])
 
   return (
     <figure

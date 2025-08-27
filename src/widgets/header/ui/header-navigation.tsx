@@ -16,7 +16,6 @@ import { navItems } from '@/src/widgets/header/model/constants'
 import { NavItemType } from '@/src/widgets/header/model/types'
 import { Logo } from '@/src/widgets/header/ui/header-logo'
 import { MobileNavigationMenu } from '@/src/widgets/header/ui/mobile-navigation-menu'
-import { ThemeToggler } from '@/src/widgets/header/ui/theme-toggler'
 import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
@@ -104,7 +103,7 @@ function HeaderNavigation() {
 
         <div className="flex items-center space-x-2">
           <GlobalButton />
-          <ThemeToggler />
+          {/* <ThemeToggler /> */}
           <MobileNavigationMenu />
         </div>
       </div>

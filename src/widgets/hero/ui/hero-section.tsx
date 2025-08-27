@@ -19,7 +19,7 @@ function HeroSection() {
           </h1>
         </BlurFade>
         <BlurFade delay={0.6} inView>
-          <div className="text-header-01 sm:text-title-01 md:text-display-02 lg:text-display-01 absolute top-10 right-1/2 translate-x-1/2 text-center font-bold tracking-tighter drop-shadow-xl">
+          <div className="text-header-01 sm:text-title-01 md:text-display-02 lg:text-display-01 absolute top-10 right-1/2 w-full translate-x-1/2 text-center font-bold tracking-tighter drop-shadow-xl">
             <FlipWords words={words} />
           </div>
         </BlurFade>

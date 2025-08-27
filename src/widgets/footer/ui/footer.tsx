@@ -8,7 +8,7 @@ function Footer() {
       className="relative mt-20 flex w-full max-w-sm flex-col items-center justify-center gap-y-4 sm:max-w-5xl sm:items-start"
     >
       <a href="#" className="relative z-20">
-        <LogoIcon className="h-6" />
+        <LogoIcon className="hidden h-6 sm:block" />
         <LogoHorizontalIcon className="h-4 text-black sm:hidden sm:h-6" />
       </a>
       <p className="text-sm text-neutral-500">

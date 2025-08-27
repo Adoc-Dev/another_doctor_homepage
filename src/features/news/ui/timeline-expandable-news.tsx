@@ -3,7 +3,6 @@
 import { useNewsListQuery } from '@/src/shared/api/queries/news.query'
 import { useOutsideClick } from '@/src/shared/hooks/outside-click.hook'
 import { BlurFade } from '@/src/shared/ui'
-import { Avatar, AvatarFallback, AvatarImage } from '@/src/shared/ui/avatar'
 import { Badge } from '@/src/shared/ui/badge'
 import { truncateHtmlContent } from '@/src/shared/util/html'
 import dayjs from 'dayjs'
@@ -54,7 +53,6 @@ export function TimelineExpandableNews() {
 
   return (
     <>
-      {/* 백드롭 */}
       <AnimatePresence>
         {active && (
           <motion.div
@@ -66,7 +64,6 @@ export function TimelineExpandableNews() {
         )}
       </AnimatePresence>
 
-      {/* 확장된 모달 */}
       <AnimatePresence>
         {active && (
           <div className="fixed inset-0 z-[101] grid place-items-center p-4">
@@ -75,7 +72,6 @@ export function TimelineExpandableNews() {
               ref={ref}
               className="relative flex max-h-[70vh] w-full max-w-3xl flex-col overflow-hidden rounded-xl bg-white shadow-xl dark:bg-neutral-900"
             >
-              {/* 닫기 버튼 */}
               <button
                 onClick={() => setActive(null)}
                 className="absolute top-4 right-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-lg hover:bg-gray-50 dark:bg-neutral-800 dark:hover:bg-neutral-700"
@@ -83,7 +79,6 @@ export function TimelineExpandableNews() {
                 <X className="h-4 w-4" />
               </button>
 
-              {/* 썸네일 이미지 */}
               {active.thumbnail && (
                 <div className="h-68 w-full flex-shrink-0 overflow-hidden">
                   <img
@@ -94,12 +89,10 @@ export function TimelineExpandableNews() {
                 </div>
               )}
 
-              {/* 헤더 섹션 (고정) */}
               <div className="flex-shrink-0 border-b border-gray-200 dark:border-neutral-700">
                 <div className="p-6 lg:p-8">
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
-                      {/* 제목 */}
                       <motion.h3
                         layoutId={`title-${active.id}-${id}`}
                         className="text-xl font-bold text-neutral-800 lg:text-2xl dark:text-neutral-200"
@@ -107,7 +100,6 @@ export function TimelineExpandableNews() {
                         {active.title}
                       </motion.h3>
 
-                      {/* 날짜 */}
                       <motion.div
                         layoutId={`date-${active.id}-${id}`}
                         className="mt-2 flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400"
@@ -117,7 +109,6 @@ export function TimelineExpandableNews() {
                       </motion.div>
                     </div>
 
-                    {/* 링크 버튼 */}
                     {active.link && (
                       <motion.a
                         layoutId={`badge-${active.id}-${id}`}
@@ -133,7 +124,6 @@ export function TimelineExpandableNews() {
                 </div>
               </div>
 
-              {/* 스크롤 가능한 본문 */}
               <div className="flex-1 overflow-y-auto">
                 <div className="p-6 lg:p-8">
                   <div className="text-sm text-neutral-700 lg:text-base dark:text-neutral-300">
@@ -149,29 +139,28 @@ export function TimelineExpandableNews() {
         )}
       </AnimatePresence>
 
-      {/* 타임라인 리스트 */}
+      {/* 카드 그리드 레이아웃 */}
       <BlurFade delay={BLUR_FADE_DELAY * 14} inView>
-        <ul className="border-foreground/10 divide-foreground/10 mb-4 ml-4 w-full divide-y divide-dashed border-l">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {data.data.map((news, index) => (
             <BlurFade key={news.id} delay={BLUR_FADE_DELAY * 15 + index * 0.05}>
-              <motion.li
+              <motion.div
                 layoutId={`news-card-${news.id}-${id}`}
-                className="group relative ml-10 cursor-pointer py-4 transition-colors hover:bg-gray-50/50 dark:hover:bg-neutral-800/50"
+                className="group cursor-pointer overflow-hidden rounded-xl border border-neutral-200 bg-white transition-all hover:shadow-lg dark:border-neutral-700 dark:bg-neutral-800"
                 onClick={() => setActive(news)}
               >
-                {/* 아바타 */}
-                <div className="absolute top-2 -left-16 flex items-center justify-center rounded-full bg-white">
-                  <Avatar className="border-foreground/10 m-auto size-12 border">
-                    <AvatarImage
-                      src={news.thumbnail ?? ''}
+                {/* 썸네일 이미지 */}
+                {news.thumbnail && (
+                  <div className="aspect-video overflow-hidden">
+                    <img
+                      src={news.thumbnail}
                       alt={news.title}
-                      className="object-contain"
+                      className="h-full w-full object-cover transition-transform group-hover:scale-105"
                     />
-                    <AvatarFallback>{news.title[0]}</AvatarFallback>
-                  </Avatar>
-                </div>
+                  </div>
+                )}
 
-                <div className="flex flex-1 flex-col justify-start gap-1 pr-4">
+                <div className="p-4">
                   {/* 날짜 */}
                   <motion.time
                     layoutId={`date-${news.id}-${id}`}
@@ -181,34 +170,34 @@ export function TimelineExpandableNews() {
                   </motion.time>
 
                   {/* 제목 */}
-                  <motion.h2
+                  <motion.h3
                     layoutId={`title-${news.id}-${id}`}
-                    className="leading-relaxed font-semibold transition-colors group-hover:text-gray-400 dark:group-hover:text-gray-400"
+                    className="mt-2 leading-tight font-semibold transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400"
                   >
                     {news.title}
-                  </motion.h2>
+                  </motion.h3>
 
                   {/* 설명 */}
-                  <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed">
-                    {truncateHtmlContent(news.contents, 200)}
+                  <p className="text-muted-foreground mt-2 line-clamp-3 text-sm leading-relaxed">
+                    {truncateHtmlContent(news.contents, 150)}
                   </p>
-                </div>
 
-                {/* 배지 */}
-                <div className="mt-2 flex flex-row flex-wrap items-start gap-2">
+                  {/* 배지 */}
                   {news.link && (
-                    <motion.div layoutId={`badge-${news.id}-${id}`}>
-                      <Badge className="border-foreground/10 text-foreground rounded-full border bg-white px-3 py-2 transition-colors group-hover:bg-gray-100 dark:bg-gray-900">
-                        <Globe className="mr-2 h-4 w-4" />
-                        원문 보기
-                      </Badge>
-                    </motion.div>
+                    <div className="mt-4">
+                      <motion.div layoutId={`badge-${news.id}-${id}`}>
+                        <Badge className="text-foreground border-foreground/10 rounded-full border bg-white px-3 py-1 text-xs transition-colors group-hover:bg-blue-50 group-hover:text-blue-600 dark:bg-neutral-700 dark:group-hover:bg-blue-900/20">
+                          <Globe className="mr-1 h-3 w-3" />
+                          원문 보기
+                        </Badge>
+                      </motion.div>
+                    </div>
                   )}
                 </div>
-              </motion.li>
+              </motion.div>
             </BlurFade>
           ))}
-        </ul>
+        </div>
       </BlurFade>
     </>
   )

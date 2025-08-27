@@ -4,7 +4,7 @@ import { Button } from '@/src/shared/ui'
 import { ColorMapVertical } from '@/src/widgets/contact/ui/color-map-vertical'
 import { useTranslations } from 'next-intl'
 
-const EMAIL = 'contact@anotherdoctor.com'
+const EMAIL = 'anotherdoctors@gmail.com'
 
 function ContactSection() {
   const t = useTranslations('contact')

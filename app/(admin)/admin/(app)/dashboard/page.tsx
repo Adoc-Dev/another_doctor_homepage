@@ -1,7 +1,6 @@
 'use client'
 
-'use client'
-
+import { useQuery } from '@tanstack/react-query'
 import * as React from 'react'
 import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts'
 
@@ -25,6 +24,12 @@ import {
   ToggleGroup,
   ToggleGroupItem,
 } from '@/src/shared/ui'
+
+interface AnalyticsDataPoint {
+  date: string
+  desktop: number
+  mobile: number
+}
 
 const chartData = [
   { date: '2024-04-01', desktop: 222, mobile: 150 },
@@ -134,6 +139,23 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
+// Analytics 데이터를 가져오는 hook
+function useAnalyticsData(timeRange: string) {
+  return useQuery({
+    queryKey: ['analytics', timeRange],
+    queryFn: async (): Promise<AnalyticsDataPoint[]> => {
+      const response = await fetch(`/admin/api/analytics?range=${timeRange}`)
+      if (!response.ok) {
+        throw new Error('Analytics 데이터를 가져올 수 없습니다')
+      }
+      const result = await response.json()
+      return result.data || []
+    },
+    staleTime: 5 * 60 * 1000, // 5분간 캐시
+    retry: 2,
+  })
+}
+
 export default function AdminDashboardPage() {
   const isMobile = useIsMobile()
   const [timeRange, setTimeRange] = React.useState('90d')
@@ -144,7 +166,12 @@ export default function AdminDashboardPage() {
     }
   }, [isMobile])
 
-  const filteredData = chartData.filter((item) => {
+  // 실제 Analytics 데이터 가져오기
+  const { data: analyticsData, isLoading, error } = useAnalyticsData(timeRange)
+  console.log('🚀 ~ AdminDashboardPage ~ analyticsData:', analyticsData)
+
+  // 폴백용 필터링된 더미 데이터
+  const filteredFallbackData = chartData.filter((item) => {
     const date = new Date(item.date)
     const referenceDate = new Date('2024-06-30')
     let daysToSubtract = 90
@@ -158,15 +185,138 @@ export default function AdminDashboardPage() {
     return date >= startDate
   })
 
+  // 실제 데이터 또는 폴백 데이터 사용
+  const chartDataToShow = analyticsData || filteredFallbackData
+
+  // 로딩 상태
+  if (isLoading) {
+    return (
+      <Card className="@container/card">
+        <CardHeader>
+          <CardTitle>실제 방문자 수</CardTitle>
+          <CardDescription>데이터를 불러오는 중...</CardDescription>
+        </CardHeader>
+        <CardContent className="flex h-[300px] items-center justify-center">
+          <div className="border-primary h-8 w-8 animate-spin rounded-full border-b-2" />
+        </CardContent>
+      </Card>
+    )
+  }
+
+  // 에러 상태
+  if (error) {
+    return (
+      <Card className="@container/card">
+        <CardHeader>
+          <CardTitle>실제 방문자 수</CardTitle>
+          <CardDescription>
+            데이터를 불러올 수 없습니다. 폴백 데이터를 표시합니다.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="px-2 pt-4 sm:px-6 sm:pt-6">
+          <ChartContainer
+            config={chartConfig}
+            className="aspect-auto h-[250px] w-full"
+          >
+            <AreaChart data={filteredFallbackData}>
+              <defs>
+                <linearGradient id="fillDesktop" x1="0" y1="0" x2="0" y2="1">
+                  <stop
+                    offset="5%"
+                    stopColor="var(--color-desktop)"
+                    stopOpacity={1.0}
+                  />
+                  <stop
+                    offset="95%"
+                    stopColor="var(--color-desktop)"
+                    stopOpacity={0.1}
+                  />
+                </linearGradient>
+                <linearGradient id="fillMobile" x1="0" y1="0" x2="0" y2="1">
+                  <stop
+                    offset="5%"
+                    stopColor="var(--color-mobile)"
+                    stopOpacity={0.8}
+                  />
+                  <stop
+                    offset="95%"
+                    stopColor="var(--color-mobile)"
+                    stopOpacity={0.1}
+                  />
+                </linearGradient>
+              </defs>
+              <CartesianGrid vertical={false} />
+              <XAxis
+                dataKey="date"
+                tickLine={false}
+                axisLine={false}
+                tickMargin={8}
+                minTickGap={32}
+                tickFormatter={(value) => {
+                  const date = new Date(value)
+                  return date.toLocaleDateString('ko-KR', {
+                    month: 'short',
+                    day: 'numeric',
+                  })
+                }}
+              />
+              <ChartTooltip
+                cursor={false}
+                content={
+                  <ChartTooltipContent
+                    labelFormatter={(value) => {
+                      return new Date(value).toLocaleDateString('ko-KR', {
+                        month: 'short',
+                        day: 'numeric',
+                      })
+                    }}
+                    indicator="dot"
+                  />
+                }
+              />
+              <Area
+                dataKey="mobile"
+                type="natural"
+                fill="url(#fillMobile)"
+                stroke="var(--color-mobile)"
+                stackId="a"
+              />
+              <Area
+                dataKey="desktop"
+                type="natural"
+                fill="url(#fillDesktop)"
+                stroke="var(--color-desktop)"
+                stackId="a"
+              />
+            </AreaChart>
+          </ChartContainer>
+        </CardContent>
+      </Card>
+    )
+  }
+
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardTitle>Total Visitors</CardTitle>
+        <CardTitle>
+          실제 방문자 수 {analyticsData ? '(실시간 데이터)' : '(폴백 데이터)'}
+        </CardTitle>
         <CardDescription>
           <span className="hidden @[540px]/card:block">
-            Total for the last 3 months
+            {timeRange === '90d'
+              ? '지난 3개월'
+              : timeRange === '30d'
+                ? '지난 30일'
+                : '지난 7일'}
+            간 방문자 수
           </span>
-          <span className="@[540px]/card:hidden">Last 3 months</span>
+          <span className="@[540px]/card:hidden">
+            {timeRange === '90d'
+              ? '3개월'
+              : timeRange === '30d'
+                ? '30일'
+                : '7일'}
+          </span>
         </CardDescription>
         <CardAction>
           <ToggleGroup
@@ -207,7 +357,7 @@ export default function AdminDashboardPage() {
           config={chartConfig}
           className="aspect-auto h-[250px] w-full"
         >
-          <AreaChart data={filteredData}>
+          <AreaChart data={chartDataToShow}>
             <defs>
               <linearGradient id="fillDesktop" x1="0" y1="0" x2="0" y2="1">
                 <stop
@@ -243,7 +393,7 @@ export default function AdminDashboardPage() {
               minTickGap={32}
               tickFormatter={(value) => {
                 const date = new Date(value)
-                return date.toLocaleDateString('en-US', {
+                return date.toLocaleDateString('ko-KR', {
                   month: 'short',
                   day: 'numeric',
                 })
@@ -255,7 +405,7 @@ export default function AdminDashboardPage() {
               content={
                 <ChartTooltipContent
                   labelFormatter={(value) => {
-                    return new Date(value).toLocaleDateString('en-US', {
+                    return new Date(value).toLocaleDateString('ko-KR', {
                       month: 'short',
                       day: 'numeric',
                     })

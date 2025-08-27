@@ -37,10 +37,10 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
+      <SidebarHeader className="bg-gray-200">
         <TeamSwitcher teams={navData.teams} />
       </SidebarHeader>
-      <SidebarContent className="border-gray-200">
+      <SidebarContent className="bg-gray-100">
         <NavMain
           items={navData.navMain}
           linkRender={(item) => {
@@ -65,7 +65,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
         />
         <NavSecondary items={navData.navSecondary} className="mt-auto" />
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className="bg-gray-100">
         {session?.user && (
           <NavUser
             onLogout={handleLogout}

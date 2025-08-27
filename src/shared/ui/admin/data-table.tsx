@@ -250,7 +250,7 @@ export function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
           onFilterChange={handleParamsChanged}
         />
       </div>
-      <div className="rounded-md border border-gray-200">
+      <div className="overflow-hidden rounded-sm border border-gray-200">
         <Table>
           <DataTableHeader table={table} />
           <TableBody>{renderBody()}</TableBody>

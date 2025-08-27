@@ -16,7 +16,7 @@ interface NewsItem {
   link?: string | null
 }
 
-export function ExpandableCardDemo() {
+function ExpandableNews() {
   const { data } = useNewsListQuery({
     published: true,
   })
@@ -267,3 +267,5 @@ export const CloseIcon = () => {
     </motion.svg>
   )
 }
+
+export { ExpandableNews }

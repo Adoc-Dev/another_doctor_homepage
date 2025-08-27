@@ -1,4 +1,5 @@
 import { QueryProvider, ThemeProvider } from '@/src/app/providers'
+import GoogleAnalytics from '@/src/app/providers/google-analytics'
 import '@/src/app/styles/globals.css'
 import { AlertDialogProvider } from '@/src/shared/ui'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
@@ -55,6 +56,7 @@ async function RootLayout(props: RootLayoutProps) {
             </NextIntlClientProvider>
             <ReactQueryDevtools initialIsOpen={false} />
           </QueryProvider>
+          <GoogleAnalytics />
         </ThemeProvider>
       </body>
     </html>

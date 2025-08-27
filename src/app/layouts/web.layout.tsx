@@ -1,6 +1,6 @@
-import GoogleAnalytics from '@/src/app/providers/google-analytics'
 import { routing } from '@/src/i18n/routing'
 import { HeaderNavigation } from '@/src/widgets/header/ui'
+import { Analytics } from '@vercel/analytics/react'
 import { hasLocale } from 'next-intl'
 import { notFound } from 'next/navigation'
 
@@ -19,7 +19,7 @@ async function WebLayout({ children, params }: WebLayoutProps) {
     <div>
       <HeaderNavigation />
       {children}
-      <GoogleAnalytics />
+      <Analytics />
     </div>
   )
 }

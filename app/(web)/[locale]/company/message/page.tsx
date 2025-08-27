@@ -42,7 +42,6 @@ export const metadata: Metadata = {
   },
 }
 
-// CEO 메시지 페이지용 구조화된 데이터
 const messagePageSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',

@@ -1,6 +1,6 @@
 'use client'
 
-import { BlurFade, EvervaultCard } from '@/src/shared/ui'
+import { EvervaultCard } from '@/src/shared/ui'
 import { BentoCard, BentoGrid } from '@/src/shared/ui/bento-grid'
 import { Marquee3D } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/marquee-3d'
 import { PatentMarqueeList } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/patent-marquee-list'
@@ -44,13 +44,11 @@ function FeatureBentoGrid() {
   ]
 
   return (
-    <BlurFade delay={0.5} inView>
-      <BentoGrid className="mt-16">
-        {features.map((feature, idx) => (
-          <BentoCard key={idx} {...feature} />
-        ))}
-      </BentoGrid>
-    </BlurFade>
+    <BentoGrid className="mt-16">
+      {features.map((feature, idx) => (
+        <BentoCard key={idx} {...feature} />
+      ))}
+    </BentoGrid>
   )
 }
 

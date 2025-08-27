@@ -28,8 +28,12 @@ function FeatureSection() {
             </p>
           </BlurFade>
         </div>
-        <MetricsList />
-        <FeatureBentoGrid />
+        <BlurFade delay={0.8} inView>
+          <MetricsList />
+        </BlurFade>
+        <BlurFade delay={1.2} inView>
+          <FeatureBentoGrid />
+        </BlurFade>
       </div>
     </section>
   )

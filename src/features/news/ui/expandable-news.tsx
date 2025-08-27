@@ -2,6 +2,7 @@
 
 import { useNewsListQuery } from '@/src/shared/api/queries/news.query'
 import { useOutsideClick } from '@/src/shared/hooks/outside-click.hook'
+import { BlurFade } from '@/src/shared/ui'
 import { truncateHtmlContent } from '@/src/shared/util/html'
 import dayjs from 'dayjs'
 import { AnimatePresence, motion } from 'motion/react'
@@ -165,70 +166,72 @@ function ExpandableNews() {
       {/* 리스트 형태 - 모바일 최적화 */}
       <ul className="mx-auto w-full max-w-2xl space-y-3">
         {data.data.map((news, index) => (
-          <motion.li
-            layoutId={`card-${news.title}-${id}`}
-            key={`card-${news.title}-${id}`}
-            onClick={() => setActive(news)}
-            className="flex cursor-pointer items-start gap-3 rounded-xl p-3 transition-colors hover:bg-neutral-50 md:gap-4 md:p-4 dark:hover:bg-neutral-800"
-          >
-            {/* 썸네일 - 모바일에서 더 작게 */}
-            <motion.div
-              layoutId={`image-${news.title}-${id}`}
-              className="flex shrink-0 items-center justify-center"
+          <BlurFade delay={index * 0.4} inView>
+            <motion.li
+              layoutId={`card-${news.title}-${id}`}
+              key={`card-${news.title}-${id}`}
+              onClick={() => setActive(news)}
+              className="flex cursor-pointer items-start gap-3 rounded-xl p-3 transition-colors hover:bg-neutral-50 md:gap-4 md:p-4 dark:hover:bg-neutral-800"
             >
-              {news.thumbnail ? (
-                <img
-                  width={60}
-                  height={60}
-                  src={news.thumbnail}
-                  alt={news.title}
-                  className="h-12 w-12 rounded-lg object-cover md:h-16 md:w-16"
-                />
-              ) : (
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200 md:h-16 md:w-16 dark:bg-neutral-700">
-                  <span className="text-xs text-gray-500">No</span>
+              {/* 썸네일 - 모바일에서 더 작게 */}
+              <motion.div
+                layoutId={`image-${news.title}-${id}`}
+                className="flex shrink-0 items-center justify-center"
+              >
+                {news.thumbnail ? (
+                  <img
+                    width={60}
+                    height={60}
+                    src={news.thumbnail}
+                    alt={news.title}
+                    className="h-12 w-12 rounded-lg object-cover md:h-16 md:w-16"
+                  />
+                ) : (
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200 md:h-16 md:w-16 dark:bg-neutral-700">
+                    <span className="text-xs text-gray-500">No</span>
+                  </div>
+                )}
+              </motion.div>
+
+              {/* 컨텐츠 */}
+              <div className="flex min-w-0 flex-1 flex-col gap-1">
+                <div className="flex items-start justify-between gap-2">
+                  <motion.h3
+                    layoutId={`title-${news.title}-${id}`}
+                    className="line-clamp-1 text-sm leading-tight font-semibold text-neutral-800 sm:line-clamp-2 sm:text-sm md:text-base dark:text-neutral-200"
+                  >
+                    {news.title}
+                  </motion.h3>
+
+                  <motion.div
+                    layoutId={`date-${news.id}-${id}`}
+                    className="hidden shrink-0 items-center text-xs text-neutral-500 sm:flex dark:text-neutral-500"
+                  >
+                    {dayjs(news.date).format('YYYY.MM.DD')}
+                  </motion.div>
                 </div>
-              )}
-            </motion.div>
-
-            {/* 컨텐츠 */}
-            <div className="flex min-w-0 flex-1 flex-col gap-1">
-              <div className="flex items-start justify-between gap-2">
-                <motion.h3
-                  layoutId={`title-${news.title}-${id}`}
-                  className="line-clamp-1 text-sm leading-tight font-semibold text-neutral-800 sm:line-clamp-2 sm:text-sm md:text-base dark:text-neutral-200"
-                >
-                  {news.title}
-                </motion.h3>
-
                 <motion.div
                   layoutId={`date-${news.id}-${id}`}
-                  className="hidden shrink-0 items-center text-xs text-neutral-500 sm:flex dark:text-neutral-500"
+                  className="flex shrink-0 items-center text-xs text-neutral-500 dark:text-neutral-500"
                 >
                   {dayjs(news.date).format('YYYY.MM.DD')}
                 </motion.div>
+                {/* 모바일에서는 설명 숨김, 데스크톱에서만 표시 */}
+                <p className="line-clamp-1 hidden text-sm text-neutral-600 md:block dark:text-neutral-400">
+                  {truncateHtmlContent(news.contents, 100)}
+                </p>
               </div>
-              <motion.div
-                layoutId={`date-${news.id}-${id}`}
-                className="flex shrink-0 items-center text-xs text-neutral-500 dark:text-neutral-500"
-              >
-                {dayjs(news.date).format('YYYY.MM.DD')}
-              </motion.div>
-              {/* 모바일에서는 설명 숨김, 데스크톱에서만 표시 */}
-              <p className="line-clamp-1 hidden text-sm text-neutral-600 md:block dark:text-neutral-400">
-                {truncateHtmlContent(news.contents, 100)}
-              </p>
-            </div>
 
-            {/* 버튼 - 모바일에서 더 작게 */}
-            <motion.button
-              layoutId={`button-${news.title}-${id}`}
-              className="shrink-0 rounded-full bg-gray-100 px-3 py-1 text-xs font-bold text-black transition-colors hover:bg-blue-500 hover:text-white md:px-4 md:py-2 md:text-sm dark:bg-neutral-700 dark:text-neutral-200"
-            >
-              <span className="md:hidden">보기</span>
-              <span className="hidden md:inline">자세히</span>
-            </motion.button>
-          </motion.li>
+              {/* 버튼 - 모바일에서 더 작게 */}
+              <motion.button
+                layoutId={`button-${news.title}-${id}`}
+                className="shrink-0 rounded-full bg-gray-100 px-3 py-1 text-xs font-bold text-black transition-colors hover:bg-blue-500 hover:text-white md:px-4 md:py-2 md:text-sm dark:bg-neutral-700 dark:text-neutral-200"
+              >
+                <span className="md:hidden">보기</span>
+                <span className="hidden md:inline">자세히</span>
+              </motion.button>
+            </motion.li>
+          </BlurFade>
         ))}
       </ul>
     </>

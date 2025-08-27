@@ -20,7 +20,7 @@ const Rectangle = ({ color }: { color: string }) => {
 
 export function ColorMapVertical() {
   return (
-    <div className="absolute left-4 right-4 flex h-[500px] rotate-45 flex-row items-center justify-center overflow-hidden sm:left-8 sm:right-8">
+    <div className="absolute right-4 left-4 flex h-[500px] rotate-45 flex-row items-center justify-center overflow-hidden sm:right-8 sm:left-8">
       <Marquee pauseOnHover vertical className="[--duration:20s]">
         {Array.from({ length: 10 }).map((_, index) => (
           <Rectangle key={index} color={colors[index % colors.length]} />

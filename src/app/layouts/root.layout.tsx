@@ -117,8 +117,9 @@ async function RootLayout(props: RootLayoutProps) {
       <body className={`${notoSansKR.variable} ${novaSquare.variable}`}>
         <ThemeProvider
           attribute="class"
-          enableSystem
-          defaultTheme="system"
+          enableSystem={false}
+          defaultTheme="light"
+          forcedTheme="light"
           disableTransitionOnChange
         >
           <QueryProvider>

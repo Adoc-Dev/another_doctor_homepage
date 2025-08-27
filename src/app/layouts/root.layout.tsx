@@ -22,8 +22,79 @@ const novaSquare = Nova_Square({
 })
 
 export const metadata = {
-  title: 'Another Doctor | AI 색상 측정',
-  description: '정확한 색, 완벽한 미소.',
+  title: {
+    template: '%s | Another Doctor',
+    default: 'Another Doctor | AI 색상 측정',
+  },
+  description:
+    '정확한 색, 완벽한 미소. AI 기반 치아 색상 측정 솔루션으로 정밀한 진단을 제공합니다.',
+  keywords: [
+    'AI',
+    '치아',
+    '색상 측정',
+    '치과',
+    '진단',
+    '의료기기',
+    'Another Doctor',
+    '치과용 AI',
+    '덴탈 테크',
+  ],
+  authors: [{ name: 'Another Doctor' }],
+  creator: 'Another Doctor',
+  publisher: 'Another Doctor',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://anotherdoctor.co.kr'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'ko-KR': '/ko',
+      'en-US': '/en',
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'ko_KR',
+    url: 'https://anotherdoctor.co.kr',
+    title: 'Another Doctor | AI 색상 측정',
+    description:
+      '정확한 색, 완벽한 미소. AI 기반 치아 색상 측정 솔루션으로 정밀한 진단을 제공합니다.',
+    siteName: 'Another Doctor',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Another Doctor - AI 색상 측정 솔루션',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Another Doctor | AI 색상 측정',
+    description: '정확한 색, 완벽한 미소. AI 기반 치아 색상 측정 솔루션',
+    images: ['/twitter-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'google-site-verification-placeholder',
+    other: {
+      'naver-site-verification': 'naver-verification-placeholder',
+    },
+  },
 }
 
 interface RootLayoutProps {

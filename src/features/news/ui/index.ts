@@ -1,1 +1,1 @@
-export * from './news-list'
+export * from './timeline-expandable-news'

@@ -1,6 +1,6 @@
 'use client'
 
-import { NewsList } from '@/src/features/news/ui'
+import { TimelineExpandableNews } from '@/src/features/news/ui'
 import { AnimatedShinyText, BlurFade } from '@/src/shared/ui'
 import { useTranslations } from 'next-intl'
 
@@ -26,7 +26,7 @@ function NewsSection() {
           </BlurFade>
         </div>
 
-        <NewsList />
+        <TimelineExpandableNews />
       </div>
     </section>
   )

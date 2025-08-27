@@ -14,7 +14,7 @@ function NewsList() {
 
   return (
     <BlurFade delay={BLUR_FADE_DELAY * 14} inView>
-      <ul className="border-foreground/10 divide-foreground/10 mb-4 ml-4 divide-y divide-dashed border-l">
+      <ul className="border-foreground/10 divide-foreground/10 mb-4 ml-4 w-full divide-y divide-dashed border-l">
         {data?.data.map((news, id) => (
           <BlurFade key={news.id} delay={BLUR_FADE_DELAY * 15 + id * 0.05}>
             <NewsCard

@@ -15,7 +15,7 @@ interface Props {
 function NewsCard(props: Props) {
   const { title, description, dates, image, link } = props
 
-  const plainDescription = truncateHtmlContent(description, 120)
+  const plainDescription = truncateHtmlContent(description, 200)
 
   return (
     <li className="relative ml-10 py-4">
@@ -29,9 +29,9 @@ function NewsCard(props: Props) {
         {dates && (
           <time className="text-muted-foreground text-xs">{dates}</time>
         )}
-        <h2 className="leading-none font-semibold">{title}</h2>
+        <h2 className="leading-relaxed font-semibold">{title}</h2>
         {plainDescription && (
-          <p className="text-muted-foreground line-clamp-2 text-sm">
+          <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed">
             {plainDescription}
           </p>
         )}

@@ -1,8 +1,7 @@
 'use client'
 
-import { BlurFade } from '@/src/shared/ui'
+import { BlurFade, EvervaultCard } from '@/src/shared/ui'
 import { BentoCard, BentoGrid } from '@/src/shared/ui/bento-grid'
-import { AnimatedBeamMultipleOutputDemo } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/animated-beam-multiple-outpts'
 import { Marquee3D } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/marquee-3d'
 import { PatentMarqueeList } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/patent-marquee-list'
 import { TCheckerAnimatedList } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/t-checker-animated-list'
@@ -25,7 +24,9 @@ function FeatureBentoGrid() {
       description: t('item2.description'),
       className: 'col-span-3 lg:col-span-2',
       background: (
-        <AnimatedBeamMultipleOutputDemo className="absolute top-4 right-2 h-[300px] border-none [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] transition-all duration-300 ease-out group-hover:scale-105" />
+        <div className="absolute top-0 right-2 h-[300px] w-full scale-75 border-none [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] transition-all duration-300 ease-out group-hover:scale-90">
+          <EvervaultCard text="hover" />
+        </div>
       ),
     },
     {

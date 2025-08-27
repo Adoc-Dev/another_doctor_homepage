@@ -81,42 +81,6 @@
       }
     }
   },
-  "timeline": {
-    "title": "From Problem to Vision\nT-GRID's Journey",
-    "subTitle": "Starting from the long-standing problem in dentistry and dental labs, we have developed a technology that solves the problem and creates new value for patients and the industry. Now, we are expanding our technology to various industries beyond dentistry.",
-    "data": {
-      "problem": {
-        "title": "Problem",
-        "subTitle": "The long-standing problem in dentistry and dental labs",
-        "content": "It has always been difficult to match the color of teeth. Even with high-priced equipment and a complex shooting process, it was not satisfactory, and the rework rate was high. Dental labs still had to rely on subjective judgment."
-      },
-      "technology": {
-        "title": "Technology",
-        "subTitle": "AI-based high-precision color measurement",
-        "content": "We defined color without sensation by combining algorithms and patented technologies. Calibration and Ground Truth-based correction, OpenCV and deep learning enable everyone to reproduce the same color under the same conditions. We have proven the reliability of our technology through patents and papers."
-      },
-      "workflow": {
-        "title": "Workflow",
-        "subTitle": "Optimized for digital dentistry processes",
-        "content": "Dental scanning → CAD design → production → color application and shade adjustment → final staining. T-GRID provides precise color analysis at the color application stage, improving patient satisfaction and production efficiency."
-      },
-      "impact": {
-        "title": "Impact",
-        "subTitle": "Improved patient satisfaction and production efficiency",
-        "content": "Quantified color data reduces rework rates and eliminates unnecessary complaints. Improved communication between dental clinics and dental labs, and patients can enjoy a better experience."
-      },
-      "vision": {
-        "title": "Vision",
-        "subTitle": "Precise color, global standard",
-        "content": "We are expanding our technology to various industries beyond dentistry. Precise color is a new language that transcends borders, and a global standard that all industries can share."
-      },
-      "beyondDentistry": {
-        "title": "Beyond Dentistry",
-        "subTitle": "Agriculture, education platforms, XR-based real-time color recognition, and more. Our technology is expanding to various industries beyond dentistry.",
-        "content": "Agriculture, education platforms, XR-based real-time color recognition, and more. Our technology is expanding to various industries beyond dentistry."
-      }
-    }
-  },
   "cooperation": {
     "title": "Growth with Our Partners"
   },
@@ -129,16 +93,41 @@
     "description": "Join us and create a brighter future together.",
     "button": "Contact Us"
   },
-  "vision": {
-    "title": "Precise Color, New Standard",
-    "subTitle": "We create a clearer world with precise color",
-    "description1": {
-      "title": "Precision",
-      "description": "We provide a reliable 'true color' through AI-based high-precision measurement for everyone."
-    },
-    "description2": {
-      "title": "Global Standard",
-      "description": "Precise color is a new language that transcends borders.\nWe create a global standard that all industries can share."
+  "team": {
+    "title": "People Behind Another Doctor",
+    "description": "We are a team of doctors, engineers, and designers who are passionate\nabout building products that help people live healthier lives.",
+    "testimonials": {
+      "Joseph": {
+        "name": "Joseph",
+        "description": "Hello and welcome to Another Doctor!\nOver the past 20 years, I've focused on providing the best care to patients. Now, with AI and digital innovation, \nwe're making healthcare smarter and more accessible for everyone. Stay tuned as we grow into a global healthcare platform!",
+        "career": [
+          "Director, Chuncheon Dental Clinic",
+          "DDS, Seoul National University",
+          "AI Business Program, KAIST",
+          "Periodontology Specialist Program, Samsung Seoul Hospital",
+          "Adjunct Professor, Samsung Seoul Hospital"
+        ]
+      },
+      "Logan": {
+        "name": "Logan",
+        "description": "Tech enthusiast here 😎I love seeing dental clinics become smarter and more efficient thanks to Another Doctor!"
+      },
+      "Sey": {
+        "name": "Sey",
+        "description": "Building efficient systems is my jam. Seeing the team and patients happy makes my day 😄"
+      },
+      "Lye": {
+        "name": "Lye",
+        "description": "I'm passionate about color 🎨 Even a tiny color detail can change treatment outcomes, so I take it seriously!"
+      },
+      "Kenny": {
+        "name": "Kenny",
+        "description": "Coding with the responsibility of handling life – that’s thrilling ⚡ I love creating trustworthy software!"
+      },
+      "Chul": {
+        "name": "Chul",
+        "description": "I bridge users and technology! Even a small UI detail can make a big difference 😉"
+      }
     }
   }
 }

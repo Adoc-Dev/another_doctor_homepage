@@ -1,2 +1,2 @@
 export * from './ceo-quote'
-export * from './team'
+export * from './meet-the-team'

@@ -1,4 +1,4 @@
-import { Icon } from '@/src/shared/ui/evervault-card'
+import { Icon } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/coding-card'
 
 export function EvervaultCardDemo() {
   return (

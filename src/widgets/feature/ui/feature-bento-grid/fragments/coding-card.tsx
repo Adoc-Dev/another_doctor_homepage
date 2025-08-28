@@ -1,22 +1,14 @@
 'use client'
-import { cn } from '@/src/shared/lib/utils'
 import { motion } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
 
-export const EvervaultCard = ({
-  text,
-  className,
-}: {
-  text?: string
-  className?: string
-}) => {
+const CodingCard = () => {
   const [randomString, setRandomString] = useState('')
 
   useEffect(() => {
     let str = generateRealisticCode()
     setRandomString(str)
 
-    // 6초마다 새로운 코드 생성
     const interval = setInterval(() => {
       const newStr = generateRealisticCode()
       setRandomString(newStr)
@@ -26,23 +18,19 @@ export const EvervaultCard = ({
   }, [])
 
   return (
-    <div
-      className={cn(
-        'relative flex aspect-square h-full w-full items-center justify-center overflow-hidden rounded-3xl bg-black',
-        className
-      )}
-    >
+    <div className="relative flex aspect-square h-full w-full items-center justify-center overflow-hidden rounded-3xl bg-black">
       <div className="relative flex h-full w-full items-center justify-center">
-        <CardPattern randomString={randomString} />
+        <CodingPattern randomString={randomString} />
       </div>
     </div>
   )
 }
 
-export function CardPattern({ randomString }: { randomString: string }) {
+export { CodingCard }
+
+function CodingPattern({ randomString }: { randomString: string }) {
   const [typedLines, setTypedLines] = useState<string[]>([''])
   const [currentLine, setCurrentLine] = useState('')
-  const [charIndex, setCharIndex] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -58,14 +46,12 @@ export function CardPattern({ randomString }: { randomString: string }) {
           setCurrentLine((prev) => prev + current[charIdx])
           charIdx++
         } else {
-          // 줄 바꿈
           setTypedLines((prev) => [...prev, current])
           setCurrentLine('')
           charIdx = 0
           lineIdx++
         }
       } else {
-        // 다 치면 다시 리셋
         setTypedLines([''])
         setCurrentLine('')
         lineIdx = 0
@@ -87,7 +73,6 @@ export function CardPattern({ randomString }: { randomString: string }) {
 
   return (
     <div className="relative h-full w-full">
-      {/* 타이핑되는 코드 */}
       <div
         ref={containerRef}
         className="absolute inset-0 overflow-hidden p-4 font-mono text-xs leading-4 text-green-300/80"
@@ -107,7 +92,6 @@ export function CardPattern({ randomString }: { randomString: string }) {
         </motion.pre>
       </div>
 
-      {/* 오버레이 효과 */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
       <div className="pointer-events-none absolute top-0 right-0 left-0 h-10 bg-gradient-to-b from-black to-transparent" />
       <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-10 bg-gradient-to-t from-black to-transparent" />
@@ -115,7 +99,6 @@ export function CardPattern({ randomString }: { randomString: string }) {
   )
 }
 
-// 코드 스니펫 모음 (OpenCV + 딥러닝 느낌)
 const codeSnippets = [
   'import cv2',
   'import numpy as np',
@@ -156,9 +139,9 @@ const codeSnippets = [
   '    return pred',
 ]
 
-export const generateRealisticCode = () => {
+const generateRealisticCode = () => {
   let result = ''
-  const lineCount = Math.floor(Math.random() * 25) + 15 // 15-40 lines
+  const lineCount = Math.floor(Math.random() * 25) + 15
   for (let i = 0; i < lineCount; i++) {
     const snippet =
       codeSnippets[Math.floor(Math.random() * codeSnippets.length)]

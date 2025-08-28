@@ -12,11 +12,11 @@
     "about": {
       "introduction": {
         "title": "About Us",
-        "description": "Introduce Another Doctor"
+        "description": "Introducing AnotherDoctor."
       },
       "ceoMessage": {
-        "title": "CEO's Message / Team Introduction",
-        "description": "Check out the CEO's message"
+        "title": "Message & Team",
+        "description": "Read the CEO’s message and meet our team."
       }
     },
     "product": {
@@ -27,106 +27,107 @@
     }
   },
   "hero": {
-    "title": "FIND YOUR OWN\nDENTAL COLOR",
-    "words": ["T-GRID", "Find the exact color"]
+    "title": "Find Your True Tooth Shade",
+    "words": ["T-Grid It", "Discover Precise Colors"]
   },
   "technologyImpact": {
-    "title": "Deliver the Color Without Distortion\nAI-Based High-Precision Color Measurement Solution",
-    "description": "We define color without sensation by combining algorithms and patented technologies.",
+    "title": "AI-Powered Precision Shade Matching",
+    "highlight": "T-GRID",
+    "description": "Combining algorithms and patented technology,\nwe define colors as data, not perception.",
     "matrix": {
       "card1": {
-        "title": "Color Error Reduction",
-        "description": "Color error reduction"
+        "title": "Reduced Shade Errors",
+        "description": "Minimizes shade discrepancies."
       },
       "card2": {
-        "title": "Reduction of Re-work Rate",
-        "description": "Reduction of re-work rate"
+        "title": "Lower Remake Rates",
+        "description": "Significantly reduces rework in restorations."
       },
       "card3": {
-        "title": "Shortening of Work Time",
-        "description": "Shortening of work time"
+        "title": "Faster Workflow",
+        "description": "Streamlines the clinical and lab process."
       }
     },
     "grid": {
       "item1": {
-        "title": "Calibration, the Standard of True Color",
-        "description": "We deliver quantified color values through our proprietary color correction technology."
+        "title": "Calibration – The True Standard",
+        "description": "Proprietary color calibration technology\nthat provides objective, quantifiable shade values."
       },
       "item2": {
-        "title": "Precision Achieved by Algorithm",
-        "description": "TGRID's algorithm, trained with OpenCV and deep learning libraries, defines color without sensation."
+        "title": "Deep Learning Precision",
+        "description": "Trained with OpenCV and deep learning libraries, T-GRID defines shades through data, not perception."
       },
       "item3": {
-        "title": "TGRID, Proven by Patents",
-        "description": "TGRID is a solution for medical color standards, validated by patents and papers.",
+        "title": "Proven with Patents & Research",
+        "description": "Validated by domestic and international patents and publications.\nIncludes shade calibration, measurement devices, and more.",
         "patent1": {
           "title": "Patent 1",
-          "subTitle": "Dental Color Correction and Determination",
-          "description": "Use sample teeth in clinical photos to correct and determine dental color"
+          "subTitle": "Tooth Shade Calibration & Assessment",
+          "description": "Method for calibrating and assessing tooth shade using reference teeth in clinical images."
         },
         "patent2": {
           "title": "Patent 2",
           "subTitle": "Object Color Measurement",
-          "description": "Method and device for measuring the color of an object"
+          "description": "Method and apparatus for measuring object color."
         },
         "patent3": {
           "title": "Patent 3",
-          "subTitle": "Dental Color Correction Device",
-          "description": "Method and device for providing dental color correction service and for the device"
+          "subTitle": "Tooth Shade Correction Device",
+          "description": "System and device for providing tooth shade correction service."
         }
       },
       "item4": {
-        "title": "Visualizing Color with New Inventory System",
-        "description": "TGRID introduces a new inventory system and visualizes color with color maps."
+        "title": "Visualizing Color Data",
+        "description": "Captured tooth shades are visualized as colormaps, creating an inventory for data-driven dentistry and research."
       }
     }
   },
   "cooperation": {
-    "title": "Growth with Our Partners"
+    "title": "Partners Growing Together"
   },
   "news": {
     "title": "Newsroom",
-    "description": "Check out the latest news and events from Additional Doctor."
+    "description": "Stay updated with AnotherDoctor’s latest news and events."
   },
   "contact": {
     "title": "Contact",
-    "description": "Join us and create a brighter future together.",
+    "description": "Get in touch with AnotherDoctor.",
     "button": "Contact Us"
   },
   "team": {
-    "title": "People Behind Another Doctor",
-    "description": "We are a team of doctors, engineers, and designers who are passionate\nabout building products that help people live healthier lives.",
+    "title": "The AnotherDoctor Team",
+    "description": "A team of doctors, engineers, and designers\npassionate about building products that support healthier lives.",
     "testimonials": {
       "Joseph": {
-        "name": "Joseph",
-        "description": "Hello and welcome to Another Doctor!\nOver the past 20 years, I've focused on providing the best care to patients. Now, with AI and digital innovation, \nwe're making healthcare smarter and more accessible for everyone. Stay tuned as we grow into a global healthcare platform!",
+        "name": "Joseph / Changhee Jung",
+        "description": "Welcome to AnotherDoctor.\nFor over 20 years, I’ve been dedicated to providing the best care for patients. AnotherDoctor aims to standardize clinical excellence through AI-driven digital innovation, ensuring equitable access to quality dental care.\nWe look forward to your support as we grow into a global healthcare platform.",
         "career": [
-          "Director, Chuncheon Dental Clinic",
-          "DDS, Seoul National University",
-          "AI Business Program, KAIST",
-          "Periodontology Specialist Program, Samsung Seoul Hospital",
-          "Adjunct Professor, Samsung Seoul Hospital"
+          "Director, Chuncheon Ye Dental Clinic",
+          "D.D.S., Seoul National University",
+          "KAIST AI Business Executive Program",
+          "Residency in Periodontology, Samsung Medical Center",
+          "Visiting Professor, Samsung Medical Center"
         ]
       },
       "Logan": {
-        "name": "Logan",
-        "description": "Tech enthusiast here 😎I love seeing dental clinics become smarter and more efficient thanks to Another Doctor!"
+        "name": "Logan / Junho Choi",
+        "description": "I’m a tech enthusiast 😎 Watching dental clinics become smarter is my biggest joy!"
       },
       "Sey": {
-        "name": "Sey",
-        "description": "Building efficient systems is my jam. Seeing the team and patients happy makes my day 😄"
+        "name": "Sey / Sejoong Kim",
+        "description": "Building efficient systems is my hobby. Seeing both our team and patients smile makes my day 😄"
       },
       "Lye": {
-        "name": "Lye",
-        "description": "I'm passionate about color 🎨 Even a tiny color detail can change treatment outcomes, so I take it seriously!"
+        "name": "Lye / Boram Kim",
+        "description": "I’m in love with colors 🎨 A single accurate shade can transform a treatment outcome. That’s why I take it so seriously!"
       },
       "Kenny": {
-        "name": "Kenny",
-        "description": "Coding with the responsibility of handling life – that’s thrilling ⚡ I love creating trustworthy software!"
+        "name": "Kenny / Eunchul Lee",
+        "description": "Writing code that impacts lives—it’s electrifying ⚡ Creating reliable software is my greatest passion!"
       },
       "Chul": {
-        "name": "Chul",
-        "description": "I bridge users and technology! Even a small UI detail can make a big difference 😉"
+        "name": "Chul / Chul Namgoong",
+        "description": "I bridge users and technology! Even the smallest UI detail can make a big difference 😉"
       }
     }
   }

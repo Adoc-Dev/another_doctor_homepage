@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "env:pull:preview": "vercel env pull .env.temp --environment=preview && node scripts/filter-env.js direct",
+    "env:pull:prod": "vercel env pull .env.temp --environment=production && node scripts/filter-env.js direct"
   },
   "dependencies": {
     "@auth/core": "^0.40.0",

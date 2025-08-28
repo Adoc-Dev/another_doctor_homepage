@@ -9,7 +9,7 @@ export function MetricsList() {
 
   return (
     <div className="my-16 w-full sm:my-16 md:my-20 lg:my-24">
-      <div className="grid w-full grid-cols-1 items-center gap-8 sm:grid-cols-2 md:grid-cols-3 md:gap-6 lg:gap-8">
+      <div className="grid w-full grid-cols-1 items-center gap-8 gap-x-10 sm:grid-cols-2 md:grid-cols-3 md:gap-x-12 lg:gap-x-16">
         <BlurFade inView delay={0.8}>
           <MetricCard
             startValue={100}

@@ -28,8 +28,9 @@
     "words": ["티그리드하다", "정확한 색을 찾다"]
   },
   "technologyImpact": {
-    "title": "AI 기반 초정밀 색 측정 솔루션",
-    "description": "알고리즘과 특허 기술을 결합해 감각이 아닌 수치로 색을 정의합니다.",
+    "title": "AI 초정밀 색측정 솔루션",
+    "highlight": "T-GRID",
+    "description": "알고리즘과 특허 기술을 결합해\n감각이 아닌 수치로 색을 정의합니다.",
     "matrix": {
       "card1": {
         "title": "색상 오차 감소",

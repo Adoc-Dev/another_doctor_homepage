@@ -18,9 +18,9 @@ function NewsCard(props: Props) {
   const plainDescription = truncateHtmlContent(description, 200)
 
   return (
-    <li className="relative ml-10 py-4">
+    <div className="group relative ml-10 cursor-pointer rounded-lg px-2 py-4 transition-all duration-200 hover:bg-gray-50/50 dark:hover:bg-gray-800/30">
       <div className="absolute top-2 -left-16 flex items-center justify-center rounded-full bg-white">
-        <Avatar className="border-foreground/10 m-auto size-12 border">
+        <Avatar className="border-foreground/10 group-hover:border-primary-500/30 m-auto size-12 border transition-colors">
           <AvatarImage src={image} alt={title} className="object-contain" />
           <AvatarFallback>{title[0]}</AvatarFallback>
         </Avatar>
@@ -29,7 +29,9 @@ function NewsCard(props: Props) {
         {dates && (
           <time className="text-muted-foreground text-xs">{dates}</time>
         )}
-        <h2 className="leading-relaxed font-semibold">{title}</h2>
+        <h2 className="group-hover:text-primary-600 dark:group-hover:text-primary-400 leading-relaxed font-semibold transition-colors duration-200">
+          {title}
+        </h2>
         {plainDescription && (
           <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed">
             {plainDescription}
@@ -38,7 +40,7 @@ function NewsCard(props: Props) {
       </div>
 
       <div className="mt-2 flex flex-row flex-wrap items-start gap-2">
-        <Link href={link ?? ''} key={link}>
+        <Link href={link ?? ''} key={link} onClick={(e) => e.stopPropagation()}>
           <Badge
             title="기사 보기"
             className="bg-foreground flex gap-2 text-white dark:bg-gray-900"
@@ -48,7 +50,7 @@ function NewsCard(props: Props) {
           </Badge>
         </Link>
       </div>
-    </li>
+    </div>
   )
 }
 

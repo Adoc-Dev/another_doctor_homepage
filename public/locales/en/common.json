@@ -31,9 +31,9 @@
     "words": ["T-Grid It", "Discover Precise Colors"]
   },
   "technologyImpact": {
-    "title": "AI-Powered Precision Shade Matching",
+    "title": "AI-Powered Precision Shade Measurement",
     "highlight": "T-GRID",
-    "description": "Combining algorithms and patented technology,\nwe define colors as data, not perception.",
+    "description": "Using patented algorithms, we define colors as data, not perception.",
     "matrix": {
       "card1": {
         "title": "Reduced Shade Errors",
@@ -54,12 +54,12 @@
         "description": "Proprietary color calibration technology\nthat provides objective, quantifiable shade values."
       },
       "item2": {
-        "title": "Deep Learning Precision",
-        "description": "Trained with OpenCV and deep learning libraries, T-GRID defines shades through data, not perception."
+        "title": "Deep Learning-Based Error Reduction",
+        "description": "T-GRID is trained with OpenCV and deep learning algorithms, providing objective, quantifiable shade measurements beyond human perception."
       },
       "item3": {
-        "title": "Proven with Patents & Research",
-        "description": "Validated by domestic and international patents and publications.\nIncludes shade calibration, measurement devices, and more.",
+        "title": "T-GRID, the Proven Solution",
+        "description": "T-GRID has received domestic and international patents, including PCT, and is backed by venture capital and institutional investment.",
         "patent1": {
           "title": "Patent 1",
           "subTitle": "Tooth Shade Calibration & Assessment",

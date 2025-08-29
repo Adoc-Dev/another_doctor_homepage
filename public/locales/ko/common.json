@@ -28,9 +28,9 @@
     "words": ["티그리드하다", "정확한 색을 찾다"]
   },
   "technologyImpact": {
-    "title": "AI 초정밀 색측정 솔루션",
+    "title": "AI 초정밀 측색 솔루션",
     "highlight": "T-GRID",
-    "description": "알고리즘과 특허 기술을 결합해\n감각이 아닌 수치로 색을 정의합니다.",
+    "description": "특허로 인증받은 알고리즘으로\n 감각이 아닌 수치로 색을 정의합니다.",
     "matrix": {
       "card1": {
         "title": "색상 오차 감소",
@@ -51,12 +51,12 @@
         "description": "독자적인 색상 보정 기술로 \n정량적인 수치로 색을 판정합니다."
       },
       "item2": {
-        "title": "딥러닝 알고리즘 기반 정밀도",
-        "description": "OpenCV와 딥러닝으로 학습된 T-GRID 모델은\n 색상을 감각이 아닌 수치로 판정합니다."
+        "title": "딥러닝 기반 오차 최소화",
+        "description": "T-GRID는 OpenCV와 딥러닝 알고리즙으로 학습되어,\n 인간의 감각의 한계를 넘어서 객관화된 색상 측정을 제공합니다."
       },
       "item3": {
-        "title": "특허와 논문으로 검증된 티그리드",
-        "description": "국내외 특허와 논문으로 검증된 기술. 치아 색상 보정,\n 색상 측정 장치 등 다양한 특허 보유.",
+        "title": "공인된 솔루션 T-GRID",
+        "description": "PCT를 포함한 국내외 특허 3건 진행 및 벤처 인증과 기관 투자를 받고 있습니다.",
         "patent1": {
           "title": "특허 1",
           "subTitle": "치아색 보정 및 판정",

@@ -1,7 +1,7 @@
 {
   "header": {
     "navigation": {
-      "companyInfo": "Company",
+      "companyInfo": "Company Info",
       "newsroom": "Newsroom",
       "support": "Support"
     },
@@ -15,8 +15,8 @@
         "description": "Introducing AnotherDoctor."
       },
       "ceoMessage": {
-        "title": "Message & Team",
-        "description": "Read the CEO’s message and meet our team."
+        "title": "CEO Message & Team",
+        "description": "Read the message from our CEO."
       }
     },
     "product": {
@@ -27,67 +27,67 @@
     }
   },
   "hero": {
-    "title": "Find Your True Tooth Shade",
-    "words": ["T-Grid It", "Discover Precise Colors"]
+    "title": "Find Your Own\nTooth Shade",
+    "words": ["T-GRID your smile", "Discover the accurate shade"]
   },
   "technologyImpact": {
     "title": "AI-Powered Precision Shade Measurement",
     "highlight": "T-GRID",
-    "description": "Using patented algorithms, we define colors as data, not perception.",
+    "description": "With patented algorithms,\nwe define color through data, not perception.",
     "matrix": {
       "card1": {
         "title": "Reduced Shade Errors",
-        "description": "Minimizes shade discrepancies."
+        "description": "Minimizing color discrepancies"
       },
       "card2": {
-        "title": "Lower Remake Rates",
-        "description": "Significantly reduces rework in restorations."
+        "title": "Lower Remake Rate",
+        "description": "Reducing unnecessary reworks"
       },
       "card3": {
         "title": "Faster Workflow",
-        "description": "Streamlines the clinical and lab process."
+        "description": "Saving valuable time in procedures"
       }
     },
     "grid": {
       "item1": {
-        "title": "Calibration – The True Standard",
-        "description": "Proprietary color calibration technology\nthat provides objective, quantifiable shade values."
+        "title": "Calibration – The Standard of True Color",
+        "description": "Our proprietary calibration technology\nquantifies color into precise numerical values."
       },
       "item2": {
-        "title": "Deep Learning-Based Error Reduction",
-        "description": "T-GRID is trained with OpenCV and deep learning algorithms, providing objective, quantifiable shade measurements beyond human perception."
+        "title": "Deep Learning Error Minimization",
+        "description": "Trained with deep learning algorithms,\nT-GRID overcomes human limitations and delivers objective data."
       },
       "item3": {
-        "title": "T-GRID, the Proven Solution",
-        "description": "T-GRID has received domestic and international patents, including PCT, and is backed by venture capital and institutional investment.",
+        "title": "Certified Solution – T-GRID",
+        "description": "Backed by 3 patents (including PCT), venture certification,\nand institutional investment.",
         "patent1": {
           "title": "Patent 1",
-          "subTitle": "Tooth Shade Calibration & Assessment",
-          "description": "Method for calibrating and assessing tooth shade using reference teeth in clinical images."
+          "subTitle": "Tooth Shade Correction & Judgment",
+          "description": "Method for correcting and determining tooth shades\nusing reference teeth in clinical images"
         },
         "patent2": {
           "title": "Patent 2",
           "subTitle": "Object Color Measurement",
-          "description": "Method and apparatus for measuring object color."
+          "description": "Method and apparatus for measuring the color of objects"
         },
         "patent3": {
           "title": "Patent 3",
           "subTitle": "Tooth Shade Correction Device",
-          "description": "System and device for providing tooth shade correction service."
+          "description": "Method and device for providing tooth shade correction services"
         }
       },
       "item4": {
-        "title": "Visualizing Color Data",
-        "description": "Captured tooth shades are visualized as colormaps, creating an inventory for data-driven dentistry and research."
+        "title": "Color Data Visualization",
+        "description": "Collected tooth shades are visualized as colormaps, providing data for inventory and research applications."
       }
     }
   },
   "cooperation": {
-    "title": "Partners Growing Together"
+    "title": "Growing Together with Our Partners"
   },
   "news": {
     "title": "Newsroom",
-    "description": "Stay updated with AnotherDoctor’s latest news and events."
+    "description": "Check out the latest news and events from AnotherDoctor."
   },
   "contact": {
     "title": "Contact",
@@ -95,39 +95,39 @@
     "button": "Contact Us"
   },
   "team": {
-    "title": "The AnotherDoctor Team",
-    "description": "A team of doctors, engineers, and designers\npassionate about building products that support healthier lives.",
+    "title": "The Team Behind AnotherDoctor",
+    "description": "Our team of doctors, engineers, and designers\nis passionate about building products that support healthier lives.",
     "testimonials": {
       "Joseph": {
         "name": "Joseph / Changhee Jung",
-        "description": "Welcome to AnotherDoctor.\nFor over 20 years, I’ve been dedicated to providing the best care for patients. AnotherDoctor aims to standardize clinical excellence through AI-driven digital innovation, ensuring equitable access to quality dental care.\nWe look forward to your support as we grow into a global healthcare platform.",
+        "description": "Hello, and thank you for visiting AnotherDoctor.\nFor over 20 years, I have dedicated myself to delivering the best care for patients. Through AI-driven digital innovation, AnotherDoctor is standardizing clinical capabilities and striving to provide fair medical services to more people.\nWe ask for your continued support as we grow into a global healthcare platform.",
         "career": [
-          "Director, Chuncheon Ye Dental Clinic",
-          "D.D.S., Seoul National University",
-          "KAIST AI Business Executive Program",
-          "Residency in Periodontology, Samsung Medical Center",
-          "Visiting Professor, Samsung Medical Center"
+          "Director, Chunchon Ye Dental Clinic",
+          "Graduated from Seoul National University, School of Dentistry",
+          "Completed KAIST AI Business Executive Program",
+          "Completed Periodontology Specialist Program, Samsung Medical Center",
+          "Adjunct Professor, Samsung Medical Center"
         ]
       },
       "Logan": {
         "name": "Logan / Junho Choi",
-        "description": "I’m a tech enthusiast 😎 Watching dental clinics become smarter is my biggest joy!"
+        "description": "I’m a tech enthusiast 😎 Nothing excites me more than seeing dental practices go smart!"
       },
       "Sey": {
         "name": "Sey / Sejoong Kim",
-        "description": "Building efficient systems is my hobby. Seeing both our team and patients smile makes my day 😄"
+        "description": "Building efficient systems is my hobby. Seeing both the team and patients smile makes my day 😄"
       },
       "Lye": {
         "name": "Lye / Boram Kim",
-        "description": "I’m in love with colors 🎨 A single accurate shade can transform a treatment outcome. That’s why I take it so seriously!"
+        "description": "I’m in love with colors 🎨 Just one accurate shade can change the entire outcome of treatment — that’s why I take it seriously!"
       },
       "Kenny": {
         "name": "Kenny / Eunchul Lee",
-        "description": "Writing code that impacts lives—it’s electrifying ⚡ Creating reliable software is my greatest passion!"
+        "description": "Coding feels like touching life itself ⚡ Creating reliable software is what I truly enjoy!"
       },
       "Chul": {
-        "name": "Chul / Chul Namgoong",
-        "description": "I bridge users and technology! Even the smallest UI detail can make a big difference 😉"
+        "name": "Chul / Chul Namkoong",
+        "description": "I connect users and technology! Even the smallest UI detail can make a big difference 😉"
       }
     }
   }

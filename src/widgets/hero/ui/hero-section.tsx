@@ -16,7 +16,7 @@ function HeroSection() {
     >
       <div className="relative flex flex-col items-center justify-center">
         <BlurFade delay={0.2} inView>
-          <h1 className="text-foreground relative z-30 text-center text-5xl font-bold tracking-tighter whitespace-pre-wrap drop-shadow-xl sm:text-6xl md:text-7xl lg:text-9xl">
+          <h1 className="text-foreground relative z-30 text-center text-4xl font-bold tracking-tighter whitespace-pre-wrap drop-shadow-xl sm:text-6xl md:text-7xl lg:text-8xl">
             <AuroraText>{t('title')}</AuroraText>
           </h1>
         </BlurFade>
@@ -24,10 +24,10 @@ function HeroSection() {
         <div className="relative mt-4">
           <BlurFade duration={0.4} inView>
             <div className="relative z-10 h-40 w-[25rem] md:w-[40rem] lg:w-[60rem]">
-              <div className="absolute inset-x-20 top-0 h-[2px] w-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm sm:inset-x-30 md:w-3/4" />
-              <div className="absolute inset-x-20 top-0 h-px w-1/2 bg-gradient-to-r from-transparent via-indigo-500 to-transparent sm:inset-x-30 md:w-3/4" />
-              <div className="absolute inset-x-40 top-0 h-[5px] w-1/2 bg-gradient-to-r from-transparent via-sky-500 to-transparent blur-sm sm:inset-x-60 md:w-1/4" />
-              <div className="absolute inset-x-40 top-0 h-px w-1/2 bg-gradient-to-r from-transparent via-sky-500 to-transparent sm:inset-x-60 md:w-1/4" />
+              <div className="absolute inset-x-20 top-0 h-[2px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm sm:inset-x-30 sm:w-1/2 md:w-3/4" />
+              <div className="absolute inset-x-20 top-0 h-px bg-gradient-to-r from-transparent via-indigo-500 to-transparent sm:inset-x-30 sm:w-1/2 md:w-3/4" />
+              <div className="absolute inset-x-40 top-0 h-[5px] bg-gradient-to-r from-transparent via-sky-500 to-transparent blur-sm sm:inset-x-60 sm:w-1/2 md:w-1/4" />
+              <div className="absolute inset-x-40 top-0 h-px bg-gradient-to-r from-transparent via-sky-500 to-transparent sm:inset-x-60 sm:w-1/2 md:w-1/4" />
 
               <SparklesCore
                 background="transparent"

@@ -12,7 +12,7 @@ const CodingCard = () => {
     const interval = setInterval(() => {
       const newStr = generateRealisticCode()
       setRandomString(newStr)
-    }, 6000)
+    }, 8000) // 조금 더 긴 간격
 
     return () => clearInterval(interval)
   }, [])
@@ -29,38 +29,50 @@ const CodingCard = () => {
 export { CodingCard }
 
 function CodingPattern({ randomString }: { randomString: string }) {
-  const [typedLines, setTypedLines] = useState<string[]>([''])
-  const [currentLine, setCurrentLine] = useState('')
+  const [displayText, setDisplayText] = useState('')
   const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const lines = randomString.split('\n')
-    let lineIdx = 0
-    let charIdx = 0
+    let allText = ''
+    let currentIndex = 0
+
+    // 모든 줄을 하나의 텍스트로 합치되, 줄바꿈 유지
+    const fullText = lines.join('\n')
 
     const interval = setInterval(() => {
-      if (lineIdx < lines.length) {
-        const current = lines[lineIdx]
+      if (currentIndex < fullText.length) {
+        const char = fullText[currentIndex]
 
-        if (charIdx < current.length) {
-          setCurrentLine((prev) => prev + current[charIdx])
-          charIdx++
+        // 줄바꿈 전에 잠깐 멈춤 (더 자연스러운 효과)
+        if (char === '\n') {
+          setTimeout(
+            () => {
+              setDisplayText((prev) => prev + char)
+            },
+            Math.random() * 200 + 100
+          ) // 100-300ms 랜덤 딜레이
         } else {
-          setTypedLines((prev) => [...prev, current])
-          setCurrentLine('')
-          charIdx = 0
-          lineIdx++
+          setDisplayText((prev) => prev + char)
         }
+
+        currentIndex++
       } else {
-        setTypedLines([''])
-        setCurrentLine('')
-        lineIdx = 0
-        charIdx = 0
+        // 모든 텍스트 완료 후 잠시 대기하고 리셋
+        setTimeout(() => {
+          setDisplayText('')
+          currentIndex = 0
+        }, 2000)
       }
-    }, 30)
+    }, getTypingSpeed())
 
     return () => clearInterval(interval)
   }, [randomString])
+
+  // 타이핑 속도를 다양하게 (실제 사람처럼)
+  function getTypingSpeed() {
+    return Math.random() * 80 + 20 // 20-100ms 랜덤
+  }
 
   useEffect(() => {
     if (containerRef.current) {
@@ -69,25 +81,24 @@ function CodingPattern({ randomString }: { randomString: string }) {
         behavior: 'smooth',
       })
     }
-  }, [typedLines, currentLine])
+  }, [displayText])
 
   return (
     <div className="relative h-full w-full">
       <div
         ref={containerRef}
-        className="absolute inset-0 overflow-hidden p-4 font-mono text-xs leading-4 text-green-300/80"
+        className="absolute inset-0 overflow-hidden p-4 font-mono text-xs leading-5 text-green-300/80"
       >
         <motion.pre
           className="pb-20 whitespace-pre-wrap"
-          animate={{ y: [0, -2, 0] }}
-          transition={{ duration: 1.2, repeat: Infinity }}
+          animate={{ y: [0, -1, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
         >
-          {typedLines.join('\n')}
-          {currentLine}
+          {displayText}
           <motion.span
             className="ml-1 inline-block h-4 w-2 bg-green-400"
             animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 0.8, repeat: Infinity }}
+            transition={{ duration: 0.6, repeat: Infinity }}
           />
         </motion.pre>
       </div>
@@ -99,53 +110,78 @@ function CodingPattern({ randomString }: { randomString: string }) {
   )
 }
 
+// 더 자연스러운 코드 스니펫 (치아 관련 AI 코드)
 const codeSnippets = [
+  '# T-GRID 색상 분석 시스템',
   'import cv2',
   'import numpy as np',
   'import torch',
   'import torch.nn as nn',
-  'import torch.optim as optim',
-  'from torchvision import transforms',
+  'from sklearn.cluster import KMeans',
   '',
-  'class ConvNet(nn.Module):',
+  'class ToothColorAnalyzer:',
   '    def __init__(self):',
-  '        super(ConvNet, self).__init__()',
-  '        self.conv1 = nn.Conv2d(1, 32, 3, 1)',
-  '        self.conv2 = nn.Conv2d(32, 64, 3, 1)',
-  '        self.fc1 = nn.Linear(9216, 128)',
-  '        self.fc2 = nn.Linear(128, 10)',
+  '        self.model = self.load_pretrained_model()',
+  '        self.color_standards = self.load_vita_standards()',
+  '    ',
+  '    def calibrate_image(self, image_path):',
+  '        """이미지 보정 및 전처리"""',
+  '        img = cv2.imread(image_path)',
+  '        img = cv2.cvtColor(img, cv2.COLOR_BGR_LAB)',
+  '        ',
+  '        # 조명 보정',
+  '        l_channel = img[:,:,0]',
+  '        l_channel = cv2.equalizeHist(l_channel)',
+  '        img[:,:,0] = l_channel',
+  '        ',
+  '        return cv2.cvtColor(img, cv2.COLOR_LAB2RGB)',
   '',
-  '    def forward(self, x):',
-  '        x = torch.relu(self.conv1(x))',
-  '        x = torch.relu(self.conv2(x))',
-  '        x = torch.flatten(x, 1)',
-  '        x = torch.relu(self.fc1(x))',
-  '        return self.fc2(x)',
+  '    def extract_tooth_region(self, image):',
+  '        """치아 영역 추출"""',
+  '        mask = self.create_tooth_mask(image)',
+  '        tooth_pixels = image[mask > 0]',
+  '        return tooth_pixels',
+  '    ',
+  '    def analyze_color(self, tooth_pixels):',
+  '        """색상 분석 및 VITA 매칭"""',
+  '        kmeans = KMeans(n_clusters=3, random_state=42)',
+  '        clusters = kmeans.fit_predict(tooth_pixels)',
+  '        ',
+  '        dominant_color = kmeans.cluster_centers_[0]',
+  '        vita_match = self.match_to_vita(dominant_color)',
+  '        ',
+  '        return {',
+  '            "dominant_color": dominant_color,',
+  '            "vita_shade": vita_match,',
+  '            "confidence": self.calculate_confidence()',
+  '        }',
   '',
-  'def preprocess_image(path):',
-  '    img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)',
-  '    img = cv2.resize(img, (28, 28))',
-  '    tensor = torch.tensor(img / 255.0).float().unsqueeze(0).unsqueeze(0)',
-  '    return tensor',
-  '',
-  'model = ConvNet()',
-  'optimizer = optim.Adam(model.parameters(), lr=0.001)',
-  '',
-  'def predict(path):',
-  '    input_tensor = preprocess_image(path)',
-  '    with torch.no_grad():',
-  '        output = model(input_tensor)',
-  '        pred = output.argmax(dim=1).item()',
-  '    return pred',
+  'def process_dental_image(image_path):',
+  '    analyzer = ToothColorAnalyzer()',
+  '    ',
+  '    # 1. 이미지 로드 및 보정',
+  '    calibrated_img = analyzer.calibrate_image(image_path)',
+  '    ',
+  '    # 2. 치아 영역 추출',
+  '    tooth_pixels = analyzer.extract_tooth_region(calibrated_img)',
+  '    ',
+  '    # 3. 색상 분석',
+  '    result = analyzer.analyze_color(tooth_pixels)',
+  '    ',
+  '    print(f"분석 결과: {result["vita_shade"]}")',
+  '    print(f"신뢰도: {result["confidence"]:.2f}")',
+  '    ',
+  '    return result',
 ]
 
 const generateRealisticCode = () => {
+  const shuffled = [...codeSnippets].sort(() => Math.random() - 0.5)
+  const lineCount = Math.floor(Math.random() * 20) + 25
+
   let result = ''
-  const lineCount = Math.floor(Math.random() * 25) + 15
-  for (let i = 0; i < lineCount; i++) {
-    const snippet =
-      codeSnippets[Math.floor(Math.random() * codeSnippets.length)]
-    result += snippet + '\n'
+  for (let i = 0; i < Math.min(lineCount, shuffled.length); i++) {
+    result += shuffled[i] + '\n'
   }
+
   return result
 }

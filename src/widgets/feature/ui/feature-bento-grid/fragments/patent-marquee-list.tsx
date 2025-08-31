@@ -7,15 +7,12 @@ function PatentMarqueeList() {
   const files = [
     {
       name: t('patent1.title'),
-      body: t('patent1.description'),
     },
     {
       name: t('patent2.title'),
-      body: t('patent2.description'),
     },
     {
       name: t('patent3.title'),
-      body: t('patent3.description'),
     },
   ]
 
@@ -41,7 +38,7 @@ function PatentMarqueeList() {
               </figcaption>
             </div>
           </div>
-          <blockquote className="mt-2 text-xs">{f.body}</blockquote>
+          {/* <blockquote className="mt-2 text-xs">{f.body}</blockquote> */}
         </figure>
       ))}
     </Marquee>

@@ -58,19 +58,13 @@
         "title": "공인된 솔루션 T-GRID",
         "description": "PCT를 포함한 국내외 특허 3건 진행 및 벤처 인증과 기관 투자를 받고 있습니다.",
         "patent1": {
-          "title": "특허 1",
-          "subTitle": "치아색 보정 및 판정",
-          "description": "임상 사진 내 표본 치아를 활용한 치아색 보정과 판정 방법"
+          "title": "특허 1"
         },
         "patent2": {
-          "title": "특허 2",
-          "subTitle": "객체 색상 측정",
-          "description": "객체의 색상을 측정하는 방법 및 장치"
+          "title": "특허 2"
         },
         "patent3": {
-          "title": "특허 3",
-          "subTitle": "치아 색상 보정 장치",
-          "description": "치아 색상 보정 서비스 제공 방법 및 이를 위한 장치"
+          "title": "특허 3"
         }
       },
       "item4": {

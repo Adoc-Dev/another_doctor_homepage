@@ -103,25 +103,43 @@
           "Adjunct Professor, Samsung Medical Center"
         ]
       },
-      "Logan": {
-        "name": "Logan / Junho Choi",
-        "description": "I am passionate about driving innovation in dental practices through technology. My goal is to help realize the future of smart dentistry."
-      },
       "Sey": {
         "name": "Sey / Sejoong Kim",
-        "description": "I focus on building efficient systems that enhance trust and convenience in clinical settings. Creating an environment where both patients and teams are satisfied is my core value."
+        "description": "I focus on building efficient systems that enhance trust and convenience in clinical settings. Creating an environment where both patients and teams are satisfied is my core value.",
+        "career": [
+          "Head of Operations and Management",
+          "Business and Marketing Expert"
+        ]
+      },
+      "Logan": {
+        "name": "Logan / Junho Choi",
+        "description": "I am passionate about driving innovation in dental practices through technology. My goal is to help realize the future of smart dentistry.",
+        "career": [
+          "Head of Strategy/Business Development",
+          "Business and Service Planning Expert"
+        ]
       },
       "Lye": {
         "name": "Lye / Boram Kim",
-        "description": "Accurate color is a key element that can transform clinical outcomes. Based on research and data, I strive to deliver better results through precision in color."
+        "description": "Accurate color is a key element that can transform clinical outcomes. Based on research and data, I strive to deliver better results through precision in color.",
+        "career": [
+          "Head of Research Institute",
+          "Expert in sensory science-based color experience research"
+        ]
       },
       "Kenny": {
         "name": "Kenny / Euncheol Lee",
-        "description": "Reliable and stable software is the backbone of medical services. I code with a strong sense of responsibility in every line I write."
+        "description": "Reliable and stable software is the backbone of medical services. I code with a strong sense of responsibility in every line I write.",
+        "career": [
+          "Core Developer, AnotherDoctor",
+          "Machine Learning/AI, Backend Developer",
+          "Completed KAIST AI Business Executive Program"
+        ]
       },
       "Chul": {
         "name": "Chul / Chul Namgung",
-        "description": "I design interfaces that bridge user experience with technology. I believe that even the smallest details can significantly improve efficiency and satisfaction in dentistry."
+        "description": "I design interfaces that bridge user experience with technology. I believe that even the smallest details can significantly improve efficiency and satisfaction in dentistry.",
+        "career": ["Core Developer, AnotherDoctor", "Web Frontend Developer"]
       }
     }
   }

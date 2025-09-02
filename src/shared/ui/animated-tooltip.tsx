@@ -50,7 +50,7 @@ export const AnimatedTooltip = ({
     <>
       {items.map((item, idx) => (
         <div
-          className="group relative z-[999] -mr-4 cursor-pointer"
+          className="group relative z-[50] -mr-4 cursor-pointer"
           key={item.name}
           onMouseEnter={() => setHoveredIndex(item.id)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -95,7 +95,7 @@ export const AnimatedTooltip = ({
             width={100}
             src={item.image}
             alt={item.name}
-            className="relative !m-0 size-12 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105 sm:size-20"
+            className="relative !m-0 size-12 scale-90 rounded-full border-2 border-white object-cover object-top !p-0 transition duration-500 group-hover:z-30 group-hover:scale-105 sm:size-20"
           />
         </div>
       ))}

@@ -14,6 +14,7 @@ import {
 } from '@/src/shared/ui'
 import { navItems } from '@/src/widgets/header/model/constants'
 import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 import { useState } from 'react'
 
 export function HeaderNavigation() {
@@ -39,7 +40,9 @@ export function HeaderNavigation() {
 
         <MobileNav>
           <MobileNavHeader>
-            <LogoHorizontal className="h-3" />
+            <Link href="/">
+              <LogoHorizontal className="h-3" />
+            </Link>
             <div className="flex items-center gap-4">
               <GlobalButton />
               <MobileNavToggle

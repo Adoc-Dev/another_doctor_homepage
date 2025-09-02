@@ -74,7 +74,7 @@ export const AnimatedTestimonials = ({
         </div>
         <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
           <div className="flex flex-col items-center">
-            <div className="relative h-80 w-full">
+            <div className="relative h-80 w-full bg-gray-100">
               <img
                 src={testimonials[0].src}
                 alt={testimonials[0].name}
@@ -126,7 +126,7 @@ export const AnimatedTestimonials = ({
       </div>
       <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
         <div className="hidden flex-col items-center sm:flex">
-          <div className="relative h-80 w-full">
+          <div className="relative h-60 w-full">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -157,7 +157,7 @@ export const AnimatedTestimonials = ({
                     duration: 0.4,
                     ease: 'easeInOut',
                   }}
-                  className="absolute inset-0 origin-bottom"
+                  className="absolute inset-0 origin-bottom rounded-3xl bg-gray-200"
                 >
                   <img
                     src={testimonial.src}
@@ -212,40 +212,39 @@ export const AnimatedTestimonials = ({
               {testimonials[active].designation}
             </p>
 
-            {testimonials[active].role.toLowerCase() === 'ceo' &&
-              testimonials[active].career && (
-                <motion.div
-                  key={`career-${active}`}
-                  className="mt-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{
-                    duration: 0.3,
-                    ease: 'easeOut',
-                    delay: 0.1,
-                  }}
-                >
-                  <ul className="space-y-1.5">
-                    {testimonials[active].career!.map((item, index) => (
-                      <motion.li
-                        key={`${active}-${index}`}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          duration: 0.3,
-                          ease: 'easeOut',
-                          delay: 0.15 + 0.05 * index,
-                        }}
-                        className="flex items-start gap-2 text-xs text-gray-600 sm:text-sm dark:text-neutral-400"
-                      >
-                        <CheckIcon className="text-primary-500 size-3 shrink-0 sm:size-4" />
-                        <span>{item}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </motion.div>
-              )}
+            {testimonials[active].career && (
+              <motion.div
+                key={`career-${active}`}
+                className="mt-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{
+                  duration: 0.3,
+                  ease: 'easeOut',
+                  delay: 0.1,
+                }}
+              >
+                <ul className="space-y-1.5">
+                  {testimonials[active].career!.map((item, index) => (
+                    <motion.li
+                      key={`${active}-${index}`}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        duration: 0.3,
+                        ease: 'easeOut',
+                        delay: 0.15 + 0.05 * index,
+                      }}
+                      className="flex items-start gap-2 text-xs text-gray-600 sm:text-sm dark:text-neutral-400"
+                    >
+                      <CheckIcon className="text-primary-500 size-3 shrink-0 sm:size-4" />
+                      <span>{item}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
 
             <motion.div className="mt-8 text-lg whitespace-pre-line text-gray-500 dark:text-neutral-300">
               {testimonials[active].quote.split('\n').map((line, lineIndex) => (

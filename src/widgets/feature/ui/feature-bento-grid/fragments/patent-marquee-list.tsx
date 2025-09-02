@@ -33,7 +33,7 @@ function PatentMarqueeList() {
         <figure
           key={idx}
           className={cn(
-            'relative h-[300px] w-40 cursor-pointer overflow-hidden rounded-xl border p-4',
+            'relative h-[350px] w-40 cursor-pointer overflow-hidden rounded-xl border p-4',
             'border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]',
             'dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]',
             'transform-gpu blur-[1px] transition-all duration-300 ease-out hover:blur-none'
@@ -55,15 +55,20 @@ function VenturePatentItem() {
         <LogoIcon className="h-2" />
         <img src="/venture_head_logo.png" className="h-2" />
       </div>
-      <div className="mt-1 size-16 overflow-hidden rounded-lg">
+      <div className="mt-1 size-12 overflow-hidden rounded-lg">
         <img
           src="/venture_enterprise.jpg"
           className="h-full w-full object-cover"
         />
       </div>
-      <figcaption className="border-y border-amber-200 py-2 text-center text-sm font-medium dark:text-white">
-        주식회사 어나더닥터
-      </figcaption>
+      <div className="flex flex-col items-center justify-center gap-y-2">
+        <p className="text-caption-02 font-medium tracking-[-0.05rem] dark:text-white">
+          벤처확인번호 : 2025072010028
+        </p>
+        <figcaption className="border-y border-amber-200 py-1.5 text-center text-sm font-medium dark:text-white">
+          주식회사 어나더닥터
+        </figcaption>
+      </div>
     </div>
   )
 }

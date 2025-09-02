@@ -4,6 +4,7 @@ import { BentoCard, BentoGrid } from '@/src/shared/ui/bento-grid'
 import { CodingCard } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/coding-card'
 import { PatentMarqueeList } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/patent-marquee-list'
 import { TCheckerAnimatedList } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/t-checker-animated-list'
+import { ColorMap } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/teeth-colormap'
 import { useTranslations } from 'next-intl'
 
 function FeatureBentoGrid() {
@@ -38,16 +39,16 @@ function FeatureBentoGrid() {
       name: t('item4.title'),
       description: t('item4.description'),
       className: 'col-span-3 lg:col-span-1',
-      // background: <ColorMap />,
-      background: (
-        <div className="absolute inset-0 top-6 h-[220px] w-full overflow-hidden rounded-2xl border border-white bg-white p-4 px-4 sm:top-10 sm:h-[200px] md:h-[160px] dark:border-neutral-800 dark:bg-neutral-900">
-          <img
-            src="/teeth_photo.jpg"
-            alt="teeth_color"
-            className="h-full w-full rounded-2xl object-cover"
-          />
-        </div>
-      ),
+      background: <ColorMap />,
+      // background: (
+      //   <div className="absolute inset-0 top-6 h-[220px] w-full overflow-hidden rounded-2xl border border-white bg-white p-4 px-4 sm:top-10 sm:h-[200px] md:h-[160px] dark:border-neutral-800 dark:bg-neutral-900">
+      //     <img
+      //       src="/teeth_photo.jpg"
+      //       alt="teeth_color"
+      //       className="h-full w-full rounded-2xl object-cover"
+      //     />
+      //   </div>
+      // ),
     },
   ]
 

@@ -1,26 +1,42 @@
 'use client'
 import { motion } from 'motion/react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const CodingCard = () => {
-  const [randomString, setRandomString] = useState('')
+  const [currentCode, setCurrentCode] = useState('')
+  const [isTyping, setIsTyping] = useState(false)
 
   useEffect(() => {
-    let str = generateRealisticCode()
-    setRandomString(str)
+    const startCoding = () => {
+      setIsTyping(true)
+      setCurrentCode('')
 
-    const interval = setInterval(() => {
-      const newStr = generateRealisticCode()
-      setRandomString(newStr)
-    }, 8000) // 조금 더 긴 간격
+      const codeToType = getRandomCodeSnippet()
+      let index = 0
 
-    return () => clearInterval(interval)
+      const typeInterval = setInterval(() => {
+        if (index < codeToType.length) {
+          setCurrentCode(codeToType.slice(0, index + 1))
+          index++
+        } else {
+          clearInterval(typeInterval)
+          setIsTyping(false)
+
+          // 3초 후 새로운 코드 시작
+          setTimeout(() => {
+            startCoding()
+          }, 2000)
+        }
+      }, getTypingSpeed())
+    }
+
+    startCoding()
   }, [])
 
   return (
-    <div className="relative flex aspect-square h-full w-full items-center justify-center overflow-hidden rounded-3xl bg-black">
-      <div className="relative flex h-full w-full items-center justify-center">
-        <CodingPattern randomString={randomString} />
+    <div className="relative flex aspect-square h-full w-full items-center justify-center overflow-hidden rounded-xl bg-gray-900">
+      <div className="relative flex h-full w-full items-center justify-start">
+        <CodeEditor code={currentCode} isTyping={isTyping} />
       </div>
     </div>
   )
@@ -28,160 +44,121 @@ const CodingCard = () => {
 
 export { CodingCard }
 
-function CodingPattern({ randomString }: { randomString: string }) {
-  const [displayText, setDisplayText] = useState('')
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const lines = randomString.split('\n')
-    let allText = ''
-    let currentIndex = 0
-
-    // 모든 줄을 하나의 텍스트로 합치되, 줄바꿈 유지
-    const fullText = lines.join('\n')
-
-    const interval = setInterval(() => {
-      if (currentIndex < fullText.length) {
-        const char = fullText[currentIndex]
-
-        // 줄바꿈 전에 잠깐 멈춤 (더 자연스러운 효과)
-        if (char === '\n') {
-          setTimeout(
-            () => {
-              setDisplayText((prev) => prev + char)
-            },
-            Math.random() * 200 + 100
-          ) // 100-300ms 랜덤 딜레이
-        } else {
-          setDisplayText((prev) => prev + char)
-        }
-
-        currentIndex++
-      } else {
-        // 모든 텍스트 완료 후 잠시 대기하고 리셋
-        setTimeout(() => {
-          setDisplayText('')
-          currentIndex = 0
-        }, 2000)
-      }
-    }, getTypingSpeed())
-
-    return () => clearInterval(interval)
-  }, [randomString])
-
-  // 타이핑 속도를 다양하게 (실제 사람처럼)
-  function getTypingSpeed() {
-    return Math.random() * 80 + 20 // 20-100ms 랜덤
-  }
-
-  useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.scrollTo({
-        top: containerRef.current.scrollHeight,
-        behavior: 'smooth',
-      })
-    }
-  }, [displayText])
-
+function CodeEditor({ code, isTyping }: { code: string; isTyping: boolean }) {
   return (
     <div className="relative h-full w-full">
-      <div
-        ref={containerRef}
-        className="absolute inset-0 overflow-hidden p-4 font-mono text-xs leading-5 text-green-300/80"
-      >
-        <motion.pre
-          className="pb-20 whitespace-pre-wrap"
-          animate={{ y: [0, -1, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          {displayText}
-          <motion.span
-            className="ml-1 inline-block h-4 w-2 bg-green-400"
-            animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 0.6, repeat: Infinity }}
-          />
-        </motion.pre>
+      {/* VS Code 스타일 헤더 */}
+      <div className="flex h-8 items-center gap-2 border-b border-gray-700 bg-gray-800 px-3">
+        <div className="flex gap-1.5">
+          <div className="h-3 w-3 rounded-full bg-red-500" />
+          <div className="h-3 w-3 rounded-full bg-yellow-500" />
+          <div className="h-3 w-3 rounded-full bg-green-500" />
+        </div>
+        <span className="ml-2 text-xs text-gray-400">t_grid_analyzer.py</span>
       </div>
 
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
-      <div className="pointer-events-none absolute top-0 right-0 left-0 h-10 bg-gradient-to-b from-black to-transparent" />
-      <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-10 bg-gradient-to-t from-black to-transparent" />
+      {/* 코드 영역 */}
+      <div className="relative h-full overflow-hidden bg-gray-900 p-3 font-mono text-sm">
+        <pre className="text-green-300">
+          {code}
+          {isTyping && (
+            <motion.span
+              className="inline-block h-4 w-1 bg-blue-400"
+              animate={{ opacity: [1, 0, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }}
+            />
+          )}
+        </pre>
+      </div>
     </div>
   )
 }
 
-// 더 자연스러운 코드 스니펫 (치아 관련 AI 코드)
+// OpenCV 기반 파이썬 코드 스니펫들
 const codeSnippets = [
-  '# T-GRID 색상 분석 시스템',
-  'import cv2',
-  'import numpy as np',
-  'import torch',
-  'import torch.nn as nn',
-  'from sklearn.cluster import KMeans',
-  '',
-  'class ToothColorAnalyzer:',
-  '    def __init__(self):',
-  '        self.model = self.load_pretrained_model()',
-  '        self.color_standards = self.load_vita_standards()',
-  '    ',
-  '    def calibrate_image(self, image_path):',
-  '        """이미지 보정 및 전처리"""',
-  '        img = cv2.imread(image_path)',
-  '        img = cv2.cvtColor(img, cv2.COLOR_BGR_LAB)',
-  '        ',
-  '        # 조명 보정',
-  '        l_channel = img[:,:,0]',
-  '        l_channel = cv2.equalizeHist(l_channel)',
-  '        img[:,:,0] = l_channel',
-  '        ',
-  '        return cv2.cvtColor(img, cv2.COLOR_LAB2RGB)',
-  '',
-  '    def extract_tooth_region(self, image):',
-  '        """치아 영역 추출"""',
-  '        mask = self.create_tooth_mask(image)',
-  '        tooth_pixels = image[mask > 0]',
-  '        return tooth_pixels',
-  '    ',
-  '    def analyze_color(self, tooth_pixels):',
-  '        """색상 분석 및 VITA 매칭"""',
-  '        kmeans = KMeans(n_clusters=3, random_state=42)',
-  '        clusters = kmeans.fit_predict(tooth_pixels)',
-  '        ',
-  '        dominant_color = kmeans.cluster_centers_[0]',
-  '        vita_match = self.match_to_vita(dominant_color)',
-  '        ',
-  '        return {',
-  '            "dominant_color": dominant_color,',
-  '            "vita_shade": vita_match,',
-  '            "confidence": self.calculate_confidence()',
-  '        }',
-  '',
-  'def process_dental_image(image_path):',
-  '    analyzer = ToothColorAnalyzer()',
-  '    ',
-  '    # 1. 이미지 로드 및 보정',
-  '    calibrated_img = analyzer.calibrate_image(image_path)',
-  '    ',
-  '    # 2. 치아 영역 추출',
-  '    tooth_pixels = analyzer.extract_tooth_region(calibrated_img)',
-  '    ',
-  '    # 3. 색상 분석',
-  '    result = analyzer.analyze_color(tooth_pixels)',
-  '    ',
-  '    print(f"분석 결과: {result["vita_shade"]}")',
-  '    print(f"신뢰도: {result["confidence"]:.2f}")',
-  '    ',
-  '    return result',
+  `import cv2
+import numpy as np
+from sklearn.cluster import KMeans
+
+img = cv2.imread('tooth.jpg')
+lab = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
+result = analyze_shade(lab)`,
+
+  `# 치아 영역 추출
+def extract_tooth_region(image):
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    mask = cv2.threshold(gray, 0, 255, 
+                        cv2.THRESH_BINARY)[1]
+    return cv2.bitwise_and(image, image, mask=mask)`,
+
+  `# 색상 보정 알고리즘
+def calibrate_color(image):
+    lab = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
+    l, a, b = cv2.split(lab)
+    
+    # CLAHE 적용
+    clahe = cv2.createCLAHE(clipLimit=2.0)
+    l = clahe.apply(l)
+    
+    return cv2.merge([l, a, b])`,
+
+  `# VITA 색상 매칭
+VITA_STANDARDS = {
+    'A1': [240, 239, 230],
+    'A2': [245, 240, 220], 
+    'B1': [236, 235, 225],
+    'C1': [239, 235, 222]
+}
+
+def match_vita_shade(color_rgb):
+    min_distance = float('inf')
+    best_match = 'A1'
+    
+    for shade, rgb in VITA_STANDARDS.items():
+        distance = np.linalg.norm(
+            np.array(color_rgb) - np.array(rgb)
+        )
+        if distance < min_distance:
+            min_distance = distance
+            best_match = shade
+    
+    return best_match, min_distance`,
+
+  `# 딥러닝 모델 예측
+import tensorflow as tf
+
+model = tf.keras.models.load_model('tgrid_model.h5')
+
+def predict_shade(image_array):
+    processed = preprocess_image(image_array)
+    prediction = model.predict(processed)
+    confidence = np.max(prediction)
+    
+    return {
+        'shade': decode_prediction(prediction),
+        'confidence': float(confidence)
+    }`,
+
+  `# K-means 클러스터링으로 주요 색상 추출
+def get_dominant_colors(image, k=3):
+    pixels = image.reshape(-1, 3)
+    kmeans = KMeans(n_clusters=k, random_state=42)
+    kmeans.fit(pixels)
+    
+    colors = kmeans.cluster_centers_
+    labels = kmeans.labels_
+    
+    # 가장 많이 나타나는 색상 찾기
+    unique, counts = np.unique(labels, return_counts=True)
+    dominant_idx = unique[np.argmax(counts)]
+    
+    return colors[dominant_idx].astype(int)`,
 ]
 
-const generateRealisticCode = () => {
-  const shuffled = [...codeSnippets].sort(() => Math.random() - 0.5)
-  const lineCount = Math.floor(Math.random() * 20) + 25
+function getRandomCodeSnippet() {
+  return codeSnippets[Math.floor(Math.random() * codeSnippets.length)]
+}
 
-  let result = ''
-  for (let i = 0; i < Math.min(lineCount, shuffled.length); i++) {
-    result += shuffled[i] + '\n'
-  }
-
-  return result
+function getTypingSpeed() {
+  return Math.random() * 40 + 50 // 50-90ms 랜덤 (파이썬 코드는 조금 더 천천히)
 }

@@ -24,24 +24,33 @@ const novaSquare = Nova_Square({
 export const metadata = {
   title: {
     template: '%s | Another Doctor',
-    default: 'Another Doctor | AI 색상 측정',
+    default: 'Another Doctor | AI 기반 치아 색상 측정 솔루션 T-GRID',
   },
   description:
-    '정확한 색, 완벽한 미소. AI 기반 치아 색상 측정 솔루션으로 정밀한 진단을 제공합니다.',
+    '정확한 색, 완벽한 미소. AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 진단을 제공합니다. 특허받은 딥러닝 알고리즘으로 색상 오차를 최소화하고 진료 효율성을 극대화합니다.',
   keywords: [
-    'AI',
-    '치아',
-    '색상 측정',
-    '치과',
-    '진단',
+    'AI 치아 색상 측정',
+    'T-GRID',
+    '치과 AI 솔루션',
+    '색상 측정 기술',
+    '치과 진단',
     '의료기기',
     'Another Doctor',
-    '치과용 AI',
-    '덴탈 테크',
+    '치과용 인공지능',
+    '덴탈 테크놀로지',
+    '치아 색상 분석',
+    '딥러닝 의료',
+    '정밀 진단',
+    '색상 보정 기술',
+    '치과 혁신',
   ],
-  authors: [{ name: 'Another Doctor' }],
+  authors: [
+    { name: 'Another Doctor Team', url: 'https://anotherdoctor.co.kr' },
+  ],
   creator: 'Another Doctor',
   publisher: 'Another Doctor',
+  applicationName: 'Another Doctor',
+  referrer: 'origin-when-cross-origin',
   formatDetection: {
     email: false,
     address: false,
@@ -53,15 +62,16 @@ export const metadata = {
     languages: {
       'ko-KR': '/ko',
       'en-US': '/en',
+      'x-default': '/ko',
     },
   },
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
     url: 'https://anotherdoctor.co.kr',
-    title: 'Another Doctor | AI 색상 측정',
+    title: 'Another Doctor | AI 기반 치아 색상 측정 솔루션 T-GRID',
     description:
-      '정확한 색, 완벽한 미소. AI 기반 치아 색상 측정 솔루션으로 정밀한 진단을 제공합니다.',
+      '정확한 색, 완벽한 미소. AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 진단을 제공합니다. 특허받은 딥러닝 알고리즘으로 색상 오차를 최소화합니다.',
     siteName: 'Another Doctor',
     images: [
       {
@@ -74,8 +84,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Another Doctor | AI 색상 측정',
-    description: '정확한 색, 완벽한 미소. AI 기반 치아 색상 측정 솔루션',
+    title: 'Another Doctor | AI 기반 치아 색상 측정 솔루션 T-GRID',
+    description:
+      '정확한 색, 완벽한 미소. AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 진단을 제공합니다.',
     images: ['/twitter-image.png'],
   },
   robots: {

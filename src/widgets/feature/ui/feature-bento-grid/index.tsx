@@ -40,7 +40,7 @@ function FeatureBentoGrid() {
       className: 'col-span-3 lg:col-span-1',
       // background: <ColorMap />,
       background: (
-        <div className="absolute inset-0 top-6 h-[200px] w-full overflow-hidden rounded-2xl border border-white bg-white p-4 px-4 sm:top-10 sm:h-[160px] dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="absolute inset-0 top-6 h-[220px] w-full overflow-hidden rounded-2xl border border-white bg-white p-4 px-4 sm:top-10 sm:h-[200px] md:h-[160px] dark:border-neutral-800 dark:bg-neutral-900">
           <img
             src="/teeth_photo.jpg"
             alt="teeth_color"

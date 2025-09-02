@@ -27,10 +27,10 @@ function FeatureSection() {
             </p>
           </BlurFade>
         </div>
-        <BlurFade delay={0.8} inView>
+        <BlurFade delay={0.8} inView className="w-full">
           <MetricsList />
         </BlurFade>
-        <BlurFade delay={1.2} inView>
+        <BlurFade delay={1.2} inView className="w-full">
           <FeatureBentoGrid />
         </BlurFade>
       </div>

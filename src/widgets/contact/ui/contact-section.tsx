@@ -12,7 +12,7 @@ function ContactSection() {
   return (
     <section
       id="contact-section"
-      className="relative mx-4 my-40 flex h-[300px] w-[calc(100%-2rem)] items-center justify-center overflow-hidden rounded-4xl border-none shadow-sm sm:mx-auto sm:h-[400px] sm:max-w-lg"
+      className="relative mx-4 my-40 flex h-[300px] w-[calc(100%-2rem)] items-center justify-center overflow-hidden rounded-4xl border-none shadow-lg sm:mx-auto sm:h-[400px] sm:max-w-[700px]"
     >
       <div className="flex size-full flex-col items-center justify-center gap-y-4">
         <ColorMapVertical />

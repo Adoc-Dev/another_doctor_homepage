@@ -14,7 +14,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin/', '/api/'],
       },
     ],
-    sitemap: 'https://anotherdoctor.co.kr/sitemap.xml',
-    host: 'https://anotherdoctor.co.kr',
+    sitemap: 'https://www.anotherdoctor.org/sitemap.xml',
+    host: 'https://www.anotherdoctor.org',
   }
 }

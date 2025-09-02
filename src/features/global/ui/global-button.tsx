@@ -2,13 +2,13 @@
 
 import KoreaFlag from '@/public/icons/korea-flag.svg'
 import USAFlag from '@/public/icons/united-states-flag.svg'
-import { usePathname } from '@/src/i18n/navigation'
+import { usePathname, useRouter } from '@/src/i18n/navigation'
 import { NavbarButton } from '@/src/shared/ui/resizable-navbar'
 import { useLocale } from 'next-intl'
 
 function GlobalButton() {
   const locale = useLocale() as 'ko' | 'en'
-
+  const router = useRouter()
   const pathname = usePathname()
 
   const flags = {
@@ -18,12 +18,8 @@ function GlobalButton() {
 
   const handleLanguageChange = (newLocale: 'ko' | 'en') => {
     if (newLocale !== locale) {
-      console.log(`Changing locale from ${locale} to ${newLocale}`)
-
-      const newPath = `/${newLocale}${pathname}`
-      window.location.href = newPath
-
-      localStorage.setItem('preferred-locale', newLocale)
+      router.push(pathname, { locale: newLocale })
+      router.refresh()
     }
   }
 

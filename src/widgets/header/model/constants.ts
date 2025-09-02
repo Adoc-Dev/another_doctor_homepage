@@ -5,13 +5,13 @@ const navItems: NavItemType[] = [
     type: 'link',
     key: 'about',
     translationKey: 'about.introduction.title',
-    href: '/company/about',
+    href: '/',
   },
   {
     type: 'link',
     key: 'message',
     translationKey: 'about.ceoMessage.title',
-    href: '/company/message',
+    href: '/team',
   },
   {
     type: 'link',

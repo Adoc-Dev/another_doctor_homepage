@@ -16,7 +16,7 @@ function MeetTheTeam() {
       src: '/profile/joseph.png',
     },
     {
-      quote: t('testimonials.Sey.description'),
+      // quote: t('testimonials.Sey.description'),
       name: t('testimonials.Sey.name'),
       role: 'COO',
       career: t.raw('testimonials.Sey.career') as string[],
@@ -24,7 +24,7 @@ function MeetTheTeam() {
       src: '/profile/sey.png',
     },
     {
-      quote: t('testimonials.Logan.description'),
+      // quote: t('testimonials.Logan.description'),
       name: t('testimonials.Logan.name'),
       role: 'CSO',
       career: t.raw('testimonials.Logan.career') as string[],
@@ -32,15 +32,15 @@ function MeetTheTeam() {
       src: '/profile/logan.png',
     },
     {
-      quote: t('testimonials.Lye.description'),
-      name: t('testimonials.Lye.name'),
+      // quote: t('testimonials.Lyne.description'),
+      name: t('testimonials.Lyne.name'),
       role: 'Head of Research Institute',
-      career: t.raw('testimonials.Lye.career') as string[],
+      career: t.raw('testimonials.Lyne.career') as string[],
       designation: 'Head of Research Institute',
       src: '/profile/lyne.png',
     },
     {
-      quote: t('testimonials.Kenny.description'),
+      // quote: t('testimonials.Kenny.description'),
       name: t('testimonials.Kenny.name'),
       role: 'Software Engineer',
       career: t.raw('testimonials.Kenny.career') as string[],
@@ -48,7 +48,7 @@ function MeetTheTeam() {
       src: '/profile/kenny.png',
     },
     {
-      quote: t('testimonials.Chul.description'),
+      // quote: t('testimonials.Chul.description'),
       name: t('testimonials.Chul.name'),
       role: 'Software Engineer',
       career: t.raw('testimonials.Chul.career') as string[],

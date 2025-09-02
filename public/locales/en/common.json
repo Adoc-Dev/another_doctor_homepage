@@ -93,7 +93,7 @@
     "description": "Our team of doctors, engineers, and designers\nis passionate about building products that support healthier lives.",
     "testimonials": {
       "Joseph": {
-        "name": "Joseph / Changhee Jung",
+        "name": "Changhee Jung",
         "description": "Hello, and thank you for visiting AnotherDoctor.\nFor over 20 years, I have dedicated myself to delivering the best care for patients. Through AI-driven digital innovation, AnotherDoctor is standardizing clinical capabilities and striving to provide fair medical services to more people.\nWe ask for your continued support as we grow into a global healthcare platform.",
         "career": [
           "Director, Chunchon Ye Dental Clinic",
@@ -104,7 +104,7 @@
         ]
       },
       "Sey": {
-        "name": "Sey / Sejoong Kim",
+        "name": "Sey Kim",
         "description": "I focus on building efficient systems that enhance trust and convenience in clinical settings. Creating an environment where both patients and teams are satisfied is my core value.",
         "career": [
           "Head of Operations and Management",
@@ -112,15 +112,15 @@
         ]
       },
       "Logan": {
-        "name": "Logan / Junho Choi",
+        "name": "Joonho Choi",
         "description": "I am passionate about driving innovation in dental practices through technology. My goal is to help realize the future of smart dentistry.",
         "career": [
           "Head of Strategy/Business Development",
           "Business and Service Planning Expert"
         ]
       },
-      "Lye": {
-        "name": "Lye / Boram Kim",
+      "Lyne": {
+        "name": "Boram Kim",
         "description": "Accurate color is a key element that can transform clinical outcomes. Based on research and data, I strive to deliver better results through precision in color.",
         "career": [
           "Head of Research Institute",
@@ -128,7 +128,7 @@
         ]
       },
       "Kenny": {
-        "name": "Kenny / Euncheol Lee",
+        "name": "Euncheol Lee",
         "description": "Reliable and stable software is the backbone of medical services. I code with a strong sense of responsibility in every line I write.",
         "career": [
           "Core Developer, AnotherDoctor",
@@ -137,7 +137,7 @@
         ]
       },
       "Chul": {
-        "name": "Chul / Chul Namgung",
+        "name": "Chul Namgoong",
         "description": "I design interfaces that bridge user experience with technology. I believe that even the smallest details can significantly improve efficiency and satisfaction in dentistry.",
         "career": ["Core Developer, AnotherDoctor", "Web Frontend Developer"]
       }

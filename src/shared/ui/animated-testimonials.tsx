@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 
 type Testimonial = {
-  quote: string
+  quote?: string
   name: string
   designation: string
   role: string
@@ -247,44 +247,46 @@ export const AnimatedTestimonials = ({
             )}
 
             <motion.div className="mt-8 text-lg whitespace-pre-line text-gray-500 dark:text-neutral-300">
-              {testimonials[active].quote.split('\n').map((line, lineIndex) => (
-                <motion.p
-                  key={lineIndex}
-                  className="mb-4 last:mb-0"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.3,
-                    delay: lineIndex * 0.1,
-                  }}
-                >
-                  {line.split(' ').map((word, wordIndex) => (
-                    <motion.span
-                      key={`${lineIndex}-${wordIndex}`}
-                      initial={{
-                        filter: 'blur(10px)',
-                        opacity: 0,
-                        y: 5,
-                      }}
-                      animate={{
-                        filter: 'blur(0px)',
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      transition={{
-                        duration: 0.2,
-                        ease: 'easeInOut',
-                        delay:
-                          (lineIndex * line.split(' ').length + wordIndex) *
-                          0.02,
-                      }}
-                      className="text-body-01 sm:text-header-02 md:text-header-01 lg:text-title-01 inline-block"
-                    >
-                      {word}&nbsp;
-                    </motion.span>
-                  ))}
-                </motion.p>
-              ))}
+              {testimonials[active].quote
+                ?.split('\n')
+                .map((line, lineIndex) => (
+                  <motion.p
+                    key={lineIndex}
+                    className="mb-4 last:mb-0"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.3,
+                      delay: lineIndex * 0.1,
+                    }}
+                  >
+                    {line.split(' ').map((word, wordIndex) => (
+                      <motion.span
+                        key={`${lineIndex}-${wordIndex}`}
+                        initial={{
+                          filter: 'blur(10px)',
+                          opacity: 0,
+                          y: 5,
+                        }}
+                        animate={{
+                          filter: 'blur(0px)',
+                          opacity: 1,
+                          y: 0,
+                        }}
+                        transition={{
+                          duration: 0.2,
+                          ease: 'easeInOut',
+                          delay:
+                            (lineIndex * line.split(' ').length + wordIndex) *
+                            0.02,
+                        }}
+                        className="text-body-01 sm:text-header-02 md:text-header-01 lg:text-title-01 inline-block"
+                      >
+                        {word}&nbsp;
+                      </motion.span>
+                    ))}
+                  </motion.p>
+                ))}
             </motion.div>
           </motion.div>
         </div>

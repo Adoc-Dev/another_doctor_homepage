@@ -1,5 +1,4 @@
 'use client'
-import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 
 const CodingCard = () => {
@@ -11,7 +10,7 @@ const CodingCard = () => {
       setIsTyping(true)
       setCurrentCode('')
 
-      const codeToType = getRandomCodeSnippet()
+      const codeToType = codeSnippets[0]
       let index = 0
 
       const typeInterval = setInterval(() => {
@@ -22,7 +21,6 @@ const CodingCard = () => {
           clearInterval(typeInterval)
           setIsTyping(false)
 
-          // 3초 후 새로운 코드 시작
           setTimeout(() => {
             startCoding()
           }, 2000)
@@ -34,131 +32,198 @@ const CodingCard = () => {
   }, [])
 
   return (
-    <div className="relative flex aspect-square h-full w-full items-center justify-center overflow-hidden rounded-xl bg-gray-900">
-      <div className="relative flex h-full w-full items-center justify-start">
+    <div className="relative flex aspect-square h-full w-full items-center justify-center overflow-hidden rounded-xl">
+      {/* 배경 */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-600 via-gray-600/20 to-gray-600" />
+
+      <div className="relative z-10 flex h-full w-full">
         <CodeEditor code={currentCode} isTyping={isTyping} />
       </div>
+
+      {/* 간단한 장식 */}
+      <div className="absolute top-2 right-2 h-2 w-2 animate-pulse rounded-full bg-green-400/60" />
     </div>
   )
 }
-
-export { CodingCard }
 
 function CodeEditor({ code, isTyping }: { code: string; isTyping: boolean }) {
+  const lines = code.split('\n')
+
   return (
     <div className="relative h-full w-full">
-      {/* VS Code 스타일 헤더 */}
-      <div className="flex h-8 items-center gap-2 border-b border-gray-700 bg-gray-800 px-3">
+      <div className="flex h-8 items-center gap-2 border-b border-gray-700/50 bg-gray-800/80 px-3">
         <div className="flex gap-1.5">
-          <div className="h-3 w-3 rounded-full bg-red-500" />
-          <div className="h-3 w-3 rounded-full bg-yellow-500" />
-          <div className="h-3 w-3 rounded-full bg-green-500" />
+          <div className="h-2 w-2 rounded-full bg-red-500" />
+          <div className="h-2 w-2 rounded-full bg-yellow-500" />
+          <div className="h-2 w-2 rounded-full bg-green-500" />
         </div>
         <span className="ml-2 text-xs text-gray-400">t_grid_analyzer.py</span>
+
+        <div className="ml-auto flex items-center gap-1">
+          <div
+            className={`h-1.5 w-1.5 rounded-full ${isTyping ? 'bg-green-400' : 'bg-gray-500'}`}
+          />
+          <span className="text-xs text-gray-500">{lines.length} lines</span>
+        </div>
       </div>
 
-      {/* 코드 영역 */}
-      <div className="relative h-full overflow-hidden bg-gray-900 p-3 font-mono text-sm">
-        <pre className="text-green-300">
-          {code}
+      <div className="h-full overflow-hidden bg-gray-800/90 p-3 font-mono text-sm leading-6">
+        <div className="break-words whitespace-pre-wrap">
+          <SyntaxHighlighter code={code} />
           {isTyping && (
-            <motion.span
-              className="inline-block h-4 w-1 bg-blue-400"
-              animate={{ opacity: [1, 0, 1] }}
-              transition={{ duration: 0.8, repeat: Infinity }}
-            />
+            <span className="ml-0.5 inline-block h-4 w-0.5 animate-pulse bg-blue-400" />
           )}
-        </pre>
+        </div>
       </div>
     </div>
   )
 }
 
-// OpenCV 기반 파이썬 코드 스니펫들
+function SyntaxHighlighter({ code }: { code: string }) {
+  const tokens = tokenizeCode(code)
+
+  return (
+    <>
+      {tokens.map((token, index) => {
+        const { type, value } = token
+        return (
+          <span key={index} className={getTokenStyle(type)}>
+            {value}
+          </span>
+        )
+      })}
+    </>
+  )
+}
+
+type TokenType =
+  | 'keyword'
+  | 'library'
+  | 'comment'
+  | 'string'
+  | 'number'
+  | 'default'
+
+interface Token {
+  type: TokenType
+  value: string
+}
+
+function tokenizeCode(code: string): Token[] {
+  const tokens: Token[] = []
+  let currentIndex = 0
+
+  while (currentIndex < code.length) {
+    let matched = false
+
+    if (code[currentIndex] === '#') {
+      const lineEnd = code.indexOf('\n', currentIndex)
+      const commentEnd = lineEnd === -1 ? code.length : lineEnd
+      tokens.push({
+        type: 'comment',
+        value: code.slice(currentIndex, commentEnd),
+      })
+      currentIndex = commentEnd
+      matched = true
+    } else if (['"', "'", '`'].includes(code[currentIndex])) {
+      const quote = code[currentIndex]
+      let stringEnd = currentIndex + 1
+      while (stringEnd < code.length && code[stringEnd] !== quote) {
+        if (code[stringEnd] === '\\') stringEnd++
+        stringEnd++
+      }
+      stringEnd++
+      tokens.push({
+        type: 'string',
+        value: code.slice(currentIndex, stringEnd),
+      })
+      currentIndex = stringEnd
+      matched = true
+    } else if (/[a-zA-Z_]/.test(code[currentIndex])) {
+      let wordEnd = currentIndex
+      while (wordEnd < code.length && /[a-zA-Z0-9_]/.test(code[wordEnd])) {
+        wordEnd++
+      }
+      const word = code.slice(currentIndex, wordEnd)
+
+      let type: TokenType = 'default'
+      if (
+        [
+          'import',
+          'from',
+          'def',
+          'class',
+          'if',
+          'else',
+          'for',
+          'while',
+          'return',
+          'yield',
+        ].includes(word)
+      ) {
+        type = 'keyword'
+      } else if (['cv2', 'np', 'numpy', 'tf', 'tensorflow'].includes(word)) {
+        type = 'library'
+      }
+
+      tokens.push({ type, value: word })
+      currentIndex = wordEnd
+      matched = true
+    } else if (/\d/.test(code[currentIndex])) {
+      let numberEnd = currentIndex
+      while (numberEnd < code.length && /[\d.]/.test(code[numberEnd])) {
+        numberEnd++
+      }
+      tokens.push({
+        type: 'number',
+        value: code.slice(currentIndex, numberEnd),
+      })
+      currentIndex = numberEnd
+      matched = true
+    }
+
+    if (!matched) {
+      tokens.push({
+        type: 'default',
+        value: code[currentIndex],
+      })
+      currentIndex++
+    }
+  }
+
+  return tokens
+}
+
+function getTokenStyle(type: TokenType): string {
+  switch (type) {
+    case 'keyword':
+      return 'text-red-400'
+    case 'library':
+      return 'text-blue-400'
+    case 'comment':
+      return 'text-gray-500'
+    case 'string':
+      return 'text-green-400'
+    case 'number':
+      return 'text-purple-400'
+    default:
+      return 'text-slate-300'
+  }
+}
+
 const codeSnippets = [
   `import cv2
 import numpy as np
-from sklearn.cluster import KMeans
 
-img = cv2.imread('tooth.jpg')
-lab = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
-result = analyze_shade(lab)`,
-
-  `# 치아 영역 추출
-def extract_tooth_region(image):
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    mask = cv2.threshold(gray, 0, 255, 
-                        cv2.THRESH_BINARY)[1]
-    return cv2.bitwise_and(image, image, mask=mask)`,
-
-  `# 색상 보정 알고리즘
-def calibrate_color(image):
-    lab = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
-    l, a, b = cv2.split(lab)
-    
-    # CLAHE 적용
-    clahe = cv2.createCLAHE(clipLimit=2.0)
-    l = clahe.apply(l)
-    
-    return cv2.merge([l, a, b])`,
-
-  `# VITA 색상 매칭
-VITA_STANDARDS = {
-    'A1': [240, 239, 230],
-    'A2': [245, 240, 220], 
-    'B1': [236, 235, 225],
-    'C1': [239, 235, 222]
-}
-
-def match_vita_shade(color_rgb):
-    min_distance = float('inf')
-    best_match = 'A1'
-    
-    for shade, rgb in VITA_STANDARDS.items():
-        distance = np.linalg.norm(
-            np.array(color_rgb) - np.array(rgb)
-        )
-        if distance < min_distance:
-            min_distance = distance
-            best_match = shade
-    
-    return best_match, min_distance`,
-
-  `# 딥러닝 모델 예측
-import tensorflow as tf
-
-model = tf.keras.models.load_model('tgrid_model.h5')
-
-def predict_shade(image_array):
-    processed = preprocess_image(image_array)
-    prediction = model.predict(processed)
-    confidence = np.max(prediction)
-    
-    return {
-        'shade': decode_prediction(prediction),
-        'confidence': float(confidence)
-    }`,
-
-  `# K-means 클러스터링으로 주요 색상 추출
-def get_dominant_colors(image, k=3):
-    pixels = image.reshape(-1, 3)
-    kmeans = KMeans(n_clusters=k, random_state=42)
-    kmeans.fit(pixels)
-    
-    colors = kmeans.cluster_centers_
-    labels = kmeans.labels_
-    
-    # 가장 많이 나타나는 색상 찾기
-    unique, counts = np.unique(labels, return_counts=True)
-    dominant_idx = unique[np.argmax(counts)]
-    
-    return colors[dominant_idx].astype(int)`,
+# 치아 영역 검출
+def detect_tooth(img):
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    contours = cv2.findContours(gray, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    return max(contours, key=cv2.contourArea)`,
 ]
 
-function getRandomCodeSnippet() {
-  return codeSnippets[Math.floor(Math.random() * codeSnippets.length)]
+function getTypingSpeed() {
+  return Math.random() * 30 + 40
 }
 
-function getTypingSpeed() {
-  return Math.random() * 40 + 50 // 50-90ms 랜덤 (파이썬 코드는 조금 더 천천히)
-}
+export { CodingCard }

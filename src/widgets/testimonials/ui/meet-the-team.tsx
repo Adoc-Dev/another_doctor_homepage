@@ -13,7 +13,7 @@ function MeetTheTeam() {
       role: 'CEO',
       career: t.raw('testimonials.Joseph.career') as string[],
       designation: 'CEO',
-      src: '/profile/joseph.png',
+      src: '/images/profile/joseph.png',
     },
     {
       // quote: t('testimonials.Sey.description'),
@@ -21,7 +21,7 @@ function MeetTheTeam() {
       role: 'COO',
       career: t.raw('testimonials.Sey.career') as string[],
       designation: 'COO',
-      src: '/profile/sey.png',
+      src: '/images/profile/sey.png',
     },
     {
       // quote: t('testimonials.Logan.description'),
@@ -29,7 +29,7 @@ function MeetTheTeam() {
       role: 'CSO',
       career: t.raw('testimonials.Logan.career') as string[],
       designation: 'CSO',
-      src: '/profile/logan.png',
+      src: '/images/profile/logan.png',
     },
     {
       // quote: t('testimonials.Lyne.description'),
@@ -37,7 +37,7 @@ function MeetTheTeam() {
       role: 'Head of Research Institute',
       career: t.raw('testimonials.Lyne.career') as string[],
       designation: 'Head of Research Institute',
-      src: '/profile/lyne.png',
+      src: '/images/profile/lyne.png',
     },
     {
       // quote: t('testimonials.Kenny.description'),
@@ -45,7 +45,7 @@ function MeetTheTeam() {
       role: 'Software Engineer',
       career: t.raw('testimonials.Kenny.career') as string[],
       designation: 'Software Engineer',
-      src: '/profile/kenny.png',
+      src: '/images/profile/kenny.png',
     },
     {
       // quote: t('testimonials.Chul.description'),
@@ -53,7 +53,7 @@ function MeetTheTeam() {
       role: 'Software Engineer',
       career: t.raw('testimonials.Chul.career') as string[],
       designation: 'Software Engineer',
-      src: '/profile/chul.png',
+      src: '/images/profile/chul.png',
     },
   ]
 

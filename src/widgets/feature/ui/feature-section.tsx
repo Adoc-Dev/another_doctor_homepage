@@ -1,6 +1,6 @@
 import { BlurFade, ColourfulText } from '@/src/shared/ui'
 import { FeatureBentoGrid } from '@/src/widgets/feature/ui/feature-bento-grid'
-import { MetricsList } from '@/src/widgets/feature/ui/metrics-list'
+import { MetricsList } from '@/src/widgets/feature/ui/feature-metric-list'
 import { useTranslations } from 'next-intl'
 
 function FeatureSection() {

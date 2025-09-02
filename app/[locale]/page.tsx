@@ -14,6 +14,24 @@ async function HomePage() {
 
   return (
     <main className="bg-background mb-20 flex flex-col items-center justify-center">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'MedicalOrganization',
+            name: 'Another Doctor',
+            description: 'AI 기반 치아 색상 측정 솔루션 제공업체',
+            url: 'https://www.anotherdoctor.org',
+            logo: 'https://www.anotherdoctor.org/icons/logo.svg',
+            // sameAs: ['https://www.linkedin.com/company/anotherdoctor'],
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: 'KR',
+            },
+          }),
+        }}
+      />
       <HeroSection />
       <FeatureSection />
       <Cooperation />

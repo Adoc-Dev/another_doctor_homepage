@@ -1,8 +1,8 @@
 import { QueryProvider, ThemeProvider } from '@/src/app/providers'
-import GoogleAnalytics from '@/src/app/providers/google-analytics'
 import '@/src/app/styles/globals.css'
 import { AlertDialogProvider } from '@/src/shared/ui'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { Analytics } from '@vercel/analytics/react'
 
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -118,7 +118,6 @@ async function RootLayout(props: RootLayoutProps) {
   const { children, params } = props
   const { locale } = await params
 
-  // locale에 따른 메시지 로드
   const messages = await getMessages({ locale })
 
   return (
@@ -143,7 +142,8 @@ async function RootLayout(props: RootLayoutProps) {
             </NextIntlClientProvider>
             <ReactQueryDevtools initialIsOpen={false} />
           </QueryProvider>
-          <GoogleAnalytics />
+          {/* <GoogleAnalytics /> */}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

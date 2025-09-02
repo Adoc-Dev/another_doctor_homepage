@@ -3,13 +3,13 @@ import { Compare } from '@/src/shared/ui/compare'
 
 function ColorMap() {
   return (
-    <div className="absolute inset-0 rounded-2xl border border-white bg-white p-4 px-4 dark:border-neutral-800 dark:bg-neutral-900">
+    <div className="relative inset-0 bg-white p-4 px-4">
       <Compare
-        firstImage="/teeth2.png"
-        secondImage="/teeth_color.png"
+        firstImage="/images/teeth/teeth2.png"
+        secondImage="/images/teeth/teeth_color.png"
         firstImageClassName="object-cover "
         secondImageClassname="object-cover "
-        className="h-[200px] w-full"
+        className="h-[250px] w-full transition-all duration-300 ease-out group-hover:scale-105"
         slideMode="hover"
       />
     </div>

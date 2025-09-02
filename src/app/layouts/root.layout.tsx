@@ -5,6 +5,7 @@ import { AlertDialogProvider } from '@/src/shared/ui'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { NextIntlClientProvider } from 'next-intl'
+import { getMessages } from 'next-intl/server'
 import { Noto_Sans_KR, Nova_Square } from 'next/font/google'
 import Head from 'next/head'
 
@@ -24,10 +25,10 @@ const novaSquare = Nova_Square({
 export const metadata = {
   title: {
     template: '%s | Another Doctor',
-    default: 'Another Doctor | AI 기반 치아 색상 측정 솔루션 T-GRID',
+    default: 'Another Doctor',
   },
   description:
-    '정확한 색, 완벽한 미소. AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 진단을 제공합니다. 특허받은 딥러닝 알고리즘으로 색상 오차를 최소화하고 진료 효율성을 극대화합니다.',
+    '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
   keywords: [
     'AI 치아 색상 측정',
     'T-GRID',
@@ -45,7 +46,7 @@ export const metadata = {
     '치과 혁신',
   ],
   authors: [
-    { name: 'Another Doctor Team', url: 'https://anotherdoctor.co.kr' },
+    { name: 'Another Doctor Team', url: 'https://www.anotherdoctor.org' },
   ],
   creator: 'Another Doctor',
   publisher: 'Another Doctor',
@@ -56,38 +57,38 @@ export const metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://anotherdoctor.co.kr'),
+  metadataBase: new URL('https://www.anotherdoctor.org'),
   alternates: {
     canonical: '/',
     languages: {
-      'ko-KR': '/ko',
-      'en-US': '/en',
-      'x-default': '/ko',
+      ko: '/',
+      en: '/en',
+      'x-default': '/',
     },
   },
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
-    url: 'https://anotherdoctor.co.kr',
-    title: 'Another Doctor | AI 기반 치아 색상 측정 솔루션 T-GRID',
+    url: 'https://www.anotherdoctor.org',
+    title: 'Another Doctor',
     description:
-      '정확한 색, 완벽한 미소. AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 진단을 제공합니다. 특허받은 딥러닝 알고리즘으로 색상 오차를 최소화합니다.',
+      '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
     siteName: 'Another Doctor',
     images: [
       {
-        url: '/og-image.png',
+        url: '/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Another Doctor - AI 색상 측정 솔루션',
+        alt: 'Another Doctor',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Another Doctor | AI 기반 치아 색상 측정 솔루션 T-GRID',
+    title: 'Another Doctor',
     description:
-      '정확한 색, 완벽한 미소. AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 진단을 제공합니다.',
-    images: ['/twitter-image.png'],
+      '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
+    images: ['/images/og-image.png'],
   },
   robots: {
     index: true,
@@ -117,6 +118,9 @@ async function RootLayout(props: RootLayoutProps) {
   const { children, params } = props
   const { locale } = await params
 
+  // locale에 따른 메시지 로드
+  const messages = await getMessages({ locale })
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <Head>
@@ -134,7 +138,7 @@ async function RootLayout(props: RootLayoutProps) {
           disableTransitionOnChange
         >
           <QueryProvider>
-            <NextIntlClientProvider>
+            <NextIntlClientProvider locale={locale} messages={messages}>
               <AlertDialogProvider>{children}</AlertDialogProvider>
             </NextIntlClientProvider>
             <ReactQueryDevtools initialIsOpen={false} />

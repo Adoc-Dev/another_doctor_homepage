@@ -70,25 +70,26 @@ export const metadata = {
     type: 'website',
     locale: 'ko_KR',
     url: 'https://www.anotherdoctor.org',
-    title: 'Another Doctor',
+    title: 'Another Doctor - AI 기반 치아 색상 측정 솔루션 T-GRID',
     description:
       '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
     siteName: 'Another Doctor',
     images: [
       {
-        url: '/images/og-image.png',
+        url: 'https://www.anotherdoctor.org/images/og-image.png', // 절대 URL 사용
         width: 1200,
         height: 630,
-        alt: 'Another Doctor',
+        alt: 'Another Doctor - AI 기반 치아 색상 측정 솔루션',
+        type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Another Doctor',
+    title: 'Another Doctor - AI 기반 치아 색상 측정 솔루션 T-GRID',
     description:
       '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
-    images: ['/images/og-image.png'],
+    images: ['https://www.anotherdoctor.org/images/og-image.png'], // 절대 URL 사용
   },
   robots: {
     index: true,

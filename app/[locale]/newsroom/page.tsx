@@ -1,6 +1,6 @@
 import { prefetchPublicNewsList } from '@/src/shared/api/queries/public-news.query'
 import { getQueryClient } from '@/src/shared/util/get-query-client'
-import { NewsSection } from '@/src/widgets/news/ui'
+import { NewsPage } from '@/src/widgets/news/ui'
 import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
 import type { Metadata } from 'next'
 
@@ -49,7 +49,7 @@ async function NewsroomPage() {
   return (
     <main className="bg-background mt-16 flex flex-col items-center justify-center">
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <NewsSection />
+        <NewsPage />
       </HydrationBoundary>
     </main>
   )

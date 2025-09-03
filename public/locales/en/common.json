@@ -82,7 +82,8 @@
   },
   "news": {
     "title": "Newsroom",
-    "description": "Check out the latest news and events from AnotherDoctor."
+    "description": "Check out the latest news and events from AnotherDoctor.",
+    "viewMore": "View More"
   },
   "contact": {
     "title": "CONTACT",

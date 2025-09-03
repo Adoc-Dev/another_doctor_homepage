@@ -1,10 +1,10 @@
 'use client'
 
-import { NewsSectionList } from '@/src/features/news/ui'
+import { NewsList } from '@/src/features/news/ui'
 import { AnimatedShinyText, BlurFade } from '@/src/shared/ui'
 import { useTranslations } from 'next-intl'
 
-function NewsSection() {
+function NewsPage() {
   const t = useTranslations('news')
 
   return (
@@ -26,10 +26,10 @@ function NewsSection() {
           </BlurFade>
         </div>
 
-        <NewsSectionList />
+        <NewsList />
       </div>
     </section>
   )
 }
 
-export { NewsSection }
+export { NewsPage }

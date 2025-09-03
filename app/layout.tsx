@@ -113,14 +113,14 @@ export const metadata = {
 
 interface RootLayoutProps {
   children: React.ReactNode
-  params: Promise<{ locale: string }>
+  params: { locale: string }
 }
 
-export default async function RootLayout(props: RootLayoutProps) {
+export default function RootLayout(props: RootLayoutProps) {
   const { children, params } = props
-  const { locale } = await params
+  const { locale } = params
 
-  const messages = await getMessages({ locale })
+  const messages = getMessages({ locale })
 
   return (
     <html lang={locale} suppressHydrationWarning>

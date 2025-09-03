@@ -10,6 +10,15 @@ export default function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
+  // SEO 관련 파일들은 다국어 처리 제외 ✅ 추가
+  if (
+    pathname === '/robots.txt' ||
+    pathname === '/sitemap.xml' ||
+    pathname === '/favicon.ico'
+  ) {
+    return NextResponse.next()
+  }
+
   // 정적 파일들은 다국어 처리 제외
   if (
     pathname.startsWith('/images/') ||
@@ -27,15 +36,12 @@ export default function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // 기본 언어를 강제로 한국어로 설정
   if (pathname === '/') {
     const response = createMiddleware({
       ...routing,
-      // 언어 감지를 비활성화하고 기본 언어 사용
       localeDetection: false,
     })(request)
 
-    // 만약 /en으로 리다이렉트되려고 한다면 차단
     if (response.headers.get('location')?.includes('/en')) {
       return NextResponse.next()
     }
@@ -47,5 +53,8 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next|_static|favicon.ico|admin).*)'],
+  // robots.txt와 sitemap.xml도 matcher에서 제외 ✅ 수정
+  matcher: [
+    '/((?!api|_next|_static|favicon.ico|robots.txt|sitemap.xml|admin).*)',
+  ],
 }

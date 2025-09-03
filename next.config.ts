@@ -2,6 +2,40 @@ import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/company/about',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/company/message',
+        destination: '/team',
+        permanent: true,
+      },
+      {
+        source: '/company/:path*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/:locale(ko|en)/company/about',
+        destination: '/:locale',
+        permanent: true,
+      },
+      {
+        source: '/:locale(ko|en)/company/message',
+        destination: '/:locale/team',
+        permanent: true,
+      },
+      {
+        source: '/:locale(ko|en)/company/:path*',
+        destination: '/:locale',
+        permanent: true,
+      },
+    ]
+  },
   experimental: {
     turbo: {
       rules: {

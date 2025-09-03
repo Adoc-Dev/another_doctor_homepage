@@ -7,7 +7,6 @@ import { Analytics } from '@vercel/analytics/react'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { Noto_Sans_KR, Nova_Square } from 'next/font/google'
-import Head from 'next/head'
 
 const notoSansKR = Noto_Sans_KR({
   variable: '--font-noto-sans-kr',
@@ -108,6 +107,8 @@ export const metadata = {
       'naver-site-verification': 'naver-verification-placeholder',
     },
   },
+  viewport:
+    'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
 }
 
 interface RootLayoutProps {
@@ -123,12 +124,6 @@ async function RootLayout(props: RootLayoutProps) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-      </Head>
       <body className={`${notoSansKR.variable} ${novaSquare.variable}`}>
         <ThemeProvider
           attribute="class"
@@ -143,7 +138,6 @@ async function RootLayout(props: RootLayoutProps) {
             </NextIntlClientProvider>
             <ReactQueryDevtools initialIsOpen={false} />
           </QueryProvider>
-          {/* <GoogleAnalytics /> */}
           <Analytics />
         </ThemeProvider>
       </body>

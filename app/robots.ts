@@ -6,12 +6,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin/', '/api/', '/_next/', '/private/'],
+        disallow: ['/admin/', '/api/', '/_next/', '/private/', '/company/'],
       },
       {
         userAgent: 'Googlebot',
         allow: '/',
-        disallow: ['/admin/', '/api/'],
+        disallow: ['/admin/', '/api/', '/company/'],
       },
     ],
     sitemap: 'https://www.anotherdoctor.org/sitemap.xml',

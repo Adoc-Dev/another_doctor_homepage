@@ -1,5 +1,5 @@
 import { Administrator } from '@/src/generated/prisma'
-import administratorsService from '@/src/shared/api/services/administrators.service'
+import administratorsService from '@/src/shared/api/services/admin-administrators.service'
 import { Form, FormItem, Input } from '@/src/shared/ui'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'

@@ -9,8 +9,7 @@ class UploadService {
       formData.append('file', file)
       formData.append('folder', folder)
 
-      // 직접 Supabase API 호출 대신 서버 API 사용
-      const response = await fetch('/admin/api/upload', {
+      const response = await fetch('/api/admin/upload', {
         method: 'POST',
         body: formData,
       })
@@ -21,7 +20,6 @@ class UploadService {
 
       const data = await response.json()
 
-      // 완료 시 진행률 100%
       if (progress) progress(100)
 
       return data.url

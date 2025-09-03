@@ -2,7 +2,7 @@ import { News } from '@/src/generated/prisma'
 import {
   useCreateAdminNewsMutation,
   useUpdateAdminNewsMutation,
-} from '@/src/shared/api/queries/news.query'
+} from '@/src/shared/api/queries/admin-news.query'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'

@@ -8,8 +8,8 @@ export async function GET(
   _req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params
   try {
+    const { id } = await params
     const session = await getServerSession(authOptions)
     if (!session) {
       return NextResponse.json(
@@ -43,7 +43,7 @@ export async function GET(
 
     return NextResponse.json({ user }, { status: 200 })
   } catch (error) {
-    console.error(`Error fetching user ${id}:`, error)
+    console.error(`Error fetching user:`, error)
     return NextResponse.json(
       { error: '사용자 정보를 가져오는 중 오류가 발생했습니다.' },
       { status: 500 }
@@ -55,8 +55,8 @@ export async function PUT(
   req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params
   try {
+    const { id } = await params
     const session = await getServerSession(authOptions)
     if (!session) {
       return NextResponse.json(
@@ -94,9 +94,9 @@ export async function PUT(
       },
     })
 
-    return NextResponse.json({ status: 200 })
+    return NextResponse.json({ success: true }, { status: 200 })
   } catch (error) {
-    console.error(`Error updating user ${id}:`, error)
+    console.error(`Error updating user:`, error)
     return NextResponse.json(
       { error: '사용자 정보를 업데이트하는 중 오류가 발생했습니다.' },
       { status: 500 }
@@ -108,8 +108,8 @@ export async function DELETE(
   _req: NextRequest,
   { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params
   try {
+    const { id } = await params
     const session = await getServerSession(authOptions)
     if (!session) {
       return NextResponse.json(
@@ -138,9 +138,9 @@ export async function DELETE(
       data: { active: false },
     })
 
-    return NextResponse.json({ status: 200 })
+    return NextResponse.json({ success: true }, { status: 200 })
   } catch (error) {
-    console.error(`Error deactivating user ${id}:`, error)
+    console.error(`Error deactivating user:`, error)
     return NextResponse.json(
       { error: '계정 비활성화 중 오류가 발생했습니다.' },
       { status: 500 }

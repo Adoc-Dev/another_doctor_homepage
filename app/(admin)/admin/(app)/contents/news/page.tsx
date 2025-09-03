@@ -2,7 +2,7 @@
 
 import { NewsModal } from '@/src/features/admin/news/ui'
 import { News } from '@/src/generated/prisma'
-import { useAdminNewsListQuery } from '@/src/shared/api/queries/news.query'
+import { useAdminNewsListQuery } from '@/src/shared/api/queries/admin-news.query'
 import { usePageFilters } from '@/src/shared/hooks/page.hook'
 import { cn } from '@/src/shared/lib/utils'
 import { Button, DataTable } from '@/src/shared/ui'

@@ -4,7 +4,7 @@ import { NewsForm } from '@/src/features/admin/news/ui'
 import {
   useAdminNewsDetailQuery,
   useDeleteAdminNewsMutation,
-} from '@/src/shared/api/queries/news.query'
+} from '@/src/shared/api/queries/admin-news.query'
 import { useAlertDialog } from '@/src/shared/hooks/alert-dialog.hook'
 import { Button } from '@/src/shared/ui'
 import { Save, Trash2, X } from 'lucide-react'

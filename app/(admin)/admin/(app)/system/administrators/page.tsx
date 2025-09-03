@@ -4,7 +4,7 @@ import AdministratorModal from '@/src/features/admin/administrators/ui/administr
 import { Administrator } from '@/src/generated/prisma'
 import administratorsService, {
   ADMINISTRATORS_QUERY_KEYS,
-} from '@/src/shared/api/services/administrators.service'
+} from '@/src/shared/api/services/admin-administrators.service'
 import { usePageFilters } from '@/src/shared/hooks/page.hook'
 import { Button } from '@/src/shared/ui'
 import { DataTable } from '@/src/shared/ui/admin/data-table'

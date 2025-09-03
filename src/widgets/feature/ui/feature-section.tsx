@@ -8,7 +8,7 @@ function FeatureSection() {
 
   return (
     <section
-      id="product-section"
+      id="feature-section"
       className="relative flex w-full flex-col items-center justify-center py-16 sm:py-20 md:py-24 lg:py-32"
     >
       <div className="container flex max-w-6xl flex-col items-center justify-center px-4 md:px-8">

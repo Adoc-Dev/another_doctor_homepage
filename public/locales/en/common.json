@@ -28,7 +28,8 @@
   },
   "hero": {
     "title": "Find Your Own\nTooth Shade",
-    "words": ["T-GRID your smile", "Discover the accurate shade"]
+    "words": ["T-GRID your smile", "Discover the accurate shade"],
+    "button": "Learn More"
   },
   "technologyImpact": {
     "title": "AI-Powered Precision Shade Measurement",

@@ -1,13 +1,25 @@
 'use client'
 
 import { useSafari } from '@/src/shared/hooks/safari.hook'
-import { AuroraText, BlurFade, FlipWords, SparklesCore } from '@/src/shared/ui'
+import { useScrollTo } from '@/src/shared/hooks/scroll.hook'
+import {
+  AuroraText,
+  BlurFade,
+  FlipWords,
+  InteractiveHoverButton,
+  SparklesCore,
+} from '@/src/shared/ui'
 import { useTranslations } from 'next-intl'
 
 function HeroSection() {
   const t = useTranslations('hero')
   const words = t.raw('words') as string[]
   const isSafari = useSafari()
+  const { scrollToSection } = useScrollTo()
+
+  const handleClick = () => {
+    scrollToSection('feature-section')
+  }
 
   return (
     <section
@@ -53,6 +65,12 @@ function HeroSection() {
             </div>
           </BlurFade>
         </div>
+        <InteractiveHoverButton
+          className="border-primary-500 text-primary-500 mt-12 border"
+          onClick={handleClick}
+        >
+          <span>{t('button')}</span>
+        </InteractiveHoverButton>
       </div>
     </section>
   )

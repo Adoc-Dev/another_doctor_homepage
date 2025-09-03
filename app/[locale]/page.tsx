@@ -3,10 +3,10 @@ import { getQueryClient } from '@/src/shared/util/get-query-client'
 import { ContactSection } from '@/src/widgets/contact/ui'
 import { Cooperation } from '@/src/widgets/cooperation/ui'
 import { FeatureSection } from '@/src/widgets/feature/ui'
+import { Footer } from '@/src/widgets/footer/ui'
 import { HeroSection } from '@/src/widgets/hero/ui'
 import { NewsSection } from '@/src/widgets/news/ui'
 import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
-import { Footer } from 'react-day-picker'
 
 async function HomePage() {
   const queryClient = getQueryClient()

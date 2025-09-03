@@ -23,8 +23,8 @@ const novaSquare = Nova_Square({
 
 export const metadata = {
   title: {
-    template: '%s | Another Doctor',
-    default: 'Another Doctor',
+    template: '%s | AnotherDoctor',
+    default: 'AnotherDoctor',
   },
   description:
     '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
@@ -35,7 +35,7 @@ export const metadata = {
     '색상 측정 기술',
     '치과 진단',
     '의료기기',
-    'Another Doctor',
+    'AnotherDoctor',
     '치과용 인공지능',
     '덴탈 테크놀로지',
     '치아 색상 분석',
@@ -45,11 +45,11 @@ export const metadata = {
     '치과 혁신',
   ],
   authors: [
-    { name: 'Another Doctor Team', url: 'https://www.anotherdoctor.org' },
+    { name: 'AnotherDoctor Team', url: 'https://www.anotherdoctor.org' },
   ],
-  creator: 'Another Doctor',
-  publisher: 'Another Doctor',
-  applicationName: 'Another Doctor',
+  creator: 'AnotherDoctor',
+  publisher: 'AnotherDoctor',
+  applicationName: 'AnotherDoctor',
   referrer: 'origin-when-cross-origin',
   formatDetection: {
     email: false,
@@ -69,23 +69,23 @@ export const metadata = {
     type: 'website',
     locale: 'ko_KR',
     url: 'https://www.anotherdoctor.org',
-    title: 'Another Doctor - AI 기반 치아 색상 측정 솔루션 T-GRID',
+    title: 'AnotherDoctor - AI 기반 치아 색상 측정 솔루션 T-GRID',
     description:
       '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
-    siteName: 'Another Doctor',
+    siteName: 'AnotherDoctor',
     images: [
       {
         url: 'https://www.anotherdoctor.org/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Another Doctor - AI 기반 치아 색상 측정 솔루션',
+        alt: 'AnotherDoctor - AI 기반 치아 색상 측정 솔루션',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Another Doctor - AI 기반 치아 색상 측정 솔루션 T-GRID',
+    title: 'AnotherDoctor - AI 기반 치아 색상 측정 솔루션 T-GRID',
     description:
       '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
     images: ['https://www.anotherdoctor.org/images/og-image.png'],
@@ -107,8 +107,13 @@ export const metadata = {
       'naver-site-verification': '25cf6aed2db309419f19d22981685ac531838404',
     },
   },
-  viewport:
-    'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 }
 
 interface RootLayoutProps {

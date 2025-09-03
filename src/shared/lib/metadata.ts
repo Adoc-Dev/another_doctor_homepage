@@ -27,7 +27,7 @@ export function generateLocalizedMetadata(
     description: isKorean ? config.description.ko : config.description.en,
     keywords: isKorean ? config.keywords.ko : config.keywords.en,
     openGraph: {
-      title: `${isKorean ? config.title.ko : config.title.en} | Another Doctor`,
+      title: `${isKorean ? config.title.ko : config.title.en} | AnotherDoctor`,
       description: isKorean ? config.description.ko : config.description.en,
       url: config.url,
       locale: isKorean ? 'ko_KR' : 'en_US',
@@ -36,12 +36,12 @@ export function generateLocalizedMetadata(
           url: `/og-${config.url.split('/').pop()}.png`,
           width: 1200,
           height: 630,
-          alt: `Another Doctor ${isKorean ? config.title.ko : config.title.en}`,
+          alt: `AnotherDoctor ${isKorean ? config.title.ko : config.title.en}`,
         },
       ],
     },
     twitter: {
-      title: `${isKorean ? config.title.ko : config.title.en} | Another Doctor`,
+      title: `${isKorean ? config.title.ko : config.title.en} | AnotherDoctor`,
       description: isKorean ? config.description.ko : config.description.en,
     },
     alternates: {
@@ -62,14 +62,14 @@ export const metadataConfigs = {
       en: 'About Us',
     },
     description: {
-      ko: 'Another Doctor는 AI 기반 치아 색상 측정 기술로 정확한 진단과 완벽한 미소를 제공합니다.',
-      en: 'Another Doctor provides accurate diagnosis and perfect smiles with AI-based dental color measurement technology.',
+      ko: 'AnotherDoctor는 AI 기반 치아 색상 측정 기술로 정확한 진단과 완벽한 미소를 제공합니다.',
+      en: 'AnotherDoctor provides accurate diagnosis and perfect smiles with AI-based dental color measurement technology.',
     },
     keywords: {
-      ko: ['회사소개', 'Another Doctor', 'AI 치과', '색상 측정', '의료기술'],
+      ko: ['회사소개', 'AnotherDoctor', 'AI 치과', '색상 측정', '의료기술'],
       en: [
         'About Us',
-        'Another Doctor',
+        'AnotherDoctor',
         'AI Dental',
         'Color Measurement',
         'Medical Technology',
@@ -83,12 +83,12 @@ export const metadataConfigs = {
       en: 'Newsroom',
     },
     description: {
-      ko: 'Another Doctor의 최신 소식과 AI 치아 색상 측정 기술 관련 뉴스를 확인하세요.',
-      en: 'Check out the latest news from Another Doctor and AI dental color measurement technology.',
+      ko: 'AnotherDoctor의 최신 소식과 AI 치아 색상 측정 기술 관련 뉴스를 확인하세요.',
+      en: 'Check out the latest news from AnotherDoctor and AI dental color measurement technology.',
     },
     keywords: {
-      ko: ['뉴스룸', '소식', 'Another Doctor', 'AI 치과 뉴스'],
-      en: ['Newsroom', 'News', 'Another Doctor', 'AI Dental News'],
+      ko: ['뉴스룸', '소식', 'AnotherDoctor', 'AI 치과 뉴스'],
+      en: ['Newsroom', 'News', 'AnotherDoctor', 'AI Dental News'],
     },
     url: '/newsroom',
   },
@@ -98,12 +98,12 @@ export const metadataConfigs = {
       en: 'CEO Message',
     },
     description: {
-      ko: 'Another Doctor CEO의 비전과 메시지를 확인하세요.',
-      en: 'Check out the vision and message from Another Doctor CEO.',
+      ko: 'AnotherDoctor CEO의 비전과 메시지를 확인하세요.',
+      en: 'Check out the vision and message from AnotherDoctor CEO.',
     },
     keywords: {
-      ko: ['CEO 메시지', '비전', 'Another Doctor', 'CEO'],
-      en: ['CEO Message', 'Vision', 'Another Doctor', 'CEO'],
+      ko: ['CEO 메시지', '비전', 'AnotherDoctor', 'CEO'],
+      en: ['CEO Message', 'Vision', 'AnotherDoctor', 'CEO'],
     },
     url: '/company/message',
   },
@@ -113,12 +113,12 @@ export const metadataConfigs = {
       en: 'Customer Support',
     },
     description: {
-      ko: 'Another Doctor 제품에 대한 기술 지원과 고객 서비스를 제공합니다.',
-      en: 'We provide technical support and customer service for Another Doctor products.',
+      ko: 'AnotherDoctor 제품에 대한 기술 지원과 고객 서비스를 제공합니다.',
+      en: 'We provide technical support and customer service for AnotherDoctor products.',
     },
     keywords: {
-      ko: ['고객 지원', '기술 지원', 'Another Doctor'],
-      en: ['Customer Support', 'Technical Support', 'Another Doctor'],
+      ko: ['고객 지원', '기술 지원', 'AnotherDoctor'],
+      en: ['Customer Support', 'Technical Support', 'AnotherDoctor'],
     },
     url: '/support',
   },

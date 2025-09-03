@@ -7,7 +7,7 @@ import dayjs from 'dayjs'
 
 const BLUR_FADE_DELAY = 0.04
 
-function NewsList() {
+function NewsSectionList() {
   const { data, isLoading, error } = usePublicNewsListQuery({
     limit: 10,
   })
@@ -31,4 +31,4 @@ function NewsList() {
   )
 }
 
-export { NewsList }
+export { NewsSectionList }

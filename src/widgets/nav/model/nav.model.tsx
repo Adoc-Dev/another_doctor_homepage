@@ -35,7 +35,7 @@ type DataType = {
 export const navData: DataType = {
   teams: [
     {
-      name: 'ANOTHER DOCTOR',
+      name: 'ANOTHERDOCTOR',
       logo: LogoIcon,
       plan: '관리자',
     },

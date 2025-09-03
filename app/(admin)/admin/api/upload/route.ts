@@ -1,5 +1,5 @@
 // app/api/upload/route.ts (서버 측 API 엔드포인트)
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { authOptions } from '@/src/shared/lib/auth'
 import { createClient } from '@supabase/supabase-js'
 import { getServerSession } from 'next-auth/next'
 import { NextRequest, NextResponse } from 'next/server'

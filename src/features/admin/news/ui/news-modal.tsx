@@ -2,7 +2,7 @@
 
 import { NewsShow } from '@/src/features/admin/news/ui/news-show'
 import { News } from '@/src/generated/prisma'
-import { useDeleteNewsMutation } from '@/src/shared/api/queries/news.query'
+import { useDeleteAdminNewsMutation } from '@/src/shared/api/queries/news.query'
 import { useAlertDialog } from '@/src/shared/hooks/alert-dialog.hook'
 import { Button, DataModal, DataModalShow } from '@/src/shared/ui'
 import { useRouter } from 'next/navigation'
@@ -38,7 +38,7 @@ function NewsModal(props: NewsModalProps) {
     return `${str} 정보`
   }, [modalType])
 
-  const deleteNews = useDeleteNewsMutation({
+  const deleteNews = useDeleteAdminNewsMutation({
     onSuccess: onClose,
   })
 

@@ -1,4 +1,4 @@
-import { prefetchNewsList } from '@/src/shared/api/queries/news.query'
+import { prefetchPublicNewsList } from '@/src/shared/api/queries/public-news.query'
 import { getQueryClient } from '@/src/shared/util/get-query-client'
 import { ContactSection } from '@/src/widgets/contact/ui'
 import { Cooperation } from '@/src/widgets/cooperation/ui'
@@ -10,7 +10,7 @@ import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
 
 async function HomePage() {
   const queryClient = getQueryClient()
-  await prefetchNewsList(queryClient)
+  await prefetchPublicNewsList(queryClient, { limit: 10 })
 
   return (
     <main className="bg-background mb-20 flex flex-col items-center justify-center">
@@ -20,7 +20,7 @@ async function HomePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'MedicalOrganization',
-            name: 'Another Doctor',
+            name: 'AnotherDoctor',
             description: 'AI 기반 치아 색상 측정 솔루션 제공업체',
             url: 'https://www.anotherdoctor.org',
             logo: 'https://www.anotherdoctor.org/icons/logo.svg',

@@ -5,14 +5,17 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(req: NextRequest) {
   try {
+    const session = await getServerSession(authOptions)
+    if (!session) {
+      return NextResponse.json({ error: '권한이 없습니다.' }, { status: 403 })
+    }
+
     const { searchParams } = new URL(req.url)
     const published = searchParams.get('published')
 
     const news = await prisma.news.findMany({
       where: published ? { published: published === 'true' } : undefined,
-      orderBy: {
-        createdAt: 'desc',
-      },
+      orderBy: { createdAt: 'desc' },
     })
 
     return NextResponse.json(
@@ -20,7 +23,7 @@ export async function GET(req: NextRequest) {
       { status: 200 }
     )
   } catch (error) {
-    console.error('Error fetching news:', error)
+    console.error('Error fetching admin news:', error)
     return NextResponse.json(
       { error: '뉴스를 가져오는 중 오류가 발생했습니다.' },
       { status: 500 }
@@ -57,7 +60,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ id: news.id }, { status: 201 })
   } catch (error) {
-    console.error('Error creating news:', error)
+    console.error('Error creating admin news:', error)
     return NextResponse.json(
       { error: '뉴스를 생성하는 중 오류가 발생했습니다.' },
       { status: 500 }

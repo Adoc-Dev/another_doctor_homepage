@@ -2,8 +2,8 @@
 
 import { NewsForm } from '@/src/features/admin/news/ui'
 import {
-  useDeleteNewsMutation,
-  useNewsDetailQuery,
+  useAdminNewsDetailQuery,
+  useDeleteAdminNewsMutation,
 } from '@/src/shared/api/queries/news.query'
 import { useAlertDialog } from '@/src/shared/hooks/alert-dialog.hook'
 import { Button } from '@/src/shared/ui'
@@ -15,8 +15,8 @@ function NewsPage() {
   const searchParams = useSearchParams()
   const id = searchParams.get('id')
 
-  const { data } = useNewsDetailQuery(id ?? '')
-  const deleteNews = useDeleteNewsMutation({
+  const { data } = useAdminNewsDetailQuery(id ?? '')
+  const deleteNews = useDeleteAdminNewsMutation({
     onSuccess: handleCancel,
   })
 

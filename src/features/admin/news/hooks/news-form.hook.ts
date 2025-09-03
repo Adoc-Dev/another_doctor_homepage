@@ -1,7 +1,7 @@
 import { News } from '@/src/generated/prisma'
 import {
-  useCreateNewsMutation,
-  useUpdateNewsMutation,
+  useCreateAdminNewsMutation,
+  useUpdateAdminNewsMutation,
 } from '@/src/shared/api/queries/news.query'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useEffect } from 'react'
@@ -16,11 +16,11 @@ interface UseNewsFormProps {
 
 function useNewsForm(props: UseNewsFormProps) {
   const { record, onLoading, onFinish } = props
-  const updateNews = useUpdateNewsMutation({
-    onSuccess: (id) => onFinish(Number(id)),
+  const updateNews = useUpdateAdminNewsMutation({
+    onSuccess: (id: string) => onFinish(Number(id)),
   })
-  const createNews = useCreateNewsMutation({
-    onSuccess: (data) => onFinish(data.id),
+  const createNews = useCreateAdminNewsMutation({
+    onSuccess: (data: { id: number }) => onFinish(data.id),
   })
 
   const form = useForm<NewsSchema>({

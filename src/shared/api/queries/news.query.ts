@@ -1,7 +1,7 @@
 import { News } from '@/src/generated/prisma'
-import newsService, {
+import adminNewsService, {
   NEWS_QUERY_KEYS,
-} from '@/src/shared/api/services/news.service'
+} from '@/src/shared/api/services/admin-news.service'
 import {
   QueryClient,
   useMutation,
@@ -10,39 +10,39 @@ import {
 } from '@tanstack/react-query'
 
 // 뉴스 목록 프리패치
-export function prefetchNewsList(queryClient: QueryClient) {
+export function prefetchAdminNewsList(queryClient: QueryClient) {
   return queryClient.prefetchQuery({
     queryKey: [NEWS_QUERY_KEYS, 'list'],
-    queryFn: () => newsService.getNews(),
+    queryFn: () => adminNewsService.getNews(),
   })
 }
 
 // 뉴스 목록 쿼리
-export function useNewsListQuery(filters?: { published?: boolean }) {
+export function useAdminNewsListQuery(filters?: { published?: boolean }) {
   return useQuery({
     queryKey: [NEWS_QUERY_KEYS, 'list', filters],
-    queryFn: () => newsService.getNews(filters),
+    queryFn: () => adminNewsService.getNews(filters),
   })
 }
 
 // 단일 뉴스 쿼리
-export function useNewsDetailQuery(id?: string | number) {
+export function useAdminNewsDetailQuery(id?: string | number) {
   return useQuery({
     queryKey: [NEWS_QUERY_KEYS, 'detail', id],
-    queryFn: () => (id ? newsService.getNewsById(String(id)) : null),
+    queryFn: () => (id ? adminNewsService.getNewsById(String(id)) : null),
     enabled: !!id,
   })
 }
 
 // 뉴스 생성 뮤테이션
-export function useCreateNewsMutation(options?: {
+export function useCreateAdminNewsMutation(options?: {
   onSuccess?: (data: { id: number }) => void
 }) {
   const queryClient = useQueryClient()
 
   return useMutation({
     mutationFn: (news: Omit<News, 'id' | 'createdAt' | 'updatedAt'>) =>
-      newsService.createNews(news),
+      adminNewsService.createNews(news),
     onSuccess: (data, variables) => {
       queryClient.invalidateQueries({ queryKey: [NEWS_QUERY_KEYS, 'list'] })
       queryClient.invalidateQueries({ queryKey: [NEWS_QUERY_KEYS] })
@@ -55,14 +55,14 @@ export function useCreateNewsMutation(options?: {
 }
 
 // 뉴스 업데이트 뮤테이션
-export function useUpdateNewsMutation(options?: {
+export function useUpdateAdminNewsMutation(options?: {
   onSuccess?: (id: string) => void
 }) {
   const queryClient = useQueryClient()
 
   return useMutation({
     mutationFn: ({ id, news }: { id: string; news: Partial<News> }) =>
-      newsService.updateNews(id, news),
+      adminNewsService.updateNews(id, news),
     onSuccess: (_, { id }) => {
       queryClient.invalidateQueries({ queryKey: [NEWS_QUERY_KEYS, 'list'] })
       queryClient.invalidateQueries({ queryKey: [NEWS_QUERY_KEYS] })
@@ -78,11 +78,13 @@ export function useUpdateNewsMutation(options?: {
 }
 
 // 뉴스 삭제 뮤테이션
-export function useDeleteNewsMutation(options?: { onSuccess?: () => void }) {
+export function useDeleteAdminNewsMutation(options?: {
+  onSuccess?: () => void
+}) {
   const queryClient = useQueryClient()
 
   return useMutation({
-    mutationFn: (id: string) => newsService.deleteNews(id),
+    mutationFn: (id: string) => adminNewsService.deleteNews(id),
     onSuccess: (_, id) => {
       queryClient.invalidateQueries({ queryKey: [NEWS_QUERY_KEYS] })
       queryClient.invalidateQueries({ queryKey: [NEWS_QUERY_KEYS, 'list'] })
@@ -90,6 +92,24 @@ export function useDeleteNewsMutation(options?: { onSuccess?: () => void }) {
         queryKey: [NEWS_QUERY_KEYS, 'detail', id],
       })
 
+      if (options?.onSuccess) {
+        options.onSuccess()
+      }
+    },
+  })
+}
+
+// 발행 상태 토글 뮤테이션
+export function useToggleNewsPublishMutation(options?: {
+  onSuccess?: () => void
+}) {
+  const queryClient = useQueryClient()
+
+  return useMutation({
+    mutationFn: ({ id, currentState }: { id: string; currentState: boolean }) =>
+      adminNewsService.toggleNewsPublishState(id, currentState),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: [NEWS_QUERY_KEYS] })
       if (options?.onSuccess) {
         options.onSuccess()
       }

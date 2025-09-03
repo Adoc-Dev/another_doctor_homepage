@@ -15,18 +15,18 @@ export async function generateMetadata({
   return {
     title: isKorean ? '팀 소개' : 'Our Team',
     description: isKorean
-      ? 'Another Doctor의 전문가 팀을 만나보세요. AI 기반 치아 색상 측정 기술을 개발하는 혁신적인 팀입니다.'
-      : 'Meet the expert team at Another Doctor. An innovative team developing AI-based dental color measurement technology.',
+      ? 'AnotherDoctor의 전문가 팀을 만나보세요. AI 기반 치아 색상 측정 기술을 개발하는 혁신적인 팀입니다.'
+      : 'Meet the expert team at AnotherDoctor. An innovative team developing AI-based dental color measurement technology.',
     keywords: isKorean
-      ? ['Another Doctor 팀', '치과 AI 전문가', '의료 기술팀', 'T-GRID 개발진']
+      ? ['AnotherDoctor 팀', '치과 AI 전문가', '의료 기술팀', 'T-GRID 개발진']
       : [
-          'Another Doctor team',
+          'AnotherDoctor team',
           'dental AI experts',
           'medical tech team',
           'T-GRID developers',
         ],
     openGraph: {
-      title: isKorean ? 'Another Doctor 팀 소개' : 'Another Doctor Team',
+      title: isKorean ? 'AnotherDoctor 팀 소개' : 'AnotherDoctor Team',
       description: isKorean
         ? 'AI 기반 치아 색상 측정 기술을 개발하는 전문가 팀'
         : 'Expert team developing AI-based dental color measurement technology',

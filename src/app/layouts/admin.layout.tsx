@@ -1,6 +1,6 @@
 'use client'
 
-import { SessionProvider } from 'next-auth/react'
+import { AdminAuthProvider } from '@/src/app/providers/admin-auth-provider'
 
 interface AdminLayoutProps {
   children: React.ReactNode
@@ -9,7 +9,7 @@ interface AdminLayoutProps {
 function AdminLayout(props: AdminLayoutProps) {
   const { children } = props
 
-  return <SessionProvider>{children}</SessionProvider>
+  return <AdminAuthProvider>{children}</AdminAuthProvider>
 }
 
 export { AdminLayout }

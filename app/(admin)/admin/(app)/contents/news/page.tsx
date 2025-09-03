@@ -2,7 +2,7 @@
 
 import { NewsModal } from '@/src/features/admin/news/ui'
 import { News } from '@/src/generated/prisma'
-import { useNewsListQuery } from '@/src/shared/api/queries/news.query'
+import { useAdminNewsListQuery } from '@/src/shared/api/queries/news.query'
 import { usePageFilters } from '@/src/shared/hooks/page.hook'
 import { cn } from '@/src/shared/lib/utils'
 import { Button, DataTable } from '@/src/shared/ui'
@@ -13,7 +13,7 @@ import { PlusCircle } from 'lucide-react'
 function NewsPage() {
   const pageFilters = usePageFilters()
 
-  const { data, isLoading } = useNewsListQuery()
+  const { data, isLoading } = useAdminNewsListQuery()
 
   const columns: ColumnDef<News>[] = [
     {

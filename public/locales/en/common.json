@@ -33,7 +33,7 @@
   "technologyImpact": {
     "title": "AI-Powered Precision Shade Measurement",
     "highlight": "T-GRID",
-    "description": "With patented algorithms,\nwe define color through data, not perception.",
+    "description": "With patented algorithms, we define color through data, not perception.",
     "matrix": {
       "card1": {
         "title": "Reduced Shade Errors",
@@ -51,15 +51,15 @@
     "grid": {
       "item1": {
         "title": "Calibration – The Standard of True Color",
-        "description": "Our proprietary calibration technology\nquantifies color into precise numerical values."
+        "description": "Our proprietary calibration technology quantifies color into precise numerical values."
       },
       "item2": {
         "title": "Deep Learning Error Minimization",
-        "description": "Trained with deep learning algorithms,\nT-GRID overcomes human limitations and delivers objective data."
+        "description": "Trained with deep learning algorithms, T-GRID overcomes human limitations and delivers objective data."
       },
       "item3": {
         "title": "Certified Solution – T-GRID",
-        "description": "Backed by 3 patents (including PCT), venture certification,\nand institutional investment.",
+        "description": "Backed by 3 patents (including PCT), venture certification, and institutional investment.",
         "patent1": {
           "title": "Patent 1"
         },

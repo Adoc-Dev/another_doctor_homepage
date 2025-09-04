@@ -49,7 +49,7 @@ function NewsDialog(props: Props) {
           />
         </DialogTrigger>
         <DialogContent
-          className="flex h-dvh w-full flex-col gap-0 overflow-hidden rounded-none border-none bg-gray-200 p-0 shadow-xl sm:h-auto sm:max-h-[80vh] sm:max-w-[90vw] sm:rounded-3xl sm:p-4 md:max-w-[800px] dark:bg-neutral-900"
+          className="flex h-dvh w-full flex-col gap-0 overflow-hidden rounded-none border-none bg-gray-200/50 p-0 shadow-xl backdrop-blur-sm sm:h-auto sm:max-h-[80vh] sm:max-w-[90vw] sm:rounded-3xl sm:p-4 md:max-w-[800px] dark:bg-neutral-900"
           showCloseButton={false}
         >
           <DialogClose asChild>
@@ -62,7 +62,9 @@ function NewsDialog(props: Props) {
             <div
               className={cn(
                 'w-full shrink-0 overflow-hidden transition-all duration-500 ease-out sm:rounded-t-2xl',
-                isScrolled ? 'h-0 opacity-0' : 'h-90 opacity-100'
+                isScrolled
+                  ? 'h-0 opacity-0'
+                  : 'h-[30vh] max-h-[400px] min-h-[200px] opacity-100 sm:h-[35vh] sm:max-h-[450px] sm:min-h-[250px]'
               )}
             >
               <img

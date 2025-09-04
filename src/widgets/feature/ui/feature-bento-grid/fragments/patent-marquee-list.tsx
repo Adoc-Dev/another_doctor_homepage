@@ -14,14 +14,14 @@ function PatentMarqueeList() {
       id: 2,
       component: <GangwonPatentItem />,
     },
-    {
-      id: 3,
-      component: <PatentItem1 />,
-    },
-    {
-      id: 4,
-      component: <PatentItem2 />,
-    },
+    // {
+    //   id: 3,
+    //   component: <PatentItem1 />,
+    // },
+    // {
+    //   id: 4,
+    //   component: <PatentItem2 />,
+    // },
   ]
 
   return (

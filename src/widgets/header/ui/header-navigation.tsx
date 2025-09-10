@@ -25,7 +25,7 @@ export function HeaderNavigation() {
   return (
     <div className="fixed top-0 right-0 left-0 z-[99] w-full">
       <Navbar>
-        <NavBody>
+        <NavBody className="rounded-xl">
           <NavbarLogo />
           <NavItems
             items={navItems.map((item) => ({

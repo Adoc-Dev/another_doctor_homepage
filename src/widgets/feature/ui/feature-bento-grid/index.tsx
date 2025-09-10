@@ -1,10 +1,12 @@
 'use client'
 
 import { BentoCard, BentoGrid } from '@/src/shared/ui/bento-grid'
-import { CodingCard } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/coding-card'
-import { PatentMarqueeList } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/patent-marquee-list'
-import { TCheckerAnimatedList } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/t-checker-animated-list'
-import { ColorMap } from '@/src/widgets/feature/ui/feature-bento-grid/fragments/teeth-colormap'
+import {
+  CodingCard,
+  ColorMap,
+  PatentMarqueeList,
+  TCheckerAnimatedList,
+} from '@/src/widgets/feature/ui/feature-bento-grid/fragments'
 import { useTranslations } from 'next-intl'
 
 function FeatureBentoGrid() {

@@ -8,6 +8,11 @@ interface UseScrollDetectionOptions {
   resetThreshold?: number
 }
 
+/**
+ * 스크롤 감지 훅
+ * @param options 스크롤 감지 옵션
+ * @returns 스크롤 감지 훅
+ */
 export function useScrollDetection(options: UseScrollDetectionOptions = {}) {
   const { threshold = 20, resetThreshold = 10 } = options
   const scrollRef = useRef<HTMLDivElement>(null)

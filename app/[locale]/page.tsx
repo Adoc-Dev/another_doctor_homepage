@@ -24,7 +24,6 @@ async function HomePage() {
             description: 'AI 기반 치아 색상 측정 솔루션 제공업체',
             url: 'https://www.anotherdoctor.org',
             logo: 'https://www.anotherdoctor.org/icons/logo.svg',
-            // sameAs: ['https://www.linkedin.com/company/anotherdoctor'],
             address: {
               '@type': 'PostalAddress',
               addressCountry: 'KR',

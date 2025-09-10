@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from 'react'
 
-const CodingCard = () => {
+function CodingCard() {
   const [currentCode, setCurrentCode] = useState('')
   const [isTyping, setIsTyping] = useState(false)
 
@@ -33,14 +33,12 @@ const CodingCard = () => {
 
   return (
     <div className="relative flex aspect-square h-full w-full items-center justify-center overflow-hidden rounded-xl">
-      {/* 배경 */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-600 via-gray-600/20 to-gray-600" />
 
       <div className="relative z-10 flex h-full w-full">
         <CodeEditor code={currentCode} isTyping={isTyping} />
       </div>
 
-      {/* 간단한 장식 */}
       <div className="absolute top-2 right-2 h-2 w-2 animate-pulse rounded-full bg-green-400/60" />
     </div>
   )
@@ -51,7 +49,7 @@ function CodeEditor({ code, isTyping }: { code: string; isTyping: boolean }) {
 
   return (
     <div className="relative h-full w-full">
-      <div className="flex h-8 items-center gap-2 border-b border-gray-700/50 bg-gray-800/80 px-3">
+      <div className="flex h-8 items-center gap-2 border-b border-gray-200/50 bg-gray-200/80 px-3 backdrop-blur-sm">
         <div className="flex gap-1.5">
           <div className="h-2 w-2 rounded-full bg-red-500" />
           <div className="h-2 w-2 rounded-full bg-yellow-500" />
@@ -61,13 +59,13 @@ function CodeEditor({ code, isTyping }: { code: string; isTyping: boolean }) {
 
         <div className="ml-auto flex items-center gap-1">
           <div
-            className={`h-1.5 w-1.5 rounded-full ${isTyping ? 'bg-green-400' : 'bg-gray-500'}`}
+            className={`h-1.5 w-1.5 rounded-full ${isTyping ? 'bg-green-400' : 'bg-gray-800'}`}
           />
           <span className="text-xs text-gray-500">{lines.length} lines</span>
         </div>
       </div>
 
-      <div className="h-full overflow-hidden bg-gray-800/90 p-3 font-mono text-sm leading-6">
+      <div className="h-full overflow-hidden bg-gray-200/90 p-3 font-mono text-sm leading-6">
         <div className="break-words whitespace-pre-wrap">
           <SyntaxHighlighter code={code} />
           {isTyping && (
@@ -197,17 +195,17 @@ function tokenizeCode(code: string): Token[] {
 function getTokenStyle(type: TokenType): string {
   switch (type) {
     case 'keyword':
-      return 'text-red-400'
+      return 'text-red-800'
     case 'library':
-      return 'text-blue-400'
+      return 'text-blue-800'
     case 'comment':
-      return 'text-gray-500'
+      return 'text-gray-800'
     case 'string':
-      return 'text-green-400'
+      return 'text-green-800'
     case 'number':
-      return 'text-purple-400'
+      return 'text-purple-800'
     default:
-      return 'text-slate-300'
+      return 'text-slate-800'
   }
 }
 

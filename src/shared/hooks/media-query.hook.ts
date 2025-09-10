@@ -2,6 +2,11 @@
 
 import { useEffect, useState } from 'react'
 
+/**
+ * 미디어 쿼리 훅
+ * @param query 미디어 쿼리
+ * @returns 미디어 쿼리 훅
+ */
 function useMediaQuery(query: string): boolean {
   const [matches, setMatches] = useState(false)
 

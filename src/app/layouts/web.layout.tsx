@@ -16,11 +16,11 @@ async function WebLayout({ children, params }: WebLayoutProps) {
   }
 
   return (
-    <div>
+    <>
       <HeaderNavigation />
       {children}
       <Analytics />
-    </div>
+    </>
   )
 }
 

@@ -2,6 +2,12 @@
 
 import { useCallback, useRef } from 'react'
 
+/**
+ * 디바운스 훅
+ * @param callback 콜백 함수
+ * @param delay 디바운스 지연 시간
+ * @returns 디바운스 훅
+ */
 export function useDebounce<T extends (...args: any[]) => any>(
   callback: T,
   delay: number

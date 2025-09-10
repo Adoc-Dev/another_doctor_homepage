@@ -2,6 +2,10 @@
 
 import { useCallback } from 'react'
 
+/**
+ * 스크롤을 움직이는 훅
+ * @returns 스크롤을 움직이는 훅
+ */
 export function useScrollTo() {
   const scrollToSection = useCallback((sectionId: string) => {
     if (typeof window === 'undefined') return

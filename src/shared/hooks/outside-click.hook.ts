@@ -1,5 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 
+/**
+ * 외부 클릭 훅
+ * @param ref 참조 객체
+ * @param callback 콜백 함수
+ * @returns 외부 클릭 훅
+ */
 export const useOutsideClick = (
   ref: React.RefObject<HTMLDivElement | null>,
   callback: Function

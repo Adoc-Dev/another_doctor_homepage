@@ -1,5 +1,5 @@
-// app/api/upload/route.ts (서버 측 API 엔드포인트)
 import { authOptions } from '@/src/shared/lib/auth'
+import { sanitizeFileName } from '@/src/shared/util/string'
 import { createClient } from '@supabase/supabase-js'
 import { getServerSession } from 'next-auth/next'
 import { NextRequest, NextResponse } from 'next/server'
@@ -9,6 +9,7 @@ const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
 
 export async function POST(req: NextRequest) {
   const session = await getServerSession(authOptions)
+
   if (!session) {
     return NextResponse.json({ error: '인증되지 않은 요청' }, { status: 401 })
   }
@@ -24,7 +25,8 @@ export async function POST(req: NextRequest) {
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey)
 
-    const fileName = `${Date.now()}_${file.name.replace(/\s/g, '_')}`
+    const sanitizedName = sanitizeFileName(file.name)
+    const fileName = `${Date.now()}_${sanitizedName}`
     const filePath = `${folder}/${fileName}`
 
     const { data, error } = await supabase.storage

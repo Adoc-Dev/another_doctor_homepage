@@ -38,3 +38,10 @@ export function formatNumberWithComma(value?: number) {
 export function formatBoolean(value?: boolean) {
   return typeof value === 'boolean' ? (value ? 'O' : 'X') : '-'
 }
+
+export function sanitizeFileName(fileName: string) {
+  return fileName
+    .replace(/\s/g, '_')
+    .replace(/[^\w.-]/g, '')
+    .replace(/[^\x00-\x7F]/g, '')
+}

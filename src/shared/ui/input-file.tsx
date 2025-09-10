@@ -1,4 +1,3 @@
-// src/shared/ui/input-file.tsx
 'use client'
 
 import { cn } from '@/src/shared/lib/utils'

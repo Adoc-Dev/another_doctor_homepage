@@ -21,14 +21,6 @@ function AdminAuthGuard({ children }: { children: React.ReactNode }) {
     }
   }, [session, status, router])
 
-  if (status === 'loading') {
-    return <div>로딩 중...</div>
-  }
-
-  if (!session) {
-    return null // 리다이렉트 중이므로 아무것도 렌더링하지 않음
-  }
-
   return <>{children}</>
 }
 

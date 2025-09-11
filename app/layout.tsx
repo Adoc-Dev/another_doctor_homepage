@@ -81,9 +81,8 @@ export const metadata = {
     },
   },
   verification: {
-    google: 'google-site-verification-placeholder',
     other: {
-      'naver-site-verification': '25cf6aed2db309419f19d22981685ac531838404',
+      'naver-site-verification': process.env.NEXT_PUBLIC_NAVER_SITE || '',
     },
   },
 }

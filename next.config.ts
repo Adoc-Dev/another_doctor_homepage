@@ -84,6 +84,20 @@ const nextConfig: NextConfig = {
     fileLoaderRule.exclude = /\.svg$/i
     return config
   },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Link',
+            value:
+              '<https://ovghdkvnzzxptfwpqpuy.supabase.co>; rel=preconnect; crossorigin, <https://supabase.co>; rel=preconnect; crossorigin',
+          },
+        ],
+      },
+    ]
+  },
 }
 
 const withNextIntl = createNextIntlPlugin()

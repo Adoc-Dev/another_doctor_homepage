@@ -2,6 +2,7 @@
 
 import { useSafari } from '@/src/shared/hooks/safari.hook'
 import { useScrollTo } from '@/src/shared/hooks/scroll.hook'
+import * as gtag from '@/src/shared/lib/gtag'
 import {
   AuroraText,
   BlurFade,
@@ -26,6 +27,12 @@ function HeroSection() {
   const { scrollToSection } = useScrollTo()
 
   const handleClick = () => {
+    gtag.event('select_content', {
+      event_category: 'engagement',
+      event_label: 'hero_learn_more_button',
+      value: 1,
+    })
+
     scrollToSection('feature-section')
   }
 

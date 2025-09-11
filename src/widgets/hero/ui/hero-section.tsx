@@ -7,9 +7,16 @@ import {
   BlurFade,
   FlipWords,
   InteractiveHoverButton,
-  SparklesCore,
 } from '@/src/shared/ui'
 import { useTranslations } from 'next-intl'
+import dynamic from 'next/dynamic'
+
+const SparklesCore = dynamic(
+  () => import('@/src/shared/ui/sparkles').then((mod) => mod.SparklesCore),
+  {
+    ssr: false,
+  }
+)
 
 function HeroSection() {
   const t = useTranslations('hero')

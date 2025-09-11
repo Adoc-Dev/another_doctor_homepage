@@ -1,12 +1,37 @@
 import { prefetchPublicNewsList } from '@/src/shared/api/queries/public-news.query'
 import { getQueryClient } from '@/src/shared/util/get-query-client'
-import { ContactSection } from '@/src/widgets/contact/ui'
-import { Cooperation } from '@/src/widgets/cooperation/ui'
 import { FeatureSection } from '@/src/widgets/feature/ui'
 import { Footer } from '@/src/widgets/footer/ui'
 import { HeroSection } from '@/src/widgets/hero/ui'
-import { NewsSection } from '@/src/widgets/news/ui'
 import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
+import dynamic from 'next/dynamic'
+
+const NewsSection = dynamic(
+  () => import('@/src/widgets/news/ui').then((mod) => mod.NewsSection),
+  {
+    loading: () => (
+      <div className="min-h-[50vh] animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  }
+)
+
+const Cooperation = dynamic(
+  () => import('@/src/widgets/cooperation/ui').then((mod) => mod.Cooperation),
+  {
+    loading: () => (
+      <div className="min-h-[50vh] animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  }
+)
+
+const ContactSection = dynamic(
+  () => import('@/src/widgets/contact/ui').then((mod) => mod.ContactSection),
+  {
+    loading: () => (
+      <div className="min-h-[50vh] animate-pulse bg-gray-100 dark:bg-gray-800" />
+    ),
+  }
+)
 
 async function HomePage() {
   const queryClient = getQueryClient()

@@ -2,6 +2,7 @@
 
 import LogoHorizontal from '@/public/icons/logo-horizontal.svg'
 import { GlobalButton } from '@/src/features/global/ui'
+import * as gtag from '@/src/shared/lib/gtag'
 import {
   MobileNav,
   MobileNavHeader,
@@ -19,8 +20,14 @@ import { useState } from 'react'
 
 export function HeaderNavigation() {
   const t = useTranslations('header')
-
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  const trackNavClick = (itemKey: string) => {
+    gtag.event('select_content', {
+      event_category: 'navigation',
+      event_label: `nav_${itemKey}`,
+    })
+  }
 
   return (
     <div className="fixed top-0 right-0 left-0 z-[99] w-full">
@@ -31,6 +38,7 @@ export function HeaderNavigation() {
             items={navItems.map((item) => ({
               name: t(item.translationKey),
               link: item.href ?? '',
+              onClick: () => trackNavClick(item.key),
             }))}
           />
           <div className="flex items-center gap-4">
@@ -60,7 +68,10 @@ export function HeaderNavigation() {
               <a
                 key={`mobile-link-${idx}`}
                 href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  trackNavClick(item.key)
+                  setIsMobileMenuOpen(false)
+                }}
                 className="relative text-neutral-600 dark:text-neutral-300"
               >
                 <span className="block">{t(item.translationKey)}</span>

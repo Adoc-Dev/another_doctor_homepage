@@ -3,19 +3,19 @@ import { NavItemType } from '@/src/widgets/header/model/types'
 const navItems: NavItemType[] = [
   {
     type: 'link',
-    key: 'about',
+    key: 'introduction',
     translationKey: 'about.introduction.title',
     href: '/',
   },
   {
     type: 'link',
-    key: 'message',
+    key: 'ceoMessage',
     translationKey: 'about.ceoMessage.title',
     href: '/team',
   },
   {
     type: 'link',
-    key: 'newsroom',
+    key: 'news',
     translationKey: 'navigation.newsroom',
     href: '/newsroom',
   },

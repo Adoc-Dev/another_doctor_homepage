@@ -59,26 +59,39 @@ function NewsPage() {
 
   return (
     <div className="p-2">
-      <div className="mb-6 flex justify-between">
-        <div>
-          {data && (
-            <Button variant="destructive" onClick={handleDelete}>
+      <div className="flex w-full items-center justify-end gap-2 py-4 sm:gap-3">
+        {data && (
+          <>
+            <Button
+              variant="outline"
+              onClick={handleDelete}
+              className="border-red-200 hover:bg-red-50 hover:text-red-600 dark:border-red-900/30 dark:hover:bg-red-900/20 dark:hover:text-red-400"
+            >
               <Trash2 className="h-4 w-4" />
               삭제
             </Button>
-          )}
-        </div>
-        <div className="flex gap-2">
-          <Button variant="outline" onClick={handleCancel}>
-            <X className="h-4 w-4" />
-            취소
-          </Button>
-          <Button type="submit" form={formId} loading={loading}>
-            <Save className="h-4 w-4" />
-            저장
-          </Button>
-        </div>
+            <div className="bg-border/50 hidden h-6 w-px sm:block" />
+          </>
+        )}
+        <Button
+          variant="outline"
+          onClick={handleCancel}
+          className="min-w-[80px]"
+        >
+          <X className="h-4 w-4" />
+          취소
+        </Button>
+        <Button
+          type="submit"
+          form={formId}
+          loading={loading}
+          className="min-w-[80px]"
+        >
+          <Save className="h-4 w-4" />
+          저장
+        </Button>
       </div>
+
       <NewsForm
         formId={formId}
         record={data}

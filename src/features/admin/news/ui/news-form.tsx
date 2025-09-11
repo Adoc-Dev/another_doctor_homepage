@@ -108,7 +108,7 @@ function NewsForm(props: NewsFormProps) {
 
       <FormItem name="contents" label="내용" required>
         <HtmlEditor
-          height={500}
+          height={800}
           uploadFile={handleUpload}
           value={form.watch('contents')}
           onChange={(value) => form.setValue('contents', value)}

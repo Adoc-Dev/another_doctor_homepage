@@ -1,4 +1,5 @@
 'use client'
+
 import LogoIcon from '@/public/icons/logo.svg'
 import { cn } from '@/src/shared/lib/utils'
 import { MenuIcon, XIcon } from 'lucide-react'
@@ -9,6 +10,7 @@ import {
   useMotionValueEvent,
   useScroll,
 } from 'motion/react'
+import Link from 'next/link'
 
 import React, { useRef, useState } from 'react'
 
@@ -233,9 +235,12 @@ export const MobileNavToggle = ({
 
 export const NavbarLogo = () => {
   return (
-    <a href="/" className="relative z-20 mr-4 flex items-center justify-center">
+    <Link
+      href="/"
+      className="relative z-20 mr-4 flex items-center justify-center"
+    >
       <LogoIcon className="h-6" />
-    </a>
+    </Link>
   )
 }
 

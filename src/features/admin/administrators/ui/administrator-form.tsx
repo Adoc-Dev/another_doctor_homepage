@@ -37,7 +37,6 @@ function AdministratorForm(props: AdministratorFormProps) {
       email: data.email,
       password: data.password,
     })
-    console.log('🚀 ~ handleSubmit ~ response:', response)
   }
 
   return (

@@ -132,8 +132,8 @@ export function HtmlEditor(props: PropsWithChildren<HtmlEditorProps>) {
           'charmap',
           'emoticons',
         ],
-        skin: theme === 'dark' ? 'oxide-dark' : 'oxide',
-        content_css: theme === 'dark' ? 'dark' : 'default',
+        skin: 'oxide',
+        content_css: 'default',
         toolbar: toolbar
           ? 'undo redo | bold italic underline strikethrough | fontsize blocks | ' +
             'alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | ' +

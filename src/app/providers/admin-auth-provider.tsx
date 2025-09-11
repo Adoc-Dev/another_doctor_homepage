@@ -13,10 +13,10 @@ function AdminAuthGuard({ children }: { children: React.ReactNode }) {
   const router = useRouter()
 
   useEffect(() => {
-    if (status === 'loading') return // 로딩 중이면 대기
+    if (status === 'loading') return
 
     if (!session) {
-      router.push('/admin/login') // 로그인되지 않았으면 로그인 페이지로
+      router.push('/admin/login')
       return
     }
   }, [session, status, router])

@@ -1,5 +1,7 @@
 'use client'
 
+import { cn } from '@/src/shared/lib/utils'
+import { BlurFade } from '@/src/shared/ui'
 import { BentoCard, BentoGrid } from '@/src/shared/ui/bento-grid'
 import {
   CodingCard,
@@ -50,7 +52,14 @@ function FeatureBentoGrid() {
   return (
     <BentoGrid className="mt-16">
       {features.map((feature, idx) => (
-        <BentoCard key={idx} {...feature} />
+        <BlurFade
+          key={idx}
+          delay={0.5 + idx * 0.2}
+          className={cn('size-full', feature.className)}
+          inView
+        >
+          <BentoCard {...feature} className="size-full" />
+        </BlurFade>
       ))}
     </BentoGrid>
   )

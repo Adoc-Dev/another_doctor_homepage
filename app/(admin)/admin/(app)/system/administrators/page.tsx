@@ -20,7 +20,6 @@ function AdministratorsPage() {
     queryKey: [ADMINISTRATORS_QUERY_KEYS],
     queryFn: () => administratorsService.getAdministrators(),
   })
-  console.log('🚀 ~ AdministratorsPage ~ data:', data)
 
   const columns: ColumnDef<Administrator>[] = [
     {

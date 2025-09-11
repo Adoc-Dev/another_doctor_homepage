@@ -9,6 +9,7 @@ import { Button, DataTable } from '@/src/shared/ui'
 import { formatDateTime } from '@/src/shared/util/string'
 import { ColumnDef } from '@tanstack/react-table'
 import { PlusCircle } from 'lucide-react'
+import Image from 'next/image'
 
 function NewsPage() {
   const pageFilters = usePageFilters()
@@ -26,13 +27,14 @@ function NewsPage() {
       cell: ({ row }) => {
         const value = row.original.thumbnail
         return (
-          <img
-            src={value ?? ''}
-            alt="thumbnail"
-            width={100}
-            height={100}
-            className="rounded-md"
-          />
+          <div className="relative aspect-video h-20 overflow-hidden rounded-md shadow-md">
+            <Image
+              src={value ?? ''}
+              alt="thumbnail"
+              fill
+              className="object-cover"
+            />
+          </div>
         )
       },
     },

@@ -2,6 +2,7 @@ import LogoIcon from '@/public/icons/logo.svg'
 import { cn } from '@/src/shared/lib/utils'
 import { Marquee } from '@/src/shared/ui'
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 
 function PatentMarqueeList() {
   const t = useTranslations('technologyImpact.grid.item3')
@@ -45,12 +46,21 @@ function VenturePatentItem() {
     <div className="flex flex-col items-center justify-center gap-y-2.5">
       <div className="flex w-full items-center justify-between">
         <LogoIcon className="h-3" />
-        <img src="/images/patent/venture_head_logo.png" className="h-3" />
+        <Image
+          src="/images/patent/venture_head_logo.png"
+          alt="venture_head_logo"
+          className="h-3 w-auto"
+          height={24}
+          width={120}
+        />
       </div>
       <div className="mt-1 size-12 overflow-hidden rounded-lg">
-        <img
+        <Image
           src="/images/patent/venture_enterprise.jpg"
+          alt="벤처기업 인증서"
           className="h-full w-full object-cover"
+          width={100}
+          height={100}
         />
       </div>
       <div className="flex flex-col items-center justify-center gap-y-2">
@@ -82,7 +92,13 @@ function GangwonPatentItem() {
           </p>
         </div>
         <div className="flex items-center justify-center gap-x-1">
-          <img src="/images/patent/gangwon_bridge.png" className="h-3" />
+          <Image
+            src="/images/patent/gangwon_bridge.png"
+            alt="강원창조경제혁신센터 로고"
+            className="h-3 w-auto"
+            width={80}
+            height={24}
+          />
           <p className="text-body-02 font-medium tracking-[-0.05rem] dark:text-white">
             강원창조경제혁신센터
           </p>

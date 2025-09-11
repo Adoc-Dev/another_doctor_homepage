@@ -3,6 +3,7 @@
 import { AnimatedTooltip } from '@/src/shared/ui'
 import { ArrowLeftIcon, ArrowRightIcon, CheckIcon } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
+import Image from 'next/image'
 
 import { useEffect, useState } from 'react'
 
@@ -75,7 +76,7 @@ export const AnimatedTestimonials = ({
         <div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
           <div className="flex flex-col items-center">
             <div className="relative h-80 w-full bg-gray-100">
-              <img
+              <Image
                 src={testimonials[0].src}
                 alt={testimonials[0].name}
                 width={500}
@@ -159,10 +160,11 @@ export const AnimatedTestimonials = ({
                   }}
                   className="absolute inset-0 origin-bottom rounded-3xl bg-gray-200"
                 >
-                  <img
+                  <Image
                     src={testimonial.src}
                     alt={testimonial.name}
                     draggable={false}
+                    fill
                     className="h-full w-full rounded-3xl object-cover object-center"
                   />
                 </motion.div>

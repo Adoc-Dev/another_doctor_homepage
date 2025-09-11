@@ -2,6 +2,7 @@ import { cn } from '@/src/shared/lib/utils'
 import { AnimatedShinyText, BlurFade } from '@/src/shared/ui'
 import { logos } from '@/src/widgets/cooperation/model/constants'
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 
 function Cooperation() {
   const t = useTranslations('cooperation')
@@ -24,7 +25,7 @@ function Cooperation() {
 
       <BlurFade delay={0.6} inView>
         <div className="relative mt-6">
-          <div className="group flex max-w-full flex-row [gap:var(--gap)] overflow-hidden p-2 [--duration:40s] [--gap:1.5rem]">
+          <div className="group flex h-36 max-w-full flex-row [gap:var(--gap)] overflow-hidden p-2 [--duration:40s] [--gap:1.5rem]">
             {Array(4)
               .fill(0)
               .map((_, i) => (
@@ -33,19 +34,25 @@ function Cooperation() {
                   className="animate-marquee flex shrink-0 flex-row items-center justify-around [gap:var(--gap)]"
                 >
                   {logos.map((logo, index) => (
-                    <img
+                    <div
                       key={`${logo.alt}-${index}-${i}`}
-                      alt={logo.alt}
-                      loading="lazy"
-                      decoding="async"
-                      data-nimg="1"
-                      className={cn(
-                        'opacity-70 dark:brightness-0 dark:invert',
-                        logo.invert && 'invert'
-                      )}
-                      style={{ color: 'transparent', height: logo.height }}
-                      src={logo.src}
-                    />
+                      className="relative mx-4 w-[120px]"
+                      style={{
+                        height: `${logo.height}px`,
+                      }}
+                    >
+                      <Image
+                        alt={logo.alt}
+                        loading="lazy"
+                        fill
+                        sizes="120px"
+                        className={cn(
+                          'object-contain opacity-70 transition-opacity duration-300 hover:opacity-100',
+                          logo.invert && 'invert'
+                        )}
+                        src={logo.src}
+                      />
+                    </div>
                   ))}
                 </div>
               ))}

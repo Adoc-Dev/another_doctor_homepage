@@ -11,6 +11,7 @@ function ColorMap() {
         secondImageClassname="object-cover "
         className="h-[250px] w-full transition-all duration-300 ease-out group-hover:scale-105"
         slideMode="hover"
+        autoplay
       />
     </div>
   )

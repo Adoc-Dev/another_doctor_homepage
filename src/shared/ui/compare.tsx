@@ -3,6 +3,7 @@ import { cn } from '@/src/shared/lib/utils'
 import { SparklesCore } from '@/src/shared/ui/sparkles'
 import { Sparkles } from 'lucide-react'
 import { AnimatePresence, motion } from 'motion/react'
+import Image from 'next/image'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 
 interface CompareProps {
@@ -205,13 +206,14 @@ export const Compare = ({
               }}
               transition={{ duration: 0 }}
             >
-              <img
+              <Image
                 alt="first image"
                 src={firstImage}
                 className={cn(
                   'absolute inset-0 z-20 h-full w-full shrink-0 rounded-2xl select-none',
                   firstImageClassName
                 )}
+                fill
                 draggable={false}
               />
             </motion.div>

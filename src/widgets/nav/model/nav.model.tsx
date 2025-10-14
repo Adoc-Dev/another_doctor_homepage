@@ -1,9 +1,5 @@
 import LogoIcon from '@/public/icons/logo.svg'
-import {
-  LayoutDashboardIcon,
-  LucideIcon,
-  TableOfContentsIcon,
-} from 'lucide-react'
+import { LucideIcon, TableOfContentsIcon } from 'lucide-react'
 
 type DataType = {
   teams: {
@@ -41,11 +37,11 @@ export const navData: DataType = {
     },
   ],
   navMain: [
-    {
-      title: '대시보드',
-      url: '/admin/dashboard',
-      icon: LayoutDashboardIcon,
-    },
+    // {
+    //   title: '대시보드',
+    //   url: '/admin/dashboard',
+    //   icon: LayoutDashboardIcon,
+    // },
     {
       title: '컨텐츠',
       url: '/admin/contents',

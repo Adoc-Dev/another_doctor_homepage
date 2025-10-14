@@ -12,7 +12,7 @@ const logos = [
   {
     src: '/images/cooperation/sangji_university_logo.png',
     alt: 'Sangji University',
-    height: 150,
+    height: 80,
   },
   {
     src: '/images/cooperation/js_dental_lab_logo.png',

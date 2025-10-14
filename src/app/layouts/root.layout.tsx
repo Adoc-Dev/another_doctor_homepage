@@ -30,7 +30,7 @@ interface RootLayoutProps {
 
 async function RootLayout(props: RootLayoutProps) {
   const { children, params } = props
-  const { locale } = params
+  const { locale = 'ko' } = params
 
   const messages = await getMessages({ locale })
 

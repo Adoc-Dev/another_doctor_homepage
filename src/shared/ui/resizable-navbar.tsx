@@ -238,8 +238,10 @@ export const NavbarLogo = () => {
     <Link
       href="/"
       className="relative z-20 mr-4 flex items-center justify-center"
+      aria-label="어나더닥터(AnotherDoctor) 홈페이지로 이동"
     >
-      <LogoIcon className="h-6" />
+      <LogoIcon className="h-6" aria-hidden="true" />
+      <span className="sr-only">어나더닥터(AnotherDoctor)</span>
     </Link>
   )
 }

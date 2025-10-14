@@ -1,4 +1,5 @@
 'use client'
+
 import { cn } from '@/src/shared/lib/utils'
 import type { Container, SingleOrMultiple } from '@tsparticles/engine'
 import Particles, { initParticlesEngine } from '@tsparticles/react'
@@ -17,6 +18,7 @@ type ParticlesProps = {
   particleColor?: string
   particleDensity?: number
 }
+
 export const SparklesCore = (props: ParticlesProps) => {
   const {
     id,
@@ -67,7 +69,6 @@ export const SparklesCore = (props: ParticlesProps) => {
               enable: false,
               zIndex: 1,
             },
-
             fpsLimit: 120,
             interactivity: {
               events: {
@@ -76,7 +77,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                   mode: 'push',
                 },
                 onHover: {
-                  enable: false,
+                  enable: true,
                   mode: 'repulse',
                 },
                 resize: true as any,
@@ -204,7 +205,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                 size: false,
                 speed: {
                   min: 0.1,
-                  max: 1,
+                  max: speed || 1,
                 },
                 spin: {
                   acceleration: 0,

@@ -2,6 +2,7 @@ import { BackgroundRippleEffect } from '@/src/shared/ui'
 import { MeetTeam } from '@/src/widgets/team/ui'
 import type { Metadata } from 'next'
 
+export const revalidate = 86400
 interface TeamPageProps {
   params: Promise<{ locale: string }>
 }

@@ -1,7 +1,20 @@
 import { cn } from '@/src/shared/lib/utils'
-import { Editor } from '@tinymce/tinymce-react'
 import { useTheme } from 'next-themes'
+import dynamic from 'next/dynamic'
 import { PropsWithChildren } from 'react'
+
+// 에디터를 동적으로 import하여 초기 번들 크기 감소
+const Editor = dynamic(
+  () => import('@tinymce/tinymce-react').then((mod) => mod.Editor),
+  {
+    loading: () => (
+      <div className="flex h-full items-center justify-center rounded-md border p-4">
+        에디터 로딩 중...
+      </div>
+    ),
+    ssr: false, // 클라이언트 사이드에서만 로드
+  }
+)
 
 type ProgressFn = (percent: number) => void
 

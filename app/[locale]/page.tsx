@@ -6,6 +6,8 @@ import { HeroSection } from '@/src/widgets/hero/ui'
 import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
 import dynamic from 'next/dynamic'
 
+export const revalidate = 86400
+
 const NewsSection = dynamic(
   () => import('@/src/widgets/news/ui').then((mod) => mod.NewsSection),
   {

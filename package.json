@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "analyze": "ANALYZE=true next build",
     "env:pull:preview": "vercel env pull .env.temp --environment=preview && node scripts/filter-env.js direct",
     "env:pull:prod": "vercel env pull .env.temp --environment=production && node scripts/filter-env.js direct"
   },
@@ -83,6 +84,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@next/bundle-analyzer": "^15.5.5",
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
     "@tanstack/eslint-plugin-query": "^5.83.1",

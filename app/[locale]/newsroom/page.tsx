@@ -4,6 +4,7 @@ import { NewsPage } from '@/src/widgets/news/ui'
 import { HydrationBoundary, dehydrate } from '@tanstack/react-query'
 import type { Metadata } from 'next'
 
+export const revalidate = 86400
 interface NewsroomPageProps {
   params: Promise<{ locale: string }>
 }

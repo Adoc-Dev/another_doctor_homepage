@@ -8,6 +8,7 @@ export const metadata = {
   description:
     '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
   keywords: [
+    '어나더닥터',
     'AI 치아 색상 측정',
     'T-GRID',
     '치과 AI 솔루션',
@@ -26,9 +27,9 @@ export const metadata = {
   authors: [
     { name: 'AnotherDoctor Team', url: 'https://www.anotherdoctor.org' },
   ],
-  creator: 'AnotherDoctor',
-  publisher: 'AnotherDoctor',
-  applicationName: 'AnotherDoctor',
+  creator: '어나더닥터(AnotherDoctor)',
+  publisher: '어나더닥터(AnotherDoctor)',
+  applicationName: '어나더닥터(AnotherDoctor)',
   referrer: 'origin-when-cross-origin',
   formatDetection: {
     email: false,
@@ -48,23 +49,23 @@ export const metadata = {
     type: 'website',
     locale: 'ko_KR',
     url: 'https://www.anotherdoctor.org',
-    title: 'AnotherDoctor - AI 기반 치아 색상 측정 솔루션 T-GRID',
+    title: '어나더닥터(AnotherDoctor) - AI 기반 치아 색상 측정 솔루션 T-GRID',
     description:
       '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
-    siteName: 'AnotherDoctor',
+    siteName: '어나더닥터(AnotherDoctor)',
     images: [
       {
         url: 'https://www.anotherdoctor.org/images/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'AnotherDoctor - AI 기반 치아 색상 측정 솔루션',
+        alt: '어나더닥터(AnotherDoctor) - AI 기반 치아 색상 측정 솔루션',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AnotherDoctor - AI 기반 치아 색상 측정 솔루션 T-GRID',
+    title: '어나더닥터(AnotherDoctor) - AI 기반 치아 색상 측정 솔루션 T-GRID',
     description:
       '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
     images: ['https://www.anotherdoctor.org/images/og-image.png'],

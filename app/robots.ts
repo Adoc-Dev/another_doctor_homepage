@@ -13,6 +13,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/admin/', '/api/', '/company/'],
       },
+      {
+        userAgent: 'Yeti',
+        allow: '/',
+        disallow: ['/admin/', '/api/', '/company/'],
+      },
     ],
     sitemap: 'https://www.anotherdoctor.org/sitemap.xml',
     host: 'https://www.anotherdoctor.org',

@@ -30,12 +30,12 @@ interface RootLayoutProps {
 
 async function RootLayout(props: RootLayoutProps) {
   const { children, params } = props
-  const { locale = 'ko' } = params
+  const { locale } = params
 
   const messages = await getMessages({ locale })
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale || 'ko'} suppressHydrationWarning>
       <body className={`${notoSansKR.variable} ${novaSquare.variable}`}>
         <ThemeProvider
           attribute="class"

@@ -8,6 +8,8 @@ import dynamic from 'next/dynamic'
 
 export const revalidate = 86400
 
+const baseUrl = 'https://www.anotherdoctor.org'
+
 const NewsSection = dynamic(
   () => import('@/src/widgets/news/ui').then((mod) => mod.NewsSection),
   {
@@ -47,10 +49,18 @@ async function HomePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'MedicalOrganization',
-            name: 'AnotherDoctor',
-            description: 'AI 기반 치아 색상 측정 솔루션 제공업체',
+            name: '어나더닥터',
+            alternateName: [
+              '어나더닥터',
+              'AnotherDoctor',
+              'Another Doctor',
+              '어 나 더 닥터',
+            ],
+            description:
+              '어나더닥터는 AI 기반 치아 색상 측정 솔루션 T-GRID를 제공하는 의료기기 기업입니다',
             url: 'https://www.anotherdoctor.org',
             logo: 'https://www.anotherdoctor.org/icons/logo.svg',
+            knowsLanguage: ['ko', 'en'],
             address: {
               '@type': 'PostalAddress',
               addressCountry: 'KR',

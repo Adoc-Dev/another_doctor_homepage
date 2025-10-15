@@ -4,11 +4,14 @@ export const metadata = {
   title: {
     template: '%s | AnotherDoctor',
     default: 'AnotherDoctor',
+    ko: '어나더닥터',
+    en: 'AnotherDoctor',
   },
   description:
-    '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
+    '어나더닥터(AnotherDoctor)는 특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
   keywords: [
     '어나더닥터',
+    '어 나 더 닥터',
     'AI 치아 색상 측정',
     'T-GRID',
     '치과 AI 솔루션',
@@ -16,6 +19,7 @@ export const metadata = {
     '치과 진단',
     '의료기기',
     'AnotherDoctor',
+    'Another Doctor',
     '치과용 인공지능',
     '덴탈 테크놀로지',
     '치아 색상 분석',
@@ -48,6 +52,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'ko_KR',
+    alternateLocale: ['en_US'],
     url: 'https://www.anotherdoctor.org',
     title: '어나더닥터(AnotherDoctor) - AI 기반 치아 색상 측정 솔루션 T-GRID',
     description:
@@ -85,6 +90,7 @@ export const metadata = {
     other: {
       'naver-site-verification': process.env.NEXT_PUBLIC_NAVER_SITE || '',
     },
+    'naver-site-verification': process.env.NEXT_PUBLIC_NAVER_SITE || '',
   },
 }
 

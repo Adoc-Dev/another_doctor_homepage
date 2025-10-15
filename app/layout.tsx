@@ -2,10 +2,10 @@ import { RootLayout } from '@/src/app/layouts/root.layout'
 
 export const metadata = {
   title: {
-    template: '%s | AnotherDoctor',
-    default: 'AnotherDoctor',
-    ko: '어나더닥터',
-    en: 'AnotherDoctor',
+    template: '%s | 어나더닥터 AnotherDoctor',
+    default: '어나더닥터 AnotherDoctor',
+    ko: '어나더닥터 AnotherDoctor',
+    en: 'AnotherDoctor 어나더닥터',
   },
   description:
     '어나더닥터(AnotherDoctor)는 특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
@@ -54,7 +54,7 @@ export const metadata = {
     locale: 'ko_KR',
     alternateLocale: ['en_US'],
     url: 'https://www.anotherdoctor.org',
-    title: '어나더닥터(AnotherDoctor) - AI 기반 치아 색상 측정 솔루션 T-GRID',
+    title: '어나더닥터 AnotherDoctor - AI 기반 치아 색상 측정 솔루션 T-GRID',
     description:
       '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
     siteName: '어나더닥터(AnotherDoctor)',
@@ -70,7 +70,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '어나더닥터(AnotherDoctor) - AI 기반 치아 색상 측정 솔루션 T-GRID',
+    title: '어나더닥터 AnotherDoctor - AI 기반 치아 색상 측정 솔루션 T-GRID',
     description:
       '특허받은 알고리즘을 기반으로 완성된 AI 기반 치아 색상 측정 솔루션 T-GRID로 정밀한 색상 진단을 제공합니다.',
     images: ['https://www.anotherdoctor.org/images/og-image.png'],

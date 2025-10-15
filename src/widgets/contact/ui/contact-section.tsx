@@ -38,7 +38,7 @@ function ContactSection() {
 
         <div className="relative z-20 flex flex-col space-y-4">
           <div className="z-10 mt-4 flex flex-col items-center text-center text-black dark:text-white">
-            <h1 className="text-3xl font-bold lg:text-4xl">{t('title')}</h1>
+            <p className="text-3xl font-bold lg:text-4xl">{t('title')}</p>
             <p className="mt-2">{t('description')}</p>
             <Button
               className="mt-4 rounded-full"
